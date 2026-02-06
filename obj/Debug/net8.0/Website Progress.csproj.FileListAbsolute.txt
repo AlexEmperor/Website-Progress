@@ -1,0 +1,34 @@
+C:\Git\Website Progress\bin\Debug\net8.0\appsettings.Development.json
+C:\Git\Website Progress\bin\Debug\net8.0\appsettings.json
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.staticwebassets.runtime.json
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.staticwebassets.endpoints.json
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.exe
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.deps.json
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.runtimeconfig.json
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.dll
+C:\Git\Website Progress\bin\Debug\net8.0\Website Progress.pdb
+C:\Git\Website Progress\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.AssemblyInfoInputs.cache
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.AssemblyInfo.cs
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.csproj.CoreCompileInputs.cache
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.MvcApplicationPartsAssemblyInfo.cache
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.RazorAssemblyInfo.cache
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.RazorAssemblyInfo.cs
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.sourcelink.json
+C:\Git\Website Progress\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Git\Website Progress\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Git\Website Progress\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Git\Website Progress\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Git\Website Progress\obj\Debug\net8.0\scopedcss\bundle\Website Progress.styles.css
+C:\Git\Website Progress\obj\Debug\net8.0\scopedcss\projectbundle\Website Progress.bundle.scp.css
+C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.build.json
+C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.development.json
+C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.dll
+C:\Git\Website Progress\obj\Debug\net8.0\refint\Website Progress.dll
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.pdb
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.genruntimeconfig.cache
+C:\Git\Website Progress\obj\Debug\net8.0\ref\Website Progress.dll

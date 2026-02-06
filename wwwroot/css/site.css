@@ -1,22 +1,106 @@
-html {
-  font-size: 14px;
+/* ===== HEADER APPEAR ===== */
+.navbar {
+    animation: slideDown 0.6s ease-out;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* ===== BUTTON LIFT EFFECT ===== */
+.navbar .btn {
+    transition: transform 0.375s ease, box-shadow 0.375s ease;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+    .navbar .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 255, 120, 0.35);
+    }
+
+/* ===== GREEN GLOW ===== */
+.btn-success {
+    box-shadow: 0 0 10px rgba(25, 135, 84, 0.5);
 }
 
+    .btn-success:hover {
+        box-shadow: 0 0 18px rgba(25, 135, 84, 0.9);
+    }
+
+/* ===== DROPDOWN FADE ===== */
+.dropdown-menu {
+    animation: fadeIn 0.375s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HEADER GLOW LINE ===== */
+.navbar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient( 90deg, transparent, #20c997, transparent );
+}
+/* ===== DEFAULT DARK ===== */
+:root {
+    --bg: #0f0f0f;
+    --text: #ffffff;
+    --card: #1a1a1a;
+    --border: #2a2a2a;
+}
+
+/* ===== LIGHT MODE ===== */
+body.light {
+    --bg: #f4f6f8;
+    --text: #111111;
+    --card: #ffffff;
+    --border: #dddddd;
+}
+
+/* ===== APPLY COLORS ===== */
 body {
-  margin-bottom: 60px;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
 }
+
+.card, .dropdown-menu {
+    background: var(--card);
+    color: var(--text);
+}
+
+input, .form-control {
+    background: var(--card);
+    color: var(--text);
+    border-color: var(--border);
+}
+/* Search always dark */
+.search-input {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border-color: #2a2a2a !important;
+}
+
+    .search-input::placeholder {
+        color: #aaaaaa;
+    }

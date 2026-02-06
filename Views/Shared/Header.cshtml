@@ -1,0 +1,65 @@
+﻿<header class="navbar sticky-top navbar-dark bg-dark shadow p-2" data-bs-theme="dark">
+    <div class="container-fluid d-flex align-items-center">
+
+        <!-- Логотип слева -->
+        <a class="navbar-brand me-4" asp-area="" asp-controller="Home" asp-action="Index">Лаборатория</a>
+
+        <!-- Слева: пустой flex, чтобы оттолкнуть кнопки вправо -->
+        <div class="d-flex ms-auto align-items-center">
+
+            <!-- Кнопка "Каталог" с Dropdown mega-menu -->
+            <div class="dropdown me-2">
+                <button class="btn btn-success dropdown-toggle" type="button" id="catalogDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-list"></i> Каталог
+                </button>
+
+                <div class="dropdown-menu p-4 dropdown-menu-start" style="min-width: 500px;">
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 class="dropdown-header">Перехват и подмена видео</h6>
+                            <a class="dropdown-item" href="#">Зеркальца</a>
+                            <a class="dropdown-item" href="#">Диспетчеры</a>
+                            <a class="dropdown-item" href="#">Талисманы</a>
+                            <a class="dropdown-item" href="#">Сыщики</a>
+                        </div>
+                        <div class="col-6">
+                            <h6 class="dropdown-header">Электроника и связь для БПЛА</h6>
+                            <a class="dropdown-item" href="#">Аналоговая видеосвязь</a>
+                            <a class="dropdown-item" href="#">Электроника для БПЛА</a>
+                            <a class="dropdown-item" href="#">Мониторы No Blue</a>
+                            <a class="dropdown-item" href="#">Антенны и фильтры</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка "Меню" -->
+            <div class="dropdown me-2">
+                <button class="btn btn-dark dropdown-toggle text-white" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-list"></i> Меню
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Favourite" asp-action="Index">Избранное</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Comparison" asp-action="Index">Сравнение товаров</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Autorization">Авторизация</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Registration">Регистрация</a></li>
+                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="Index">Панель администратора</a></li>
+                </ul>
+            </div>
+
+            <button id="themeToggle" class="btn btn-outline-light ms-2">
+                <i class="bi bi-moon-stars-fill"></i>
+            </button>
+
+            <!-- Поиск -->
+            <form class="d-flex" style="width: 50%;" asp-controller="Home" asp-action="Search" method="get">
+                <input class="form-control me-2 search-input" type="search" placeholder="Введите ваш запрос" aria-label="Search" name="query">
+                <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+        </div>
+
+    </div>
+</header>
