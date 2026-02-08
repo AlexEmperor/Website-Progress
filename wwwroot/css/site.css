@@ -1,6 +1,7 @@
 /* ===== HEADER APPEAR ===== */
 .navbar {
     animation: slideDown 0.6s ease-out;
+    position: relative;
 }
 
 @keyframes slideDown {
@@ -37,6 +38,7 @@
 /* ===== DROPDOWN FADE ===== */
 .dropdown-menu {
     animation: fadeIn 0.375s ease;
+    z-index: 1000 !important; /* снег не перекрывает меню */
 }
 
 @keyframes fadeIn {
@@ -59,8 +61,10 @@
     left: 0;
     height: 2px;
     width: 100%;
-    background: linear-gradient( 90deg, transparent, #20c997, transparent );
+    background: linear-gradient(90deg, transparent, #20c997, transparent);
+    z-index: 0;
 }
+
 /* ===== DEFAULT DARK ===== */
 :root {
     --bg: #0f0f0f;
@@ -94,6 +98,7 @@ input, .form-control {
     color: var(--text);
     border-color: var(--border);
 }
+
 /* Search always dark */
 .search-input {
     background: #1a1a1a !important;
@@ -104,3 +109,246 @@ input, .form-control {
     .search-input::placeholder {
         color: #aaaaaa;
     }
+
+/* =========================
+   SNOW IN HEADER WITH WIND
+========================= */
+
+/* ===== SNOW LAYERS ===== */
+.navbar::before,
+.navbar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== DENSE CHAOTIC SNOW - SMALL FLAKES ===== */
+.navbar::before {
+    background-image: radial-gradient(2px 2px at 5% 5%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 25% 12%, rgba(255,255,255,0.75), transparent), radial-gradient(2px 2px at 33% 50%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 40% 25%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 48% 70%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 55% 10%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 63% 35%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 70% 80%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 78% 15%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 85% 60%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 92% 45%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 15% 60%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,0.85), transparent);
+    background-size: 200px 500px;
+    animation: snowFallWind1 25s linear infinite; /* ветер сильнее */
+    opacity: 0.95;
+}
+
+/* ===== BIGGER SLOW FLAKES ===== */
+.navbar::after {
+    background-image: radial-gradient(3px 3px at 10% 10%, rgba(255,255,255,0.75), transparent), radial-gradient(3px 3px at 25% 40%, rgba(255,255,255,0.7), transparent), radial-gradient(3px 3px at 40% 20%, rgba(255,255,255,0.65), transparent), radial-gradient(3px 3px at 55% 60%, rgba(255,255,255,0.7), transparent), radial-gradient(3px 3px at 70% 35%, rgba(255,255,255,0.6), transparent), radial-gradient(3px 3px at 85% 50%, rgba(255,255,255,0.7), transparent), radial-gradient(4px 4px at 30% 70%, rgba(255,255,255,0.7), transparent), radial-gradient(4px 4px at 60% 15%, rgba(255,255,255,0.65), transparent);
+    background-size: 300px 400px;
+    animation: snowFallWind2 50s linear infinite; /* ветер сильнее */
+    opacity: 0.7;
+}
+
+/* ===== SNOW ANIMATIONS (CHAOTIC FALL WITH WIND) ===== */
+@keyframes snowFallWind1 {
+    0% {
+        background-position: 0 0;
+    }
+
+    25% {
+        background-position: 60px 150px;
+    }
+
+    50% {
+        background-position: 120px 300px;
+    }
+
+    75% {
+        background-position: 180px 450px;
+    }
+
+    100% {
+        background-position: 240px 600px;
+    }
+}
+
+@keyframes snowFallWind2 {
+    0% {
+        background-position: 0 0;
+    }
+
+    25% {
+        background-position: -50px 120px;
+    }
+
+    50% {
+        background-position: -100px 250px;
+    }
+
+    75% {
+        background-position: -150px 400px;
+    }
+
+    100% {
+        background-position: -200px 500px;
+    }
+}
+
+/* KEEP CONTENT ABOVE SNOW */
+.navbar > * {
+    position: relative;
+    z-index: 2;
+}
+/* Ссылки футера */
+.footer-link,
+.footer-list a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .footer-link:hover,
+    .footer-list a:hover {
+        color: #198754; /* bootstrap success */
+    }
+
+/* Иконки */
+.footer-icon {
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+    .footer-icon:hover {
+        color: #198754;
+    }
+
+/* Списки */
+.footer-list li {
+    margin-bottom: 8px;
+}
+
+
+
+/* =========================
+   BODY ANALOG STYLE
+========================= */
+
+/* Темная тема */
+body {
+    background: radial-gradient(circle at 20% 0%, rgba(32, 201, 151, 0.06), transparent 40%), radial-gradient(circle at 80% 100%, rgba(32, 201, 151, 0.04), transparent 45%), linear-gradient(180deg, #0f0f0f 0%, #121212 100%);
+    color: var(--text);
+}
+
+    /* Светлая тема */
+    body.light {
+        background: radial-gradient(circle at 20% 0%, rgba(32, 201, 151, 0.08), transparent 40%), radial-gradient(circle at 80% 100%, rgba(32, 201, 151, 0.05), transparent 45%), linear-gradient(180deg, #f4f6f8 0%, #ffffff 100%);
+    }
+
+/* Контентная зона */
+main {
+    background: transparent;
+}
+
+/* Карточки */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5 {
+    letter-spacing: 0.3px;
+}
+
+/* Абзацы */
+p {
+    line-height: 1.6;
+}
+
+/* Ссылки */
+a {
+    transition: color 0.2s ease;
+}
+
+
+
+/* =========================
+   ANALOG BODY BLOCKS
+========================= */
+
+.analog-section {
+    background: transparent;
+}
+
+.analog-section-dark {
+    background: #121212;
+}
+
+/* Заголовки */
+.analog-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+    .analog-title::after {
+        content: "";
+        width: 60px;
+        height: 3px;
+        background: #20c997;
+        display: block;
+        margin-top: 10px;
+    }
+
+/* Текст */
+.analog-text {
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+/* Список */
+.analog-list {
+    padding-left: 18px;
+}
+
+    .analog-list li {
+        margin-bottom: 8px;
+    }
+
+/* Картинка */
+.analog-img-box {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* Шаги */
+.analog-steps {
+    padding-left: 18px;
+}
+
+    .analog-steps li {
+        margin-bottom: 10px;
+    }
+
+/* Карточка контактов */
+.analog-contact-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 30px;
+    border-radius: 18px;
+}
+
+    .analog-contact-card a {
+        color: #20c997;
+        text-decoration: none;
+    }
+
+        .analog-contact-card a:hover {
+            text-decoration: underline;
+        }
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+.carousel {
+    border-radius: 18px;
+    overflow: hidden;
+}

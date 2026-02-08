@@ -9,11 +9,11 @@
 
             <!-- Кнопка "Каталог" с Dropdown mega-menu -->
             <div class="dropdown me-2">
-                <button class="btn btn-success dropdown-toggle" type="button" id="catalogDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-success dropdown-toggle " type="button" id="catalogDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-list"></i> Каталог
                 </button>
 
-                <div class="dropdown-menu p-4 dropdown-menu-start" style="min-width: 500px;">
+                <div class="dropdown-menu p-4 dropdown-menu-start search-input" style="min-width: 500px;">
                     <div class="row">
                         <div class="col-6">
                             <h6 class="dropdown-header">Перехват и подмена видео</h6>
@@ -38,7 +38,7 @@
                 <button class="btn btn-dark dropdown-toggle text-white" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-list"></i> Меню
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                <ul class="dropdown-menu dropdown-menu-end search-input" aria-labelledby="menuDropdown">
                     <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Favourite" asp-action="Index">Избранное</a></li>
