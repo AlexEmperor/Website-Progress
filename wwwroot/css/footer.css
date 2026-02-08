@@ -1,0 +1,27 @@
+/* —сылки футера */
+.footer-link,
+.footer-list a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .footer-link:hover,
+    .footer-list a:hover {
+        color: #198754; /* bootstrap success */
+    }
+
+/* »конки */
+.footer-icon {
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+    .footer-icon:hover {
+        color: #198754;
+    }
+
+/* —писки */
+.footer-list li {
+    margin-bottom: 8px;
+}

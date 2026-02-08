@@ -1,0 +1,163 @@
+
+/* =========================
+   BODY ANALOG STYLE
+========================= */
+
+/* Темная тема */
+body {
+    background: radial-gradient(circle at 20% 0%, rgba(32, 201, 151, 0.06), transparent 40%), radial-gradient(circle at 80% 100%, rgba(32, 201, 151, 0.04), transparent 45%), linear-gradient(180deg, #0f0f0f 0%, #121212 100%);
+    color: var(--text);
+}
+
+    /* Светлая тема */
+    body.light {
+        background: radial-gradient(circle at 20% 0%, rgba(32, 201, 151, 0.08), transparent 40%), radial-gradient(circle at 80% 100%, rgba(32, 201, 151, 0.05), transparent 45%), linear-gradient(180deg, #f4f6f8 0%, #ffffff 100%);
+    }
+
+/* Контентная зона */
+main {
+    background: transparent;
+}
+
+/* Карточки */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5 {
+    letter-spacing: 0.3px;
+}
+
+/* Абзацы */
+p {
+    line-height: 1.6;
+}
+
+/* Ссылки */
+a {
+    transition: color 0.2s ease;
+}
+
+
+
+/* =========================
+   ANALOG BODY BLOCKS
+========================= */
+
+.analog-section {
+    background: transparent;
+}
+
+.analog-section-dark {
+    background: #121212;
+}
+
+/* Заголовки */
+.analog-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+    .analog-title::after {
+        content: "";
+        width: 60px;
+        height: 3px;
+        background: #20c997;
+        display: block;
+        margin-top: 10px;
+    }
+
+/* Текст */
+.analog-text {
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+/* Список */
+.analog-list {
+    padding-left: 18px;
+}
+
+    .analog-list li {
+        margin-bottom: 8px;
+    }
+
+/* Картинка */
+.analog-img-box {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* Шаги */
+.analog-steps {
+    padding-left: 18px;
+}
+
+    .analog-steps li {
+        margin-bottom: 10px;
+    }
+
+/* Карточка контактов */
+.analog-contact-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 30px;
+    border-radius: 18px;
+}
+
+    .analog-contact-card a {
+        color: #20c997;
+        text-decoration: none;
+    }
+
+        .analog-contact-card a:hover {
+            text-decoration: underline;
+        }
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+.carousel {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.analog-hero-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+}
+
+.analog-hero-text {
+    color: #cccccc;
+    font-size: 1.1rem;
+    max-width: 520px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.analog-cta-box {
+    background: linear-gradient(135deg, #198754, #20c997);
+    padding: 60px 30px;
+    border-radius: 24px;
+    color: #ffffff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+    .analog-cta-box .analog-text {
+        color: #eafff7;
+    }

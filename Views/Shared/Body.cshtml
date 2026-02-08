@@ -1,4 +1,90 @@
 ﻿<!-- =========================
+     HERO / PREVIEW
+========================= -->
+<section class="analog-hero py-5">
+    <div class="container">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-6">
+                <h1 class="analog-hero-title">
+                    Лаборатория разработок<br>
+                    систем беспроводной связи
+                </h1>
+
+                <p class="analog-hero-text">
+                    Разработка и производство оборудования
+                    для радиосвязи, видеопередачи и мониторинга
+                </p>
+
+                <div class="d-flex gap-3 mt-4">
+                    <a href="#catalog" class="btn btn-success">
+                        Перейти в каталог
+                    </a>
+                    <a href="#faq" class="btn btn-outline-light">
+                        Задать вопрос
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <img src="/img/preview2.png"
+                     class="img-fluid rounded-4"
+                     alt="SDR оборудование">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
+     SOLUTIONS
+========================= -->
+<section class="analog-section analog-section-dark py-5">
+    <div class="container text-center">
+
+        <h2 class="analog-title">
+            Решения, которые реально работают
+        </h2>
+
+        <p class="analog-text mx-auto" style="max-width:700px;">
+            Мы создаем практичные и надежные системы связи,
+            которые используются в реальных проектах:
+            от БПЛА и видеопередачи до радиомониторинга
+            и специализированных комплексов.
+        </p>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-md-4">
+                <h5>Собственная разработка</h5>
+                <p class="analog-text">
+                    Полный контроль архитектуры и ПО
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Адаптация под задачу</h5>
+                <p class="analog-text">
+                    Настройка оборудования под требования заказчика
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Поддержка проектов</h5>
+                <p class="analog-text">
+                    Сопровождение на всех этапах внедрения
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
          ПРОИЗВОДИМ В РОССИИ
     ========================= -->
 <section class="analog-section py-5">
@@ -88,6 +174,86 @@
 
 
 <!-- =========================
+     НАШИ НОВИНКИ
+========================= -->
+<section class="analog-section py-5">
+    <div class="container">
+
+        <h2 class="analog-title text-center mb-5">Наши новинки</h2>
+
+        <div class="row g-4">
+
+            <!-- Карточка 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 p-3">
+
+                    <img src="/img/product.png"
+                         class="img-fluid rounded-4 mb-3"
+                         alt="SDR модуль">
+
+                    <h5>SDR-приемник X1</h5>
+
+                    <p class="analog-text">
+                        Компактный программно-определяемый радиомодуль
+                        для приема и анализа сигналов.
+                    </p>
+
+                    <a href="#" class="btn btn-success w-100">
+                        Подробнее
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 p-3">
+
+                    <img src="/img/contact.png"
+                         class="img-fluid rounded-4 mb-3"
+                         alt="Передатчик">
+
+                    <h5>Видео-передатчик VTX</h5>
+
+                    <p class="analog-text">
+                        Передача видеосигнала с минимальной задержкой
+                        для БПЛА и наземных станций.
+                    </p>
+
+                    <a href="#" class="btn btn-success w-100">
+                        Подробнее
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 p-3">
+
+                    <img src="/img/email.png"
+                         class="img-fluid rounded-4 mb-3"
+                         alt="Антенна">
+
+                    <h5>Широкополосная антенна</h5>
+
+                    <p class="analog-text">
+                        Антенна для устойчивой связи в широком диапазоне частот.
+                    </p>
+
+                    <a href="#" class="btn btn-success w-100">
+                        Подробнее
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
      КАК ЗАКАЗАТЬ
 ========================= -->
 <section class="analog-section analog-section-dark py-5">
@@ -137,3 +303,109 @@
 
     </div>
 </section>
+
+<!-- =========================
+     FAQ
+========================= -->
+<section class="analog-section analog-section-dark py-5">
+    <div class="container">
+
+        <h2 class="analog-title text-center mb-5">
+            Часто задаваемые вопросы
+        </h2>
+
+        <div class="accordion" id="faqAccordion">
+
+            <!-- Вопрос 1 -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq1">
+                        Где производится оборудование?
+                    </button>
+                </h2>
+                <div id="faq1"
+                     class="accordion-collapse collapse text-white"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Всё оборудование разрабатывается и производится
+                        на территории Российской Федерации.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вопрос 2 -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+                        Можно ли заказать индивидуальную разработку?
+                    </button>
+                </h2>
+                <div id="faq2"
+                     class="accordion-collapse collapse text-white"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Да, мы выполняем разработку оборудования под задачи заказчика.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вопрос 3 -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+                        Как связаться с менеджером?
+                    </button>
+                </h2>
+                <div id="faq3"
+                     class="accordion-collapse collapse text-white"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Через почту <a href="mailto:hello@inwave.ru"
+                                       class="mb-3 footer-link"> hello@inwave.ru</a> 
+                                       или Telegram.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
+     FAQ CTA - У ВАС ОСТАЛИСЬ ВОПРОСЫ
+========================= -->
+<section class="analog-section analog-section-dark py-5">
+    <div class="container">
+
+        <h2 class="analog-title text-center mb-4">
+            У вас остались вопросы?
+        </h2>
+
+        <p class="analog-text text-center mb-4">
+            Напишите нам — поможем подобрать оборудование
+            или обсудим ваш проект.
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="mailto:hello@inwave.ru" class="btn btn-success">
+                Написать на почту
+            </a>
+
+            <a href="#" class="btn btn-outline-light">
+                Telegram
+            </a>
+        </div>
+
+    </div>
+</section>
+
