@@ -1,11 +1,14 @@
-﻿<header class="navbar sticky-top navbar-dark bg-dark shadow p-2" data-bs-theme="dark">
+﻿<header class="navbar sticky-top shadow p-2" data-bs-theme="dark">
     <div class="container-fluid d-flex align-items-center">
 
         <!-- Логотип слева -->
-        <a class="navbar-brand me-4" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+        <a class="navbar-brand me-4" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="/img/Logo3.svg" alt="Лаборатория разработок" width="80" height="80">
+        </a>
+
 
         <!-- Слева: пустой flex, чтобы оттолкнуть кнопки вправо -->
-        <div class="d-flex ms-auto align-items-center">
+        <div class="d-flex ms-auto align-items-center me-3">
 
             <!-- Кнопка "Каталог" с Dropdown mega-menu -->
             <div class="dropdown me-2">
@@ -13,7 +16,7 @@
                     <i class="bi bi-list"></i> Каталог
                 </button>
 
-                <div class="dropdown-menu p-4 dropdown-menu-start search-input" style="min-width: 500px;">
+                <div class="dropdown-menu p-4 dropdown-menu-start" style="min-width: 500px;">
                     <div class="row">
                         <div class="col-6">
                             <h6 class="dropdown-header">Перехват и подмена видео</h6>
@@ -38,7 +41,7 @@
                 <button class="btn btn-dark dropdown-toggle text-white" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-list"></i> Меню
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end search-input" aria-labelledby="menuDropdown">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
                     <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Favourite" asp-action="Index">Избранное</a></li>
@@ -49,7 +52,7 @@
                 </ul>
             </div>
 
-            <button id="themeToggle" class="btn btn-outline-light ms-2">
+            <button id="themeToggle" class="btn btn-outline-light me-2">
                 <i class="bi bi-moon-stars-fill"></i>
             </button>
 

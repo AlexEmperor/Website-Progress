@@ -16,7 +16,7 @@
     }
 }
 
-/* ===== BUTTON LIFT EFFECT ===== */
+/* ===== BUTTON LIFT EFFECT IN HEADER ===== */
 .navbar .btn {
     transition: transform 0.375s ease, box-shadow 0.375s ease;
 }
@@ -26,19 +26,12 @@
         box-shadow: 0 6px 15px rgba(0, 255, 120, 0.35);
     }
 
-/* ===== GREEN GLOW ===== */
-.btn-success {
-    box-shadow: 0 0 10px rgba(25, 135, 84, 0.5);
-}
-
-    .btn-success:hover {
-        box-shadow: 0 0 18px rgba(25, 135, 84, 0.9);
-    }
-
 /* ===== DROPDOWN FADE ===== */
-.dropdown-menu {
+.navbar .dropdown-menu {
     animation: fadeIn 0.375s ease;
-    z-index: 1000 !important; /* снег не перекрывает меню */
+    z-index: 1000 !important;
+    background: var(--bg-card) !important;
+    color: var(--text-main);
 }
 
 @keyframes fadeIn {
@@ -65,56 +58,11 @@
     z-index: 0;
 }
 
-/* ===== DEFAULT DARK ===== */
-:root {
-    --bg: #0f0f0f;
-    --text: #ffffff;
-    --card: #1a1a1a;
-    --border: #2a2a2a;
-}
-
-/* ===== LIGHT MODE ===== */
-body.light {
-    --bg: #f4f6f8;
-    --text: #111111;
-    --card: #ffffff;
-    --border: #dddddd;
-}
-
-/* ===== APPLY COLORS ===== */
-body {
-    background: var(--bg);
-    color: var(--text);
-    transition: background 0.3s, color 0.3s;
-}
-
-.card, .dropdown-menu {
-    background: var(--card);
-    color: var(--text);
-}
-
-input, .form-control {
-    background: var(--card);
-    color: var(--text);
-    border-color: var(--border);
-}
-
-/* Search always dark */
-.search-input {
-    background: #1a1a1a !important;
-    color: #ffffff !important;
-    border-color: #2a2a2a !important;
-}
-
-    .search-input::placeholder {
-        color: #aaaaaa;
-    }
-
 /* =========================
    SNOW IN HEADER WITH WIND
 ========================= */
 
-/* ===== SNOW LAYERS ===== */
+/* Snow layers */
 .navbar::before,
 .navbar::after {
     content: "";
@@ -125,23 +73,22 @@ input, .form-control {
     z-index: 0;
 }
 
-/* ===== DENSE CHAOTIC SNOW - SMALL FLAKES ===== */
+/* Small chaotic snow */
 .navbar::before {
-    background-image: radial-gradient(2px 2px at 5% 5%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 25% 12%, rgba(255,255,255,0.75), transparent), radial-gradient(2px 2px at 33% 50%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 40% 25%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 48% 70%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 55% 10%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 63% 35%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 70% 80%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 78% 15%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 85% 60%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 92% 45%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 15% 60%, rgba(255,255,255,0.8), transparent), radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,0.85), transparent);
+    background-image: radial-gradient(2px 2px at 5% 5%, rgba(255,255,255,0.9), transparent), radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,0.85), transparent), radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8), transparent);
     background-size: 200px 500px;
-    animation: snowFallWind1 25s linear infinite; /* ветер сильнее */
+    animation: snowFallWind1 25s linear infinite;
     opacity: 0.95;
 }
 
-/* ===== BIGGER SLOW FLAKES ===== */
+/* Bigger slow flakes */
 .navbar::after {
-    background-image: radial-gradient(3px 3px at 10% 10%, rgba(255,255,255,0.75), transparent), radial-gradient(3px 3px at 25% 40%, rgba(255,255,255,0.7), transparent), radial-gradient(3px 3px at 40% 20%, rgba(255,255,255,0.65), transparent), radial-gradient(3px 3px at 55% 60%, rgba(255,255,255,0.7), transparent), radial-gradient(3px 3px at 70% 35%, rgba(255,255,255,0.6), transparent), radial-gradient(3px 3px at 85% 50%, rgba(255,255,255,0.7), transparent), radial-gradient(4px 4px at 30% 70%, rgba(255,255,255,0.7), transparent), radial-gradient(4px 4px at 60% 15%, rgba(255,255,255,0.65), transparent);
+    background-image: radial-gradient(3px 3px at 10% 10%, rgba(255,255,255,0.75), transparent), radial-gradient(3px 3px at 25% 40%, rgba(255,255,255,0.7), transparent);
     background-size: 300px 400px;
-    animation: snowFallWind2 50s linear infinite; /* ветер сильнее */
+    animation: snowFallWind2 50s linear infinite;
     opacity: 0.7;
 }
 
-/* ===== SNOW ANIMATIONS (CHAOTIC FALL WITH WIND) ===== */
 @keyframes snowFallWind1 {
     0% {
         background-position: 0 0;
@@ -186,8 +133,40 @@ input, .form-control {
     }
 }
 
-/* KEEP CONTENT ABOVE SNOW */
+/* Keep content above snow */
 .navbar > * {
     position: relative;
     z-index: 2;
 }
+
+/* Force header colors */
+header.navbar,
+.navbar.navbar-dark,
+.navbar.bg-dark {
+    background: linear-gradient(180deg, #141414 0%, #121212 100%) !important;
+}
+
+    header.navbar * {
+        color: #ffffff !important;
+    }
+
+    /* Dropdown inside header */
+    header.navbar .dropdown-menu {
+        background: #1a1a1a !important;
+    }
+
+    header.navbar .dropdown-item:hover {
+        background: #198754 !important;
+        color: #ffffff !important;
+    }
+
+/* ===== SEARCH LIGHT MODE FIX ===== */
+body.light .search-input {
+    background: #ffffff !important;
+    color: #111111 !important;
+    border-color: #cccccc !important;
+}
+
+    body.light .search-input::placeholder {
+        color: #666666 !important;
+    }

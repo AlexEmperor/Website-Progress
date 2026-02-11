@@ -1,27 +1,48 @@
-/* —сылки футера */
-.footer-link,
-.footer-list a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.2s ease;
+/* ===== FIX FOOTER COLORS ===== */
+footer.footer {
+    background-color: #141414 !important;
+    color: #ffffff !important;
 }
 
-    .footer-link:hover,
-    .footer-list a:hover {
-        color: #198754; /* bootstrap success */
+    footer.footer a,
+    footer.footer .footer-link,
+    footer.footer .footer-list a,
+    footer.footer .footer-icon {
+        color: #ffffff !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease;
     }
 
-/* »конки */
-.footer-icon {
-    color: #ffffff;
-    transition: color 0.2s ease;
-}
+        footer.footer a:hover,
+        footer.footer .footer-link:hover,
+        footer.footer .footer-list a:hover,
+        footer.footer .footer-icon:hover {
+            color: #198754 !important;
+            text-decoration: none !important;
+        }
 
-    .footer-icon:hover {
-        color: #198754;
+    footer.footer h5,
+    footer.footer span,
+    footer.footer p,
+    footer.footer li {
+        color: #ffffff !important;
     }
 
-/* —писки */
-.footer-list li {
-    margin-bottom: 8px;
-}
+    footer.footer .btn-success {
+        color: #ffffff !important;
+        box-shadow: 0 0 10px rgba(25,135,84,0.5);
+        transition: all 0.3s ease;
+    }
+
+        footer.footer .btn-success:hover {
+            box-shadow: 0 0 18px rgba(25,135,84,0.9);
+            color: #fff !important;
+        }
+
+    footer.footer .footer-icon i {
+        color: #ffffff !important;
+    }
+
+    footer.footer .footer-icon:hover i {
+        color: #198754 !important;
+    }

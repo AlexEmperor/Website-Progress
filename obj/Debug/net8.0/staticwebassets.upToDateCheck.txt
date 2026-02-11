@@ -6,10 +6,16 @@ wwwroot\img\contact.png
 wwwroot\img\email.png
 wwwroot\img\geo.png
 wwwroot\img\hero.png
+wwwroot\img\Logo1.svg
+wwwroot\img\Logo2.svg
+wwwroot\img\Logo3.svg
 wwwroot\img\phone.jpg
 wwwroot\img\preview1.png
 wwwroot\img\preview2.png
 wwwroot\img\product.png
+wwwroot\img\product2.png
+wwwroot\img\product3.png
+wwwroot\img\product4.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

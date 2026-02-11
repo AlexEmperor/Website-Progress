@@ -32,3 +32,16 @@ C:\Git\Website Progress\obj\Debug\net8.0\refint\Website Progress.dll
 C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.pdb
 C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.genruntimeconfig.cache
 C:\Git\Website Progress\obj\Debug\net8.0\ref\Website Progress.dll
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\contact.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\email.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\geo.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\hero.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\Logo1.svg
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\Logo2.svg
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\Logo3.svg
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\phone.jpg
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\preview1.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\preview2.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\product.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\product2.png
+C:\Git\Website Progress\bin\Debug\net8.0\wwwroot\img\product3.png
