@@ -23,16 +23,17 @@ namespace Website_Progress.Models
         public string? Description { get; set; }
 
         [Required]
-        public string? PhotoPath { get; set; } = "/img/product.png";
+        public string? PhotoPath { get; set; } //= "/img/product.png";
 
         public ProductViewModel() { }
 
-        public ProductViewModel(int id, string name, decimal cost, string? description)
+        public ProductViewModel(int id, string name, decimal cost, string? description, string? photoPath)
         {
             Id = id;
             Name = name;
             Cost = cost;
             Description = description;
+            PhotoPath = photoPath;
         }
     }
 }

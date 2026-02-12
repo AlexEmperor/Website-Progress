@@ -1,7 +1,11 @@
+using Website_Progress.Interfaces;
+using WEBtest.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IProductRepository, InMemoryProductRepository>();
 
 var app = builder.Build();
 

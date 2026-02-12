@@ -21,6 +21,7 @@ body.light {
     --accent: #198754;
 }
 
+
 /* =========================
    BASE COLORS
 ========================= */
@@ -296,3 +297,71 @@ body.light .btn-outline-light {
 .tg-link {
     cursor: pointer;
 }
+
+/* FULL WIDTH HERO */
+.analog-hero-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    position: relative;
+    background: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url("/img/preview2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0 70px;
+}
+
+    /* Центровка внутри */
+    .analog-hero-full .container {
+        max-width: 1300px;
+    }
+
+/* Картинка */
+.hero-img {
+    max-width: 95%;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(32,201,151,0.25));
+}
+
+/* Высота секции */
+.min-vh-75 {
+    min-height: 65vh;
+}
+/* Glow вокруг текста */
+.analog-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    max-width: 900px;
+    margin: 0 auto;
+    text-shadow: 0 0 25px rgba(32,201,151,0.35);
+}
+
+.analog-hero-full::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #20c997, transparent);
+}
+/* HERO TEXT ALWAYS WHITE */
+.analog-hero-full .analog-hero-title,
+.analog-hero-full .analog-hero-text {
+    color: #ffffff !important;
+}
+
+
+/* Кликабельная карточка новости */
+.news-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.news-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .news-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
