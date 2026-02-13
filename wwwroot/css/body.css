@@ -1,17 +1,9 @@
 /* =========================
    THEME VARIABLES
 ========================= */
-:root {
-    --bg-main: #0f0f0f;
-    --bg-soft: #141414;
-    --bg-card: #1a1a1a;
-    --text-main: #ffffff;
-    --text-muted: #bfbfbf;
-    --border-color: #2a2a2a;
-    --accent: #20c997;
-}
 
-body.light {
+/* Светлая тема (дефолт) */
+:root {
     --bg-main: #f4f6f8;
     --bg-soft: #ffffff;
     --bg-card: #ffffff;
@@ -21,19 +13,26 @@ body.light {
     --accent: #198754;
 }
 
+/* Тёмная тема */
+body.dark {
+    --bg-main: #0f0f0f;
+    --bg-soft: #141414;
+    --bg-card: #1a1a1a;
+    --text-main: #ffffff;
+    --text-muted: #bfbfbf;
+    --border-color: #2a2a2a;
+    --accent: #20c997;
+}
 
 /* =========================
    BASE COLORS
 ========================= */
+
 body {
     background: radial-gradient(circle at 20% 0%, rgba(32,201,151,0.06), transparent 40%), radial-gradient(circle at 80% 100%, rgba(32,201,151,0.04), transparent 45%), linear-gradient(180deg, var(--bg-main) 0%, var(--bg-soft) 100%);
     color: var(--text-main);
     transition: background .3s, color .3s;
 }
-
-    body.light {
-        background: radial-gradient(circle at 20% 0%, rgba(32,201,151,0.08), transparent 40%), radial-gradient(circle at 80% 100%, rgba(32,201,151,0.05), transparent 45%), linear-gradient(180deg, var(--bg-main) 0%, var(--bg-soft) 100%);
-    }
 
 p, span, li {
     color: var(--text-muted);
@@ -46,6 +45,7 @@ h1, h2, h3, h4, h5 {
 /* =========================
    FORMS
 ========================= */
+
 input,
 .form-control {
     background: var(--bg-card) !important;
@@ -60,6 +60,7 @@ input,
 /* =========================
    CARDS / DROPDOWN / ACCORDION
 ========================= */
+
 .card,
 .dropdown-menu,
 .accordion-item {
@@ -86,6 +87,7 @@ input,
 /* =========================
    ANALOG SECTIONS
 ========================= */
+
 .analog-section,
 .analog-section-dark {
     background: transparent;
@@ -157,9 +159,13 @@ input,
 /* =========================
    HERO
 ========================= */
+
 .analog-hero-title {
-    font-size: 2.6rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
+    max-width: 900px;
+    margin: 0 auto;
+    text-shadow: 0 0 25px rgba(32,201,151,0.35);
 }
 
 .analog-hero-text {
@@ -171,6 +177,7 @@ input,
 /* =========================
    BUTTONS
 ========================= */
+
 .btn-outline-light {
     color: var(--text-main);
     border-color: var(--border-color);
@@ -187,34 +194,27 @@ input,
 
     .btn-success:hover,
     .btn-success:focus {
-        background-color: #198754 !important; /* оставляем базовый цвет */
+        background-color: #198754 !important;
         border-color: #198754 !important;
-        box-shadow: 0 0 18px rgba(25,135,84,0.9); /* мягкий glow */
+        box-shadow: 0 0 18px rgba(25,135,84,0.9);
         color: #ffffff !important;
     }
 
 .btn-outline-light:hover,
 .btn-outline-light:focus {
-    background-color: #20c99733 !important; /* чуть прозрачный акцент */
+    background-color: #20c99733 !important;
     border-color: #20c997 !important;
     color: #ffffff !important;
 }
 
-
-/* Light theme button fixes */
-body.light .btn-success,
-body.light .btn-outline-light {
-    color: #ffffff !important;
-}
-
 /* =========================
-   SCROLL REVEAL ANIMATION
+   SCROLL REVEAL
 ========================= */
+
 .reveal {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    will-change: opacity, transform;
 }
 
     .reveal.active {
@@ -242,7 +242,10 @@ body.light .btn-outline-light {
         transition-delay: 0.5s;
     }
 
-/* только контентные ссылки внутри body */
+/* =========================
+   LINKS
+========================= */
+
 .content a {
     color: #198754;
     text-decoration: none;
@@ -253,13 +256,9 @@ body.light .btn-outline-light {
         text-decoration: underline;
     }
 
-
-    body.light a:not(.btn):hover {
-        color: #157347 !important;
-        text-decoration: underline;
-    }
-
-
+/* =========================
+   SCROLL TOP BUTTON
+========================= */
 
 #scrollTopBtn {
     position: fixed;
@@ -286,12 +285,14 @@ body.light .btn-outline-light {
         transform: translateY(-4px);
     }
 
-    /* Когда видно */
     #scrollTopBtn.show {
-        opacity: 999;
+        opacity: 1;
         pointer-events: auto;
     }
 
+/* =========================
+   MISC
+========================= */
 
 .mail-link,
 .tg-link {
@@ -299,6 +300,7 @@ body.light .btn-outline-light {
 }
 
 /* FULL WIDTH HERO */
+
 .analog-hero-full {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -309,48 +311,23 @@ body.light .btn-outline-light {
     background-repeat: no-repeat;
     padding: 100px 0 70px;
 }
+.min-vh-75 {
+    min-height: 65vh;
+}
 
-    /* Центровка внутри */
     .analog-hero-full .container {
         max-width: 1300px;
     }
 
-/* Картинка */
-.hero-img {
-    max-width: 95%;
-    height: auto;
-    filter: drop-shadow(0 0 40px rgba(32,201,151,0.25));
-}
+    /* HERO TEXT ALWAYS WHITE */
 
-/* Высота секции */
-.min-vh-75 {
-    min-height: 65vh;
-}
-/* Glow вокруг текста */
-.analog-hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    max-width: 900px;
-    margin: 0 auto;
-    text-shadow: 0 0 25px rgba(32,201,151,0.35);
-}
+    .analog-hero-full .analog-hero-title,
+    .analog-hero-full .analog-hero-text {
+        color: #ffffff !important;
+    }
 
-.analog-hero-full::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #20c997, transparent);
-}
-/* HERO TEXT ALWAYS WHITE */
-.analog-hero-full .analog-hero-title,
-.analog-hero-full .analog-hero-text {
-    color: #ffffff !important;
-}
+/* News cards */
 
-
-/* Кликабельная карточка новости */
 .news-card-link {
     text-decoration: none;
     color: inherit;
@@ -365,3 +342,28 @@ body.light .btn-outline-light {
         transform: translateY(-6px);
         box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
+
+/* NEWS GRID STYLE */
+
+.news-thumb {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
+}
+
+    .news-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .4s ease;
+    }
+
+.news-card:hover .news-thumb img {
+    transform: scale(1.06);
+}
+
+.news-card {
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--bg-card);
+}

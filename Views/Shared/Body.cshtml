@@ -167,8 +167,7 @@
     </div>
 </section>
 
-
-<!-- =========================
+ <!-- =========================
      НАШИ НОВИНКИ
 ========================= -->
 <section class="analog-section py-5 reveal">
@@ -209,7 +208,7 @@
 
 
     </div>
-</section>
+</section> 
 
 <!-- =========================
      НОВОСТИ
@@ -220,10 +219,17 @@
         <h2 class="analog-title text-center mb-5">Новости</h2>
 
         <div class="row g-4">
+            <div class="text-center mt-5">
+                <a asp-controller="News"
+                   asp-action="GetAll"
+                   class="btn btn-success px-5">
+                    Все новости
+                </a>
+            </div>
 
             <!-- Новость 1 -->
             <div class="col-md-4 reveal delay-1">
-                <a href="/News/Details/1" class="news-card-link">
+                <a asp-controller="News" asp-action="Index" class="news-card-link">
 
                     <div class="card h-100 p-3 news-card">
 

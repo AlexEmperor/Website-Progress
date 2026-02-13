@@ -1,0 +1,54 @@
+﻿@model List<NewsViewModel>
+
+<section class="analog-section py-5">
+    <div class="container">
+
+        <h1 class="analog-title text-center mb-5">
+            Новости компании
+        </h1>
+
+        <div class="row g-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+
+                    <a asp-controller="News"
+                       asp-action="Index"
+                       asp-route-id="@item.Id"
+                       class="news-card-link">
+
+                        <div class="card news-card h-100">
+
+                            <div class="news-thumb">
+                                <img src="@item.ImageUrl"
+                                     alt="@item.Title">
+                            </div>
+
+                            <div class="p-3">
+
+                                <small class="text-muted">
+                                    @item.Date.ToString("dd MMMM yyyy")
+                                </small>
+
+                                <h5 class="mt-2">
+                                    @item.Title
+                                </h5>
+
+                                <p class="analog-text">
+                                    @item.ShortText
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section>

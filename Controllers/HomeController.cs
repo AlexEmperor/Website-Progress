@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using Website_Progress.Interfaces;
 
 namespace Website_Progress.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
+        private readonly IProductRepository _productRepository;
 
+        public HomeController(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
@@ -20,11 +23,11 @@ namespace Website_Progress.Controllers
             {
                 return View();
             }
-            return View(); //заглушка
+            // return View(); //заглушка
 
-            /*var products = _productRepository.Search(query);
+            var products = _productRepository.Search(query);
 
-            return View(products.ToProductViewModels());*/
+            return View(products/*.ToProductViewModels()*/);
 
             /*var products = _productRepository.Search(query);
 
