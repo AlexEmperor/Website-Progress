@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IProductRepository, InMemoryProductRepository>();
+builder.Services.AddTransient<INewProductRepository, InMemoryNewProductRepository>();
 builder.Services.AddTransient<INewsRepository, InMemoryNewsRepository>();
 
 var app = builder.Build();

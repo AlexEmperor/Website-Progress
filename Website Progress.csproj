@@ -52,4 +52,9 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\presentations\АМ_VVizor_HiddenParts.pptx" />
+    <None Include="wwwroot\presentations\КП Интеллект АК SDR%283%29.pptx" />
+  </ItemGroup>
+
 </Project>

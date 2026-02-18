@@ -2,7 +2,7 @@
 
 namespace Website_Progress.Models
 {
-    public class ProductViewModel
+    public class NewProductViewModel
     {
         public int Id { get; set; }
 
@@ -24,17 +24,21 @@ namespace Website_Progress.Models
 
         [Required]
         public string? PhotoPath { get; set; } //= "/img/product.png";
+
         public string? PresentationPath { get; set; }
 
+        public NewProductViewModel()
+        {
 
-        public ProductViewModel() { }
+        }
 
-        public ProductViewModel(int id, string name, decimal cost, string? description, string? photoPath, string? presentationPath)
+        public NewProductViewModel(int id, string name, decimal cost, string? description, string? photoPath,
+            string? presentationPath)
         {
             Id = id;
             Name = name;
-            Cost = cost;
             Description = description;
+            Cost = cost;
             PhotoPath = photoPath;
             PresentationPath = presentationPath;
         }
