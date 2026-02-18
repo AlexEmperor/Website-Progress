@@ -132,32 +132,6 @@
                     }, 700);
                 });
             });
-                    // ======================
-        // PHONE LINKS
-        // ======================
-        const phoneLinks = document.querySelectorAll('.phone-link');
-        const phoneNumber = '+79774889030';
-
-        phoneLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const telUrl = `tel:${phoneNumber}`;
-                const whatsappCallUrl = `https://wa.me/${phoneNumber}`;
-
-                // Пытаемся сначала открыть системный звонок
-                const iframe = document.createElement("iframe");
-                iframe.style.display = "none";
-                iframe.src = telUrl;
-                document.body.appendChild(iframe);
-
-                // Если браузер не поддержал — открываем WhatsApp Web
-                setTimeout(() => {
-                    window.open(whatsappCallUrl, "_blank");
-                    document.body.removeChild(iframe);
-                }, 700);
-            });
-        });
 
         });
     </script>
