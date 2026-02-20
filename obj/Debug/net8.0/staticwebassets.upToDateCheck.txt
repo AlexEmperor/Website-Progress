@@ -1,3 +1,4 @@
+wwwroot\css\body.css
 wwwroot\css\footer.css
 wwwroot\css\header.css
 wwwroot\favicon.ico
@@ -75,4 +76,3 @@ wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\presentations\АМ_VVizor_HiddenParts.pptx
 wwwroot\presentations\КП Интеллект АК SDR(3).pptx
-wwwroot\css\body.css

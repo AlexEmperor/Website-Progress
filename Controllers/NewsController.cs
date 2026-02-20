@@ -18,7 +18,7 @@ namespace Website_Progress.Controllers
             return View(New);
         }
 
-        public IActionResult GetAll()
+        public IActionResult All()
         {
             return View(_newsRepository.GetAll());
         }

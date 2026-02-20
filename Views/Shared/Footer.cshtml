@@ -26,9 +26,14 @@
             <!-- О компании -->
             <div class="col-md-2 mb-4">
                 <ul class="list-unstyled footer-list">
-                    <li><a href="#About">О компании</a></li>
+                    <li><a href="#">О компании</a></li>
                     <li><a href="#">Услуги</a></li>
-                    <li><a href="#News">Новости</a></li>
+                    <li>
+                            <a asp-controller="News"
+                               asp-action="All">
+                                Новости
+                            </a>
+                    </li>
                     <li>
                         <a asp-controller="Contacts" asp-action="Index">
                             Контакты

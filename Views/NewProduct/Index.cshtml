@@ -1,5 +1,7 @@
 ﻿@model NewProductViewModel
-
+@{
+    ViewData["Title"] = Model.Name;
+}
 <div class="row justify-content-center">
     @if (Model != null)
     {
