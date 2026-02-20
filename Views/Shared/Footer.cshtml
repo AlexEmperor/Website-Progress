@@ -4,10 +4,10 @@
 
             <!-- Контакты -->
             <div class="col-md-3 mb-4">
-                <h5 class="fw-bold">+7(977) 488-90-30</h5>
+                <h5 class="fw-bold">+7 (977) 488-90-30</h5>
 
                 <a class="d-block mb-3 footer-link mail-link">
-                    alex04120445@mail.ru
+                    electriks0comp26@gmail.com
                 </a>
 
                 <div class="mb-3">
@@ -26,9 +26,9 @@
             <!-- О компании -->
             <div class="col-md-2 mb-4">
                 <ul class="list-unstyled footer-list">
-                    <li><a href="#">О компании</a></li>
+                    <li><a href="#About">О компании</a></li>
                     <li><a href="#">Услуги</a></li>
-                    <li><a href="#">Новости</a></li>
+                    <li><a href="#News">Новости</a></li>
                     <li>
                         <a asp-controller="Contacts" asp-action="Index">
                             Контакты
@@ -47,21 +47,22 @@
             </div>
 
             <!-- Продукция -->
-            <div class="col-md-3 mb-4">
+            <!--<div class="col-md-3 mb-4">
                 <ul class="list-unstyled footer-list">
                     <li><a href="#">Контрольно-измерительное оборудование</a></li>
                     <li><a href="#">Оборудование для связи</a></li>
                     <li><a href="#">Антенны</a></li>
                     <li><a href="#">Радиомониторинг</a></li>
                 </ul>
-            </div>
+            </div>-->
 
 
         </div>
 
         <!-- Нижняя строка -->
         <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-3">
-            <a href="#" class="btn btn-success rounded-pill px-4">
+
+            <a asp-controller="Contacts" asp-action="Index" class="btn btn-success rounded-pill px-4">
                 Получить консультацию
             </a>
 

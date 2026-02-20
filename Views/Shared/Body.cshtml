@@ -39,7 +39,7 @@
 <section class="analog-section analog-section-dark py-5 reveal">
     <div class="container text-center">
 
-        <h2 class="analog-title">
+        <h2 id="About" class="analog-title">
             Решения, которые реально работают
         </h2>
 
@@ -216,7 +216,7 @@
 <section class="analog-section py-5 reveal">
     <div class="container">
 
-        <h2 class="analog-title text-center mb-5">Новости</h2>
+        <h2 id ="News" class="analog-title text-center mb-5">Новости</h2>
 
         <div class="row g-4">
             <div class="text-center mt-5">
@@ -229,7 +229,7 @@
 
             <!-- Новость 1 -->
             <div class="col-md-4 reveal delay-1">
-                <a asp-controller="News" asp-action="Index" class="news-card-link">
+                <a asp-controller="News" asp-action="Index" asp-route-id ="1" class="news-card-link">
 
                     <div class="card h-100 p-3 news-card">
 
@@ -237,7 +237,7 @@
                              class="img-fluid rounded-4 mb-3"
                              alt="Новая разработка">
 
-                        <small class="text-muted">10 февраля 2026</small>
+                        <small class="analog-text">10 февраля 2026</small>
 
                         <h5 class="mt-2">
                             Полевые испытания
@@ -254,7 +254,7 @@
 
             <!-- Новость 2 -->
             <div class="col-md-4 reveal delay-2">
-                <a href="/News/Details/2" class="news-card-link">
+                <a asp-controller="News" asp-action="Index" asp-route-id="2" class="news-card-link">
 
                     <div class="card h-100 p-3 news-card">
 
@@ -262,7 +262,7 @@
                              class="img-fluid rounded-4 mb-3"
                              alt="Испытания оборудования">
 
-                        <small class="text-muted">2 февраля 2026</small>
+                        <small class="analog-text">2 февраля 2026</small>
 
                         <h5 class="mt-2">
                             Отладка устройства VVizor
@@ -279,7 +279,7 @@
 
             <!-- Новость 3 -->
             <div class="col-md-4 reveal delay-3">
-                <a href="/News/Details/3" class="news-card-link">
+                <a asp-controller="News" asp-action="Index" asp-route-id="3" class="news-card-link">
 
                     <div class="card h-100 p-3 news-card">
 
@@ -287,7 +287,7 @@
                              class="img-fluid rounded-4 mb-3"
                              alt="Производство">
 
-                        <small class="text-muted">25 января 2026</small>
+                        <small class="analog-text">25 января 2026</small>
 
                         <h5 class="mt-2">
                             Выпущена очередная партия МЭМС
@@ -349,7 +349,7 @@
 
                     <p>
                         Телефон:
-                        <strong>+7(977) 488-90-30</strong>
+                        <strong>+7 (977) 488-90-30</strong>
                     </p>
 
                 </div>

@@ -26,6 +26,7 @@ namespace Website_Progress.Models
         public string? PhotoPath { get; set; } //= "/img/product.png";
         public string? PresentationPath { get; set; }
 
+        public string? FirmwarePath { get; set; }
 
         public ProductViewModel() { }
 

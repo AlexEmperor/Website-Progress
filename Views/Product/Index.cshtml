@@ -3,18 +3,18 @@
 <div class="row justify-content-center">
     @if (Model != null)
     {
-        <div class="col-3 mb-3">
+        <div class="col-4 mb-3">
             <div class="card h-100">
                 <img class="card-img-top" src=@Model.PhotoPath>
                 <div class="card-body text-center">
                     <h4>@Model.Name</h4>
                     <h2 class="text-danger">@Model.Cost.ToString("c")</h2>
 
-                    <a class="btn btn-success"
+                    <a class="btn btn-success mb-3 mt-3"
                        asp-controller="Cart"
                        asp-action="Add"
                        asp-route-productId="@Model.Id">Добавить в корзину</a>
-                    <a class="btn btn-outline-secondary mt-3"
+                    <a class="btn btn-outline-secondary"
                        asp-controller="Favourite"
                        asp-action="Add"
                        asp-route-productId="@Model.Id">
@@ -24,9 +24,57 @@
             </div>
         </div>
         <div class="col-6 mb-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h6>@Model.Description</h6>
+            <div class="flip-card">
+                <div class="flip-card-inner" id="productCard">
+
+                    <!-- FRONT -->
+                    <div class="flip-card-front card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h6>@Model.Description</h6>
+                                <button class="btn btn-sm btn-outline-secondary"
+                                        onclick="flipCard()">
+                                    ➡
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="flip-card-back card h-100">
+                        <div class="card-body text-center">
+                            <h5>Полезные ссылки</h5>
+                            <hr />
+
+                            @if (!string.IsNullOrEmpty(Model.PresentationPath))
+                            {
+                                <a href="@Model.PresentationPath"
+                                   download
+                                   class="btn btn-outline-success mb-2 w-100">
+                                    📄 Скачать презентацию
+                                </a>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.PresentationPath))
+                            {
+                                <!--<a href="Model.PresentationPath"
+                                   download
+                                   class="btn btn-outline-success mb-2 w-100">
+                                    🔧 Скачать прошивку
+                                </a>-->
+                                <a href="#"                                   
+                                   class="btn btn-outline-success mb-2 w-100">
+                                    🔧 Скачать прошивку
+                                </a>
+                            }
+
+                            <button class="btn btn-outline-success mt-3"
+                                    onclick="flipCard()">
+                                ⬅ Назад
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -43,13 +91,5 @@
     <div class="col-auto m-5">
         <a asp-controller="Catalog" asp-action="Index" class="btn btn-outline-success">Продолжить покупки</a>
         <a asp-controller="Home" asp-action="Index" class="btn btn-outline-success">На главную</a>
-        @if (!string.IsNullOrEmpty(Model.PresentationPath))
-        {
-            <a href="@Model.PresentationPath"
-               download
-               class="btn btn-outline-success">
-                Скачать презентацию
-            </a>
-        }
     </div>
 </div>

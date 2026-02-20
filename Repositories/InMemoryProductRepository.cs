@@ -16,7 +16,7 @@ namespace WEBtest.Repositories
             _products =
             [
                 new ProductViewModel(++_instanceCounter, "АК «SDR»", 1000.0M, "Устройство сканирования частотного спектра.", "/img/product2.png", "/presentations/КП Интеллект АК SDR(3).pptx"),
-                new ProductViewModel(++_instanceCounter, "Аппаратный модуль VVizor", 2000.0M, "Устройство фиксирования видео передатчиков.", "/img/product3.png", "/presentations/АМ_VVizor_HiddenParts.pptx"),
+                new ProductViewModel(++_instanceCounter, "VVizor", 2000.0M, "Устройство фиксирования видео передатчиков.", "/img/product3.png", "/presentations/АМ_VVizor_HiddenParts.pptx"),
                 new ProductViewModel(++_instanceCounter, "МЭМС", 3000.0M, "Устройство позиционирования.", "/img/product4.png", ""),
                 new ProductViewModel(++_instanceCounter, "Ретранслятор", 4000.0M, "Плата ретранслятора с программным обеспечением автоматизированного тестирования выпускаемых изделий.", "/img/product2.png", ""),
                 new ProductViewModel(++_instanceCounter, "Радиосканер", 5000.0M, "Двухканальное устройство сканирования частотного спектра.", "/img/product3.png", ""),

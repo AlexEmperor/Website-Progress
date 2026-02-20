@@ -25,7 +25,7 @@
 
                             <div class="p-3">
 
-                                <small class="text-muted">
+                            <small class="analog-text">
                                 @Model.Date.ToString("dd MMMM yyyy")
                                 </small>
 
@@ -33,9 +33,6 @@
                                 @Model.Title
                                 </h5>
 
-                                <p class="analog-text">
-                                @Model.ShortText
-                                </p>
 
                             </div>
 
@@ -44,7 +41,13 @@
                     </a>
 
                 </div>
-            
+            <div class="col-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h6>@Model.ShortText</h6>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

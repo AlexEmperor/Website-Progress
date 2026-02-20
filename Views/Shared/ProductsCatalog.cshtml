@@ -4,7 +4,7 @@
 {
     @foreach (var product in Model)
     {
-        <div class="col-3 mb-3">
+        <div class="col-4 mb-3">
             <div class="card shadow">
                 <img class="card-img-top" src=@product.PhotoPath alt="...">
                 <div class="card-body text-center">
@@ -21,7 +21,7 @@
                                    asp-route-productId="@product.Id">
                         Добавить в корзину
                     </a>
-                    <a class="btn btn-outline-secondary mt-3"
+                    <a class="btn btn-outline-secondary"
                                    asp-controller="Favourite"
                                    asp-action="Add"
                                    asp-route-productId="@product.Id">
