@@ -1,14 +1,30 @@
+using Microsoft.EntityFrameworkCore;
+using Telegram.Bot;
+using Website_Progress.DataContext;
 using Website_Progress.Interfaces;
 using Website_Progress.Repositories;
-using WEBtest.Repositories;
+using Website_Progress.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+string connection = builder.Configuration.GetConnectionString("WebTestConnection");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IProductRepository, InMemoryProductRepository>();
+builder.Services.AddTransient<IProductRepository, ProductsDbRepository>();
 builder.Services.AddTransient<INewProductRepository, InMemoryNewProductRepository>();
-builder.Services.AddTransient<INewsRepository, InMemoryNewsRepository>();
+builder.Services.AddTransient<INewsRepository, NewsDbRepository>();
+builder.Services.AddTransient<ICartRepository, CartDbRepository>();
+builder.Services.AddTransient<IOrderRepository, OrdersDbRepository>();
+
+var botToken = builder.Configuration["Telegram:BotToken"];
+
+builder.Services.AddSingleton(new TelegramBotClient(botToken));
+
+builder.Services.AddScoped<TelegramService>();
+
+
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(connection));
+
 
 var app = builder.Build();
 

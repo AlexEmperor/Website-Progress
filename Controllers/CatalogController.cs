@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
 
 namespace Website_Progress.Controllers
@@ -14,10 +15,12 @@ namespace Website_Progress.Controllers
         public IActionResult Index()
         {
 
-            return View(_productRepository.GetAll());
+            //  return View(_productRepository.GetAll());
 
             // var products = _productRepository.GetAll();
-            //return View(products.ToProductViewModels());
+            var products = _productRepository.GetAll();
+
+            return View(products.ToProductViewModels());
             ////return View(_productRepository.GetAll());
         }
     }

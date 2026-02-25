@@ -1,15 +1,14 @@
-﻿using Website_Progress.Models;
+﻿using Website_Progress.ModelsDTO;
 
 namespace Website_Progress.Interfaces
 {
     public interface IProductRepository
     {
-        void Add(string name, decimal cost, string description, string? photoPath, string? presentationPath);
-        List<ProductViewModel> GetAll();
-        List<ProductViewModel> Search(string text);
-        ProductViewModel? TryGetById(int id);
-        void Add(ProductViewModel product);
+        List<Product> GetAll();
+        Product? TryGetById(int productId);
+        void Add(Product product);
         void Delete(int productId);
-        void Update(ProductViewModel product);
+        void Update(Product product);
+        List<Product> Search(string text);
     }
 }

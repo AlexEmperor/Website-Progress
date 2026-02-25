@@ -8,6 +8,11 @@
         public string ImageUrl { get; set; }
         public DateOnly Date { get; set; }
 
+        public NewsViewModel()
+        {
+
+        }
+
         public NewsViewModel(int id, string title, string shortText, string imageUrl, DateOnly date)
         {
             Id = id;
