@@ -15,6 +15,8 @@ builder.Services.AddTransient<INewProductRepository, InMemoryNewProductRepositor
 builder.Services.AddTransient<INewsRepository, NewsDbRepository>();
 builder.Services.AddTransient<ICartRepository, CartDbRepository>();
 builder.Services.AddTransient<IOrderRepository, OrdersDbRepository>();
+builder.Services.AddSingleton<IRoleRepository, InMemoryRoleRepository>();
+builder.Services.AddSingleton<IUserRepository, InMemoryUserRepository>();
 
 var botToken = builder.Configuration["Telegram:BotToken"];
 

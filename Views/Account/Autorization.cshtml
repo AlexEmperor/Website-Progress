@@ -1,0 +1,45 @@
+﻿@model Autorization
+@{
+    ViewData["Title"] = "Авторизация пользователя";
+}
+
+<div class="text-center text-uppercase text-success mb-5 mt-5">
+    <h2 class="row-title">Вход</h2>
+</div>
+<form method="post">
+    <div class="row justify-content-center mt-3">
+        <div class="col-6 mb-3">
+            <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
+            <p>
+                <label class="form-label" asp-for="Login"></label><br />
+                <input class="form-control" asp-for="Login" />
+                <span asp-validation-for="Login"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="Password"></label><br />
+                <input class="form-control" asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </p>
+            <p>
+                <label class="form-check-label" asp-for="Memorize"></label>
+                <input class="form-check-input" asp-for="Memorize"
+                       type="checkbox" value="true" />
+                <span asp-validation-for="Memorize"></span>
+            </p>
+        </div>
+    </div>
+    <div class="text-center m-3">
+        <button class="btn btn-outline-success" type="submit"
+                asp-controller="Account"
+                asp-action="Autorization">
+            Войти
+        </button>
+    </div>
+    <div class="text-center m-3">
+        <a class="btn text-decoration-underline"
+           asp-controller="Account"
+           asp-action="Registration">
+            Регистрация нового пользователя
+        </a>
+    </div>
+</form>
