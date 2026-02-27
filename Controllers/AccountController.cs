@@ -64,7 +64,10 @@ namespace Website_Progress.Controllers
             {
                 UserName = registration.Login,
                 Email = registration.Login,
-                PhoneNumber = registration.Phone
+                PhoneNumber = registration.Phone,
+                CreationDateTime = registration.CreationDateTime,
+                FirstName = registration.FirstName,
+                LastName = registration.LastName
             };
 
             var result = _userManager.CreateAsync(user, registration.Password).Result;

@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model AdminUserViewModel
 @{
     ViewData["Title"] = "Пользователь";
 }
@@ -82,7 +82,7 @@
 
                     <tr>
                         <td><span>Роль</span></td>
-                        <td>@Model.Role?.Name</td>
+                        <td>@Model.Role</td>
                     </tr>
                     <tr>
                         <td class="w-25"><span>Дата регистрации</span></td>

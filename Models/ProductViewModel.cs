@@ -22,7 +22,8 @@ namespace Website_Progress.Models
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
 
-        [Required]
+        //[Display(Name = "Путь до фото товара", Prompt = "/wwwroot/img/product.png")]
+        //[Required]
         public string? PhotoPath { get; set; } //= "/img/product.png";
 
         [Display(Name = "Путь до презентации", Prompt = "/wwwroot/presentations/product.pptx")]
@@ -30,9 +31,10 @@ namespace Website_Progress.Models
         public string? PresentationPath { get; set; }
 
         [Display(Name = "Путь до прошивки", Prompt = "/wwwroot/firmware/product")]
-        [Required(ErrorMessage = "Не указано наименование товара")]
         [DataType(DataType.Text)]
         public string? FirmwarePath { get; set; }
+
+        public IFormFile? PhotoFile { get; set; }
 
         public ProductViewModel() { }
 

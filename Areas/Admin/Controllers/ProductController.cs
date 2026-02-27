@@ -22,7 +22,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var products = _productsRepository.GetAll();
+            var products = _productsRepository.GetAll().OrderBy(p => p.Id).ToList();
             return View(products.ToProductViewModels());
             //return View(products);
         }

@@ -1,9 +1,6 @@
-﻿using Website_Progress.Areas.Admin.Models;
-using Website_Progress.Models;
-
-namespace Website_Progress.Interfaces
+﻿namespace Website_Progress.Interfaces
 {
-    public interface IUserRepository
+    /*public interface IUserRepository
     {
         void Add(User user);
         User? TryGetByLogin(string login);
@@ -13,5 +10,5 @@ namespace Website_Progress.Interfaces
         void Update(User user);
         void ChangePassword(string login, string newPassword);
         void ChangeRole(string login, Role? newRole);
-    }
+    }*/
 }

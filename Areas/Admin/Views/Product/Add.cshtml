@@ -26,6 +26,19 @@
                 <textarea class="form-control" asp-for="Description"></textarea>
                 <span asp-validation-for="Description"></span>
             </p>
+            <p>
+                <label class="form-label" asp-for="PhotoPath"></label><br />
+                <input class="form-control" asp-for="PhotoPath" />
+                <span asp-validation-for="PhotoPath"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="PresentationPath"></label><br />
+                <input class="form-control" class="form-control" asp-for="PresentationPath" />
+            </p>
+            <p>
+                <label class="form-label" asp-for="FirmwarePath"></label><br />
+                <input class="form-control" asp-for="FirmwarePath">
+            </p>
         </div>
     </div>
     <div class="text-center m-3">

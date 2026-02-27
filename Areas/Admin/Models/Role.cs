@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Website_Progress.Areas.Admin.Models
+﻿namespace Website_Progress.Areas.Admin.Models
 {
-    public class Role
+    /*public class Role
     {
         public Guid Id { get; set; }
 
@@ -12,5 +10,5 @@ namespace Website_Progress.Areas.Admin.Models
         [DataType(DataType.Text)]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Название роли должно быть от {2} до {1} символов")]
         public required string Name { get; set; }
-    }
+    }*/
 }

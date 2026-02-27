@@ -1,63 +1,58 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Areas.Admin.Models;
-using Website_Progress.Interfaces;
-
-namespace Website_Progress.Areas.Admin.Controllers
+﻿namespace Website_Progress.Areas.Admin.Controllers
 {
-    [Area(Constants.AdminRoleName)]
-    [Authorize(Roles = Constants.AdminRoleName)]
-    public class RoleController : Controller
-    {
-        private readonly IRoleRepository _rolesRepository;
+    /* [Area(Constants.AdminRoleName)]
+     [Authorize(Roles = Constants.AdminRoleName)]
+     public class RoleController : Controller
+     {
+         private readonly IRoleRepository _rolesRepository;
 
 
-        public RoleController(IRoleRepository rolesRepository)
-        {
-            _rolesRepository = rolesRepository;
+         public RoleController(IRoleRepository rolesRepository)
+         {
+             _rolesRepository = rolesRepository;
 
-        }
-
-
-        public IActionResult Index()
-        {
-            var roles = _rolesRepository.GetAll();
-
-            return View(roles);
-        }
+         }
 
 
-        public IActionResult Add()
-        {
-            return View();
-        }
+         public IActionResult Index()
+         {
+             var roles = _rolesRepository.GetAll();
+
+             return View(roles);
+         }
 
 
-        [HttpPost]
-        public IActionResult Add(Role role)
-        {
-            if (_rolesRepository.TryGetByName(role.Name) != null)
-            {
-                ModelState.AddModelError("",
-                    "Такая роль уже существует!");
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View(role);
-            }
-
-            _rolesRepository.Add(role);
-
-            return RedirectToAction(nameof(Index));
-        }
+         public IActionResult Add()
+         {
+             return View();
+         }
 
 
-        public IActionResult Delete(Guid roleId)
-        {
-            _rolesRepository.Delete(roleId);
+         [HttpPost]
+         public IActionResult Add(Role role)
+         {
+             if (_rolesRepository.TryGetByName(role.Name) != null)
+             {
+                 ModelState.AddModelError("",
+                     "Такая роль уже существует!");
+             }
 
-            return RedirectToAction(nameof(Index));
-        }
-    }
+             if (!ModelState.IsValid)
+             {
+                 return View(role);
+             }
+
+             _rolesRepository.Add(role);
+
+             return RedirectToAction(nameof(Index));
+         }
+
+
+         public IActionResult Delete(Guid roleId)
+         {
+             _rolesRepository.Delete(roleId);
+
+             return RedirectToAction(nameof(Index));
+         }
+     }*/
 }

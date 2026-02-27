@@ -26,7 +26,6 @@ C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.build.json
 C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.development.json
 C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.dll
 C:\Git\Website Progress\obj\Debug\net8.0\refint\Website Progress.dll
 C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.pdb
@@ -155,3 +154,4 @@ C:\Git\Website Progress\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDe
 C:\Git\Website Progress\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Git\Website Progress\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Git\Website Progress\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

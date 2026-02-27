@@ -7,6 +7,7 @@ namespace Website_Progress.Controllers
     public class CatalogController : Controller
     {
         private readonly IProductRepository _productRepository;
+
         public CatalogController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
@@ -14,14 +15,8 @@ namespace Website_Progress.Controllers
 
         public IActionResult Index()
         {
-
-            //  return View(_productRepository.GetAll());
-
-            // var products = _productRepository.GetAll();
-            var products = _productRepository.GetAll();
-
+            var products = _productRepository.GetAll().OrderBy(p => p.Id).ToList();
             return View(products.ToProductViewModels());
-            ////return View(_productRepository.GetAll());
         }
     }
 }

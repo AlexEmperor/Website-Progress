@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model AdminUserViewModel
 @{
     ViewData["Title"] = "Редактирование данных пользователя";
 }
@@ -30,13 +30,8 @@
             </p>
             <p>
                 <label class="form-label" asp-for="Login"></label><br />
-                <input class="form-control" asp-for="Login" value="@Model.Login" readonly="readonly" />
+                <input class="form-control" asp-for="Login" value="@Model.Login" />
                 <span asp-validation-for="Login"></span>
-            </p>
-            <p>
-                <label class="form-label" asp-for="Password"></label><br />
-                <input class="form-control" asp-for="Password" value="@Model.Password" readonly="readonly" />
-                <span asp-validation-for="Password"></span>
             </p>
         </div>
     </div>

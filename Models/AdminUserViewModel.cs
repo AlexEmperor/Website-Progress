@@ -2,51 +2,55 @@
 
 namespace Website_Progress.Models
 {
-    public class Registration
+    public class AdminUserViewModel
     {
-        [Display(Name = "Логин", Prompt = "Ваш логин")]
-        [Required(ErrorMessage = "Не указан логин")]
+
+        public string Id { get; set; }
+
+
+        [Display(Name = "Логин", Prompt = "Логин")]
+        [Required(ErrorMessage = "Не указан логин пользователя")]
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Введите валидный email")]
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Логин должен быть от {2} до {1} символов")]
         public required string Login { get; set; }
 
 
-        [Display(Name = "Пароль", Prompt = "Ваш пароль")]
-        [Required(ErrorMessage = "Не указан пароль")]
+        [Display(Name = "Пароль", Prompt = "Пароль")]
+        [Required(ErrorMessage = "Не указан пароль пользователя")]
         [DataType(DataType.Password)]
         [StringLength(50, MinimumLength = 6, ErrorMessage = "Пароль должен быть от {2} до {1} символов")]
-        public required string Password { get; set; }
+        public string Password { get; set; }
 
 
-        [Display(Name = "Подтвердите пароль", Prompt = "Подтвердите пароль")]
-        [Required(ErrorMessage = "Не указан повторный пароль")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
-        public required string ConfirmPassword { get; set; }
-
-
-        [Display(Name = "Телефон", Prompt = "Ваш телефон")]
-        [Required(ErrorMessage = "Не указан телефон")]
+        [Display(Name = "Телефон", Prompt = "Телефон")]
+        [Required(ErrorMessage = "Не указан телефон пользователя")]
         [DataType(DataType.PhoneNumber)]
         [Phone(ErrorMessage = "Телефон может содержать только цифры")]
         [StringLength(16, MinimumLength = 5, ErrorMessage = "Телефон должен быть от {2} до {1} символов")]
         public required string Phone { get; set; }
 
 
-        [Display(Name = "Имя", Prompt = "Ваше имя")]
-        [Required(ErrorMessage = "Не указано имя")]
+        [Display(Name = "Имя", Prompt = "Имя")]
+        [Required(ErrorMessage = "Не указано имя пользователя")]
         [DataType(DataType.Text)]
         [StringLength(25, MinimumLength = 2, ErrorMessage = "Имя должно быть от {2} до {1} символов")]
         public required string FirstName { get; set; }
 
 
-        [Display(Name = "Фамилия", Prompt = "Ваша фамилия")]
-        [Required(ErrorMessage = "Не указана фамилия")]
+        [Display(Name = "Фамилия", Prompt = "Фамилия")]
+        [Required(ErrorMessage = "Не указана фамилия пользователя")]
         [DataType(DataType.Text)]
         [StringLength(25, MinimumLength = 2, ErrorMessage = "Фамилия должна быть от {2} до {1} символов")]
         public required string LastName { get; set; }
 
-        public DateTime CreationDateTime => DateTime.Now;
+
+        public DateTime CreationDateTime { get; set; }
+
+        public string Email { get; set; } = default!;
+
+        public string? PhoneNumber { get; set; }
+
+        public string Role { get; set; }
     }
 }

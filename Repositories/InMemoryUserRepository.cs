@@ -1,10 +1,6 @@
-﻿using Website_Progress.Areas.Admin.Models;
-using Website_Progress.Interfaces;
-using Website_Progress.Models;
-
-namespace Website_Progress.Repositories
+﻿namespace Website_Progress.Repositories
 {
-    public class InMemoryUserRepository : IUserRepository
+    /*public class InMemoryUserRepository : IUserRepository
     {
         private readonly List<User> _users = [];
 
@@ -71,6 +67,6 @@ namespace Website_Progress.Repositories
                 existingUser.Role = newRole;
             }
         }
-    }
+    }*/
 }
 

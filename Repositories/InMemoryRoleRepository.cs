@@ -3,7 +3,7 @@ using Website_Progress.Interfaces;
 
 namespace Website_Progress.Repositories
 {
-    public class InMemoryRoleRepository : IRoleRepository
+   /* public class InMemoryRoleRepository : IRoleRepository
     {
         private readonly List<Role> _roles = [];
 
@@ -44,5 +44,5 @@ namespace Website_Progress.Repositories
 
         public Role? TryGetByName(string roleName) =>
             _roles.FirstOrDefault(role => role.Name == roleName);
-    }
+    }*/
 }

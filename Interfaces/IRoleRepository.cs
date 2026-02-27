@@ -1,8 +1,6 @@
-﻿using Website_Progress.Areas.Admin.Models;
-
-namespace Website_Progress.Interfaces
+﻿namespace Website_Progress.Interfaces
 {
-    public interface IRoleRepository
+    /*public interface IRoleRepository
     {
         List<Role> GetAll();
 
@@ -13,5 +11,5 @@ namespace Website_Progress.Interfaces
         void Add(Role role);
 
         void Delete(Guid roleId);
-    }
+    }*/
 }
