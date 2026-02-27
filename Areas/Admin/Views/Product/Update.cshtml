@@ -27,6 +27,21 @@
                 <textarea class="form-control" asp-for="Description" value="@Model.Description"></textarea>
                 <span asp-validation-for="Description"></span>
             </p>
+            <p>
+                <label class="form-label" asp-for="PhotoPath"></label><br />
+                <textarea class="form-control" asp-for="PhotoPath" value="@Model.PhotoPath"></textarea>
+                <span asp-validation-for="PhotoPath"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="PresentationPath"></label><br />
+                <textarea class="form-control" asp-for="PresentationPath" value="@Model.PresentationPath"></textarea>
+                <span asp-validation-for="PresentationPath"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="FirmwarePath"></label><br />
+                <textarea class="form-control" asp-for="FirmwarePath" value="@Model.FirmwarePath"></textarea>
+                <span asp-validation-for="FirmwarePath"></span>
+            </p>
         </div>
     </div>
     <div class="text-center m-3">

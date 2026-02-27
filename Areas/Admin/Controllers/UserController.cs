@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Website_Progress.Areas.Admin.Models;
 using Website_Progress.Interfaces;
 using Website_Progress.Models;
 
-namespace WEBtest.Areas.Admin.Controllers
+namespace Website_Progress.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(Constants.AdminRoleName)]
+    [Authorize(Roles = Constants.AdminRoleName)]
     public class UserController : Controller
     {
         private readonly IUserRepository _usersRepository;

@@ -1,45 +1,50 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Models;
+using Website_Progress.ModelsDTO;
 
 namespace Website_Progress.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IUserRepository _usersRepository;
-        //private readonly IRoleRepository _rolesRepository;
+        private readonly UserManager<UserDTO> _userManager;
+        private readonly SignInManager<UserDTO> _signInManager;
 
-
-        public AccountController(IUserRepository usersRepository/*, IRoleRepository rolesRepository*/)
+        public AccountController(UserManager<UserDTO> userManager, SignInManager<UserDTO> signInManager)
         {
-            //_rolesRepository = rolesRepository;
-            _usersRepository = usersRepository;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
-        public IActionResult Autorization()
+
+        public IActionResult Autorization(string? returnUrl)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Autorization(Autorization autorization)
+        public IActionResult Autorization(Autorization authorization, string? returnUrl)
         {
-            if (autorization.Password == autorization.Login)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Логин и пароль не должны совпадать");
+                return View(authorization);
             }
 
-            var existingUser = _usersRepository.TryGetByLogin(autorization.Login);
+            var result = _signInManager.PasswordSignInAsync(
+                authorization.Login,
+                authorization.Password,
+                authorization.Memorize,
+                false).Result;
 
-            if (existingUser == null)
+            if (result.Succeeded)
             {
-                ModelState.AddModelError("", "Такого пользователя не существует!\r\nПройдите регистрацию!");
+                return !string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl)
+                    ? Redirect(returnUrl)
+                    : RedirectToAction("Index", "Home");
             }
 
-            if (autorization.Password != existingUser?.Password)
-            {
-                ModelState.AddModelError("", "Неправильный пароль пользователя!");
-            }
-            return !ModelState.IsValid ? View(autorization) : RedirectToAction(nameof(Index), "Home");
+            ModelState.AddModelError("", "Неверный логин или пароль");
+            return View(authorization);
         }
 
         public IActionResult Registration()
@@ -50,37 +55,43 @@ namespace Website_Progress.Controllers
         [HttpPost]
         public IActionResult Registration(Registration registration)
         {
-            if (registration.Password == registration.Login)
-            {
-                ModelState.AddModelError("", "Логин и пароль не должны совпадать");
-            }
-            var existingUser = _usersRepository.TryGetByLogin(registration.Login);
-
-            if (existingUser != null)
-            {
-                ModelState.AddModelError("", "Пользователь с таким логином уже зарегистрирован!\r\n" +
-                    "Необходимо зарегистрироваться под другим логином!");
-            }
-
             if (!ModelState.IsValid)
             {
                 return View(registration);
             }
 
-            var user = new User()
+            var user = new UserDTO
             {
-                Login = registration.Login,
-                Password = registration.Password,
-                FirstName = registration.FirstName,
-                LastName = registration.LastName,
-                Phone = registration.Phone,
+                UserName = registration.Login,
+                Email = registration.Login,
+                PhoneNumber = registration.Phone
             };
 
-            _usersRepository.Add(user);
+            var result = _userManager.CreateAsync(user, registration.Password).Result;
 
-            return RedirectToAction(nameof(Index), "Home");
+            if (result.Succeeded)
+            {
+                // Назначаем роль
+                _userManager.AddToRoleAsync(user, Constants.UserRoleName).Wait();
 
-            //return View();
+                // Автоматический вход после регистрации
+                _signInManager.SignInAsync(user, false).Wait();
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View(registration);
+        }
+
+        public IActionResult Logout()
+        {
+            _signInManager.SignOutAsync().Wait();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

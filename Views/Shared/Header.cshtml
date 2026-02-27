@@ -43,13 +43,48 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
                     <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Cart" asp-action="Index">Корзина</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Catalog" asp-action="Index">Каталог</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Favourite" asp-action="Index">Избранное</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Comparison" asp-action="Index">Сравнение товаров</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Autorization">Авторизация</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Registration">Регистрация</a></li>
-                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="Index">Панель администратора</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Cart" asp-action="Index">Корзина</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="News" asp-action="All">Новости</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <span class="dropdown-item text-success">
+                                @User.Identity.Name
+                            </span>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                               asp-area=""
+                               asp-controller="Account"
+                               asp-action="Logout">
+                                Выйти
+                            </a>
+                        </li>
+
+                        @if (User.IsInRole(Constants.AdminRoleName))
+                        {
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-area="Admin"
+                                   asp-controller="Order"
+                                   asp-action="Index">
+                                    Панель администратора
+                                </a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="dropdown-item"
+                               asp-controller="Account"
+                               asp-action="Autorization">
+                                Войти
+                            </a>
+                        </li>
+                    }                    
                     <li><a class="dropdown-item" asp-area="" asp-controller="Contacts" asp-action="Index">Контакты</a></li>
                 </ul>
             </div>

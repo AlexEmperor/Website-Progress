@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
 using Website_Progress.Models;
 
-namespace WEBtest.Areas.Admin.Controllers
+namespace Website_Progress.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(Constants.AdminRoleName)]
+    [Authorize(Roles = Constants.AdminRoleName)]
     public class ProductController : Controller
     {
         private readonly IProductRepository _productsRepository;

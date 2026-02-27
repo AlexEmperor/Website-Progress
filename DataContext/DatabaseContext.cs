@@ -21,9 +21,6 @@ namespace Website_Progress.DataContext
         public DbSet<DeliveryUser> DeliveryUsers { get; set; } = null!;
 
         public DbSet<News> News { get; set; }
-
-        //public DbSet<Order> Orders { get; set; } = null!;
-        //public DbSet<DeliveryUser> DeliveryUsers { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.ConfigureWarnings(warnings =>

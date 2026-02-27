@@ -24,8 +24,14 @@ namespace Website_Progress.Models
 
         [Required]
         public string? PhotoPath { get; set; } //= "/img/product.png";
+
+        [Display(Name = "Путь до презентации", Prompt = "/wwwroot/presentations/product.pptx")]
+        [DataType(DataType.Text)]
         public string? PresentationPath { get; set; }
 
+        [Display(Name = "Путь до прошивки", Prompt = "/wwwroot/firmware/product")]
+        [Required(ErrorMessage = "Не указано наименование товара")]
+        [DataType(DataType.Text)]
         public string? FirmwarePath { get; set; }
 
         public ProductViewModel() { }

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
 
@@ -15,34 +17,35 @@ namespace Website_Progress.Controllers
             _cartRepository = cartRepository;
         }
 
-        public IActionResult Index()
+        private string GetUserId()
         {
-            var cart = _cartRepository.TryGetByUserId(Constants.UserId);
-
-            return View(cart.ToCartViewModel());
-            //return View(cart.ToCartViewModel());
+            return User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
+        public IActionResult Index()
+        {
+            var cart = _cartRepository.TryGetByUserId(GetUserId());
+
+            return View(cart.ToCartViewModel());
+        }
+
+        [Authorize]
         public IActionResult Add(int productId)
         {
-            _cartRepository.Add(_productRepository.TryGetById(productId), Constants.UserId);
+            _cartRepository.Add(_productRepository.TryGetById(productId), GetUserId());
 
             return RedirectToAction(nameof(Index));
-            //return View("../Home/index", ProductRepository.GetAll());
         }
 
         public IActionResult Delete(int productId)
         {
-            _cartRepository.Delete(productId, Constants.UserId);
-
-            //_cartRepository.Delete(productId/*_productRepository.TryGetById(productId)*/, Constants.UserId);
+            _cartRepository.Delete(productId, GetUserId());
 
             return RedirectToAction(nameof(Index));
-            //return View("../Home/index", ProductRepository.GetAll());
         }
         public IActionResult Clear()
         {
-            _cartRepository.Clear(Constants.UserId);
+            _cartRepository.Clear(GetUserId());
 
             return RedirectToAction(nameof(Index));
         }

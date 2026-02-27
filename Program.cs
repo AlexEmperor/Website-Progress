@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Telegram.Bot;
+using Website_Progress;
 using Website_Progress.DataContext;
 using Website_Progress.Interfaces;
+using Website_Progress.ModelsDTO;
 using Website_Progress.Repositories;
 using Website_Progress.Services;
 
@@ -28,6 +31,20 @@ builder.Services.AddScoped<TelegramService>();
 
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(connection));
 
+builder.Services.AddDbContext<IdentityContext>(options => options.UseNpgsql(connection));
+builder.Services.AddIdentity<UserDTO, IdentityRole>().AddEntityFrameworkStores<IdentityContext>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    options.LoginPath = "/Account/Autorization";
+    options.LogoutPath = "/Account/Logout";
+    options.Cookie = new CookieBuilder
+    {
+        IsEssential = true
+    };
+});
+
 
 var app = builder.Build();
 
@@ -44,6 +61,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -53,4 +71,13 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserDTO>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    IdentityInitializer.Inititalize(userManager, roleManager);
+}
+
 app.Run();

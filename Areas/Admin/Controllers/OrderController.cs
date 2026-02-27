@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
 using Website_Progress.Models;
@@ -6,7 +7,9 @@ using Website_Progress.ModelsDTO;
 
 namespace Website_Progress.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(Constants.AdminRoleName)]
+    [Authorize(Roles = Constants.AdminRoleName)]
+
     public class OrderController : Controller
     {
         private readonly IOrderRepository _ordersRepository;

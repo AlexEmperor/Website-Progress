@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
 using Website_Progress.Models;
@@ -7,6 +9,7 @@ using Website_Progress.Services;
 
 namespace Website_Progress.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly ICartRepository _cartRepository;
@@ -23,10 +26,14 @@ namespace Website_Progress.Controllers
             _orderRepository = orderRepository;
             _telegramService = telegramService;
         }
+        private string GetUserId()
+        {
+            return User.FindFirstValue(ClaimTypes.NameIdentifier);
+        }
 
         public IActionResult Index()
         {
-            var cart = _cartRepository.TryGetByUserId(Constants.UserId);
+            var cart = _cartRepository.TryGetByUserId(GetUserId());
 
             var order = new OrderViewModel()
             {
@@ -39,7 +46,7 @@ namespace Website_Progress.Controllers
         [HttpPost]
         public async Task<IActionResult> Buy(OrderViewModel order)
         {
-            var cart = _cartRepository.TryGetByUserId(Constants.UserId);
+            var cart = _cartRepository.TryGetByUserId(GetUserId());
 
             if (cart == null)
             {
@@ -47,7 +54,7 @@ namespace Website_Progress.Controllers
             }
 
             order.Items = cart.Items.ToCartItemViewModels();
-            order.UserId = Constants.UserId;
+            order.UserId = GetUserId();
 
             if (!ModelState.IsValid)
             {
@@ -68,7 +75,7 @@ namespace Website_Progress.Controllers
             _orderRepository.Add(orderDb);
 
             await _telegramService.SendOrderAsync(orderDb);
-            _cartRepository.Clear(Constants.UserId);
+            _cartRepository.Clear(GetUserId());
 
             return RedirectToAction(nameof(Success));
         }
