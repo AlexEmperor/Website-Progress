@@ -6,6 +6,7 @@ using Website_Progress.Repositories;
 using Website_Progress.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 string connection = builder.Configuration.GetConnectionString("WebTestConnection");
 
 // Add services to the container.
@@ -46,7 +47,10 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "MyArea",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

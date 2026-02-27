@@ -54,21 +54,6 @@ namespace Website_Progress.Controllers
                 return View(nameof(Index), order);
             }
 
-            /*var orderDb = new Order()
-            {
-                Id = order.Id,
-                UserId = order.UserId,
-                Items = cart.Items,
-                DeliveryUser = order.DeliveryUser.ToDeliveryUserDb(),
-                CreationDateTime = order.CreationDateTime,
-                Status = (OrderStatus)order.Status,
-            };
-
-            _orderRepository.Add(orderDb);
-
-            _cartRepository.Clear(Constants.UserId);
-
-            return RedirectToAction(nameof(Success));*/
 
             var orderDb = new Order()
             {
@@ -77,7 +62,7 @@ namespace Website_Progress.Controllers
                 Items = cart.Items,
                 DeliveryUser = order.DeliveryUser.ToDeliveryUserDb(),
                 CreationDateTime = order.CreationDateTime,
-                Status = (OrderStatus)order.Status,
+                Status = (OrderStatus)order.Status
             };
 
             _orderRepository.Add(orderDb);

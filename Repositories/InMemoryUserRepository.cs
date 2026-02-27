@@ -1,4 +1,5 @@
-﻿using Website_Progress.Interfaces;
+﻿using Website_Progress.Areas.Admin.Models;
+using Website_Progress.Interfaces;
 using Website_Progress.Models;
 
 namespace Website_Progress.Repositories
@@ -61,15 +62,15 @@ namespace Website_Progress.Repositories
             }
         }
 
-        /* public void ChangeRole(string login, Role? newRole)
-         {
-             var existingUser = TryGetByLogin(login);
+        public void ChangeRole(string login, Role? newRole)
+        {
+            var existingUser = TryGetByLogin(login);
 
-             if (existingUser != null)
-             {
-                 existingUser.Role = newRole;
-             }
-         }*/
+            if (existingUser != null)
+            {
+                existingUser.Role = newRole;
+            }
+        }
     }
 }
 

@@ -3,44 +3,52 @@
   "WorkspaceRootPath": "C:\\Git\\Website Progress\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\helpers\\mapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:helpers\\mapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\models\\autorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:models\\autorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\repositories\\inmemoryrolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:repositories\\inmemoryrolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\repositories\\ordersdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:repositories\\ordersdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\repositories\\inmemoryuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:repositories\\inmemoryuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\models\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:models\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\deliveryuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\deliveryuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\models\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:models\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\services\\telegramservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:services\\telegramservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\datacontext\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,119 +102,158 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Registration.cshtml",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Account\\Registration.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Registration.cshtml",
-              "ToolTip": "C:\\Git\\Website Progress\\Views\\Account\\Registration.cshtml",
-              "RelativeToolTip": "Views\\Account\\Registration.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBIAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-26T09:11:42.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "InMemoryUserRepository.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Repositories\\InMemoryUserRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\InMemoryUserRepository.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Repositories\\InMemoryUserRepository.cs",
-              "RelativeToolTip": "Repositories\\InMemoryUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\Product.cs",
+              "RelativeDocumentMoniker": "ModelsDTO\\Product.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\Product.cs",
+              "RelativeToolTip": "ModelsDTO\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:50:23.929Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InMemoryRoleRepository.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Repositories\\InMemoryRoleRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\InMemoryRoleRepository.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Repositories\\InMemoryRoleRepository.cs",
-              "RelativeToolTip": "Repositories\\InMemoryRoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:50:23.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAA7wC4AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:48:44.363Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Registration.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\Registration.cs",
-              "RelativeDocumentMoniker": "Models\\Registration.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Models\\Registration.cs",
-              "RelativeToolTip": "Models\\Registration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:48:44.263Z",
+              "WhenOpened": "2026-02-27T11:03:11.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Autorization.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\Autorization.cs",
-              "RelativeDocumentMoniker": "Models\\Autorization.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Models\\Autorization.cs",
-              "RelativeToolTip": "Models\\Autorization.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:48:44.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IUserRepository.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:45:52.491Z",
+              "WhenOpened": "2026-02-27T11:01:08.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "IRoleRepository.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Interfaces\\IRoleRepository.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IRoleRepository.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Interfaces\\IRoleRepository.cs",
-              "RelativeToolTip": "Interfaces\\IRoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwDMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:45:51.535Z",
+              "WhenOpened": "2026-02-27T10:42:56.462Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCwAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "OrderViewModel.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\OrderViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\OrderViewModel.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Models\\OrderViewModel.cs",
+              "RelativeToolTip": "Models\\OrderViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:41:09.669Z",
+              "WhenOpened": "2026-02-27T10:41:35.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:40:38.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrdersDbRepository.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Repositories\\OrdersDbRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\OrdersDbRepository.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Repositories\\OrdersDbRepository.cs",
+              "RelativeToolTip": "Repositories\\OrdersDbRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAawCQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:35:37.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Interfaces\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IOrderRepository.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Interfaces\\IOrderRepository.cs",
+              "RelativeToolTip": "Interfaces\\IOrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:35:20.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DeliveryUser.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\DeliveryUser.cs",
+              "RelativeDocumentMoniker": "ModelsDTO\\DeliveryUser.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\DeliveryUser.cs",
+              "RelativeToolTip": "ModelsDTO\\DeliveryUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:34:49.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\Order.cs",
+              "RelativeDocumentMoniker": "ModelsDTO\\Order.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\Order.cs",
+              "RelativeToolTip": "ModelsDTO\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:34:17.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TelegramService.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Services\\TelegramService.cs",
+              "RelativeDocumentMoniker": "Services\\TelegramService.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Services\\TelegramService.cs",
+              "RelativeToolTip": "Services\\TelegramService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:33:48.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Mapping.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Helpers\\Mapping.cs",
+              "RelativeDocumentMoniker": "Helpers\\Mapping.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Helpers\\Mapping.cs",
+              "RelativeToolTip": "Helpers\\Mapping.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIA8wEQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:02:26.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\DataContext\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "DataContext\\DatabaseContext.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\DataContext\\DatabaseContext.cs",
+              "RelativeToolTip": "DataContext\\DatabaseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T12:42:33.975Z",
               "EditorCaption": ""
             },
             {
@@ -217,22 +264,10 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Git\\Website Progress\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAYwAsAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-25T14:34:23.802Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DatabaseContext.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\DataContext\\DatabaseContext.cs",
-              "RelativeDocumentMoniker": "DataContext\\DatabaseContext.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\DataContext\\DatabaseContext.cs",
-              "RelativeToolTip": "DataContext\\DatabaseContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T12:42:33.975Z"
             }
           ]
         }

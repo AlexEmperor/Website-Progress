@@ -46,7 +46,7 @@ namespace Website_Progress.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CartId")
+                    b.Property<Guid?>("CartId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid?>("OrderId")
@@ -149,9 +149,6 @@ namespace Website_Progress.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.Property<decimal?>("TotalCost")
-                        .HasColumnType("numeric");
-
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -202,9 +199,7 @@ namespace Website_Progress.Migrations
                 {
                     b.HasOne("Website_Progress.ModelsDTO.Cart", "Cart")
                         .WithMany("Items")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CartId");
 
                     b.HasOne("Website_Progress.ModelsDTO.Order", null)
                         .WithMany("Items")

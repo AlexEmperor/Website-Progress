@@ -1,4 +1,5 @@
-﻿using Website_Progress.Models;
+﻿using Website_Progress.Areas.Admin.Models;
+using Website_Progress.Models;
 
 namespace Website_Progress.Interfaces
 {
@@ -11,6 +12,6 @@ namespace Website_Progress.Interfaces
         void Delete(Guid userId);
         void Update(User user);
         void ChangePassword(string login, string newPassword);
-        //void ChangeRole(string login, Role? newRole);
+        void ChangeRole(string login, Role? newRole);
     }
 }

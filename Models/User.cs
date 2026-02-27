@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Website_Progress.Areas.Admin.Models;
 
 namespace Website_Progress.Models
 {
@@ -44,7 +45,7 @@ namespace Website_Progress.Models
         public required string LastName { get; set; }
 
 
-        //public Role? Role { get; set; }
+        public Role? Role { get; set; }
 
 
         public DateTime CreationDateTime { get; set; }

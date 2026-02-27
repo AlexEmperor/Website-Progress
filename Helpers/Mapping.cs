@@ -55,7 +55,8 @@ namespace Website_Progress.Helpers
                 Name = productDb.Name,
                 Cost = productDb.Cost,
                 Description = productDb.Description,
-                PhotoPath = productDb.PhotoPath
+                PhotoPath = productDb.PhotoPath,
+                PresentationPath = productDb.PresentationPath
             };
         }
 
@@ -68,6 +69,7 @@ namespace Website_Progress.Helpers
                 Cost = product.Cost,
                 Description = product.Description,
                 PhotoPath = product.PhotoPath,
+                PresentationPath = product.PresentationPath
             };
         }
         #endregion

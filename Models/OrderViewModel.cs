@@ -32,7 +32,7 @@ namespace Website_Progress.Models
         public OrderStatusViewModel Status { get; set; }
 
 
-        public decimal? TotalCost { get; set; }
+        public decimal? TotalCost => Items?.Sum(i => i.Product.Cost * i.Quantity);
 
 
         public int? ItemsQuantity => Items?.Sum(item => item.Quantity);

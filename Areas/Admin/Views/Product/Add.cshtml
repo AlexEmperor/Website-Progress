@@ -1,0 +1,36 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Добавление товара";
+}
+
+<div class="text-center text-uppercase text-success mb-5 mt-5">
+    <h2 class="row-title">Добавление нового товара</h2>
+</div>
+
+<form method="post">
+    <div class="row justify-content-center mt-3">
+        <div class="col-6 mb-3">
+            <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
+            <p>
+                <label class="form-label" asp-for="Name"></label><br />
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="Cost"></label><br />
+                <input type="number" class="form-control" asp-for="Cost" />
+                <span asp-validation-for="Cost"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="Description"></label><br />
+                <textarea class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description"></span>
+            </p>
+        </div>
+    </div>
+    <div class="text-center m-3">
+        <button class="btn btn-outline-success" type="submit">
+            Добавить
+        </button>
+    </div>
+</form>

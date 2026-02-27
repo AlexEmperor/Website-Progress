@@ -1,10 +1,11 @@
-﻿using Website_Progress.Interfaces;
+﻿using Website_Progress.Areas.Admin.Models;
+using Website_Progress.Interfaces;
 
 namespace Website_Progress.Repositories
 {
     public class InMemoryRoleRepository : IRoleRepository
     {
-        /*private readonly List<Role> _roles = [];
+        private readonly List<Role> _roles = [];
 
         public InMemoryRoleRepository()
         {
@@ -42,6 +43,6 @@ namespace Website_Progress.Repositories
             _roles.FirstOrDefault(role => role.Id == roleId);
 
         public Role? TryGetByName(string roleName) =>
-            _roles.FirstOrDefault(role => role.Name == roleName);*/
+            _roles.FirstOrDefault(role => role.Name == roleName);
     }
 }

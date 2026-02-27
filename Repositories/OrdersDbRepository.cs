@@ -17,7 +17,7 @@ namespace Website_Progress.Repositories
         public void Add(Order order)
         {
             order.Id = Guid.NewGuid();
-            order.CreationDateTime = DateTime.UtcNow;
+            order.CreationDateTime = DateTime.Now; // -3 часа от Москвы
             order.DeliveryUser.Id = Guid.NewGuid();
             order.Status = OrderStatus.Created;
 
@@ -26,10 +26,19 @@ namespace Website_Progress.Repositories
             _databaseContext.SaveChanges();
         }
 
-        public List<Order> GetAll() => _databaseContext.Orders.Include(x => x.DeliveryUser).Include(x => x.Items).ThenInclude(x => x.Product).ToList();
+        public List<Order> GetAll() => _databaseContext.Orders
+            .Include(x => x.DeliveryUser)
+            .Include(x => x.Items)
+            .ThenInclude(x => x.Product)
+            .OrderByDescending(x => x.CreationDateTime)
+            .ToList();
 
         public Order? TryGetById(Guid orderId) =>
-            _databaseContext.Orders.Include(x => x.DeliveryUser).Include(x => x.Items).ThenInclude(x => x.Product).FirstOrDefault(order => order.Id == orderId);
+            _databaseContext.Orders
+            .Include(x => x.DeliveryUser)
+            .Include(x => x.Items)
+            .ThenInclude(x => x.Product)
+            .FirstOrDefault(order => order.Id == orderId);
 
         public void UpdateStatus(Guid orderId, OrderStatus newStatus)
         {
