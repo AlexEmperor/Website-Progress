@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Website_Progress.Areas.Admin.Models;
 using Website_Progress.Models;
 using Website_Progress.ModelsDTO;
 
@@ -82,6 +84,10 @@ namespace Website_Progress.Areas.Admin.Controllers
 
         public IActionResult Add()
         {
+            ViewBag.Roles = _roleManager.Roles
+        .Select(r => r.Name)
+        .ToList();
+
             return View();
         }
 
@@ -110,6 +116,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", error.Description);
                 }
+                ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
 
                 return View(model);
             }
@@ -119,6 +126,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         public async Task<IActionResult> Update(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -129,11 +137,10 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             var roles = await _userManager.GetRolesAsync(user);
 
-            var model = new AdminUserViewModel
+            var model = new EditAdminUserViewModel
             {
                 Id = user.Id,
-                Login = user.Email,
-                Email = user.Email!,
+                Email = user.Email,
                 Phone = user.PhoneNumber,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
@@ -144,7 +151,7 @@ namespace Website_Progress.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(AdminUserViewModel model)
+        public async Task<IActionResult> Update(EditAdminUserViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -158,7 +165,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             }
 
             user.Email = model.Email;
-            user.UserName = model.Login;
+            user.UserName = model.Email;
             user.PhoneNumber = model.Phone;
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
@@ -195,19 +202,33 @@ namespace Website_Progress.Areas.Admin.Controllers
             }
 
             var userRoles = await _userManager.GetRolesAsync(user);
-            var roles = _roleManager.Roles.Select(r => r.Name).ToList();
 
-            ViewBag.AllRoles = roles;
-            ViewBag.UserRoles = userRoles;
-            ViewBag.UserId = id;
+            var model = new ChangeRole
+            {
+                Id = user.Id,
+                Login = user.Email,
+                Role = userRoles.FirstOrDefault(),
+                Roles = _roleManager.Roles
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.Name,
+                        Text = r.Name,
+                        Selected = userRoles.Contains(r.Name)
+                    }).ToList()
+            };
 
-            return View();
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangeRole(string id, string role)
+        public async Task<IActionResult> ChangeRole(ChangeRole model)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByIdAsync(model.Id);
             if (user == null)
             {
                 return RedirectToAction(nameof(Index));
@@ -215,9 +236,9 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             var currentRoles = await _userManager.GetRolesAsync(user);
             await _userManager.RemoveFromRolesAsync(user, currentRoles);
-            await _userManager.AddToRoleAsync(user, role);
+            await _userManager.AddToRoleAsync(user, model.Role);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Detail), new { id = user.Id });
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Website_Progress.Models
 {
-    public class User
+    public class EditAdminUserViewModel
     {
-        public Guid Id { get; set; }
+        public string? Id { get; set; }
 
 
         [Display(Name = "Логин", Prompt = "Логин")]
@@ -12,14 +12,7 @@ namespace Website_Progress.Models
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Введите валидный email")]
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Логин должен быть от {2} до {1} символов")]
-        public required string Login { get; set; }
-
-
-        [Display(Name = "Пароль", Prompt = "Пароль")]
-        [Required(ErrorMessage = "Не указан пароль пользователя")]
-        [DataType(DataType.Password)]
-        [StringLength(50, MinimumLength = 6, ErrorMessage = "Пароль должен быть от {2} до {1} символов")]
-        public required string Password { get; set; }
+        public required string Email { get; set; }
 
 
         [Display(Name = "Телефон", Prompt = "Телефон")]
@@ -43,10 +36,6 @@ namespace Website_Progress.Models
         [StringLength(25, MinimumLength = 2, ErrorMessage = "Фамилия должна быть от {2} до {1} символов")]
         public required string LastName { get; set; }
 
-
-        //public Role? Role { get; set; }
-
-
-        public DateTime CreationDateTime { get; set; }
+        public string? Role { get; set; }
     }
 }

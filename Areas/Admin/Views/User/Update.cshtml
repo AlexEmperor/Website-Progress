@@ -1,4 +1,4 @@
-﻿@model AdminUserViewModel
+﻿@model EditAdminUserViewModel
 @{
     ViewData["Title"] = "Редактирование данных пользователя";
 }
@@ -29,9 +29,9 @@
                 <span asp-validation-for="Phone"></span>
             </p>
             <p>
-                <label class="form-label" asp-for="Login"></label><br />
-                <input class="form-control" asp-for="Login" value="@Model.Login" />
-                <span asp-validation-for="Login"></span>
+                <label class="form-label" asp-for="Email"></label><br />
+                <input class="form-control" asp-for="Email" value="@Model.Email" />
+                <span asp-validation-for="Email"></span>
             </p>
         </div>
     </div>

@@ -5,7 +5,7 @@ namespace Website_Progress.Models
     public class AdminUserViewModel
     {
 
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
 
         [Display(Name = "Логин", Prompt = "Логин")]
@@ -20,7 +20,7 @@ namespace Website_Progress.Models
         [Required(ErrorMessage = "Не указан пароль пользователя")]
         [DataType(DataType.Password)]
         [StringLength(50, MinimumLength = 6, ErrorMessage = "Пароль должен быть от {2} до {1} символов")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
 
         [Display(Name = "Телефон", Prompt = "Телефон")]
@@ -47,10 +47,10 @@ namespace Website_Progress.Models
 
         public DateTime CreationDateTime { get; set; }
 
-        public string Email { get; set; } = default!;
+        public string? Email { get; set; }
 
         public string? PhoneNumber { get; set; }
 
-        public string Role { get; set; }
+        public string? Role { get; set; }
     }
 }

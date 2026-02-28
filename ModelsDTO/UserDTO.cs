@@ -6,7 +6,7 @@ namespace Website_Progress.ModelsDTO
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public DateTime CreationDateTime { get; set; }
+        public DateTime CreationDateTime { get; set; } = DateTime.Now;
 
     }
 }

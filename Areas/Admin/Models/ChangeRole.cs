@@ -6,6 +6,10 @@ namespace Website_Progress.Areas.Admin.Models
 {
     public class ChangeRole
     {
+        [Display(Name = "Id пользователя")]
+        public string Id { get; set; }  // <-- обязательно
+
+
         [Display(Name = "Логин", Prompt = "Ваш логин")]
         [Required(ErrorMessage = "Не указан логин")]
         [DataType(DataType.EmailAddress)]
@@ -22,6 +26,6 @@ namespace Website_Progress.Areas.Admin.Models
 
 
         [AllowNull]
-        public List<SelectListItem> Roles { get; set; }
+        public List<SelectListItem>? Roles { get; set; }
     }
 }

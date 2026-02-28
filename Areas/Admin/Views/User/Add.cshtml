@@ -34,9 +34,21 @@
                 <span asp-validation-for="Login"></span>
             </p>
             <p>
+                <label asp-for="Email"></label>
+                <input class="form-control" asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </p>
+            <p>
                 <label class="form-label" asp-for="Password"></label><br />
                 <input class="form-control" asp-for="Password" />
                 <span asp-validation-for="Password"></span>
+            </p>
+            <p>
+                <label asp-for="Role"></label>
+                <select asp-for="Role" class="form-control"
+                        asp-items="new SelectList(ViewBag.Roles)">
+                </select>
+                <span asp-validation-for="Role"></span>
             </p>
         </div>
     </div>
