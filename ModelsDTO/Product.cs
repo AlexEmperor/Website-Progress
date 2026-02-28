@@ -11,7 +11,7 @@
         public decimal Cost { get; set; }
 
         public string? Description { get; set; }
-        public string? PhotoPath { get; set; } //= "/img/product.png";
+        public string? PhotoPath { get; set; }
         public string? PresentationPath { get; set; }
 
         public string? FirmwarePath { get; set; }

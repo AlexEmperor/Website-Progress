@@ -35,17 +35,19 @@ namespace Website_Progress.Models
         public string? FirmwarePath { get; set; }
 
         public IFormFile? PhotoFile { get; set; }
+        public IFormFile? PresentationFile { get; set; }
+        public IFormFile? FirmwareFile { get; set; }
 
         public ProductViewModel() { }
 
-        public ProductViewModel(int id, string name, decimal cost, string? description, string? photoPath, string? presentationPath)
-        {
-            Id = id;
-            Name = name;
-            Cost = cost;
-            Description = description;
-            PhotoPath = photoPath;
-            PresentationPath = presentationPath;
-        }
+        /* public ProductViewModel(int id, string name, decimal cost, string? description, string? photoPath, string? presentationPath)
+         {
+             Id = id;
+             Name = name;
+             Cost = cost;
+             Description = description;
+             PhotoPath = photoPath;
+             PresentationPath = presentationPath;
+         }*/
     }
 }

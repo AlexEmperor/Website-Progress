@@ -56,7 +56,8 @@ namespace Website_Progress.Helpers
                 Cost = productDb.Cost,
                 Description = productDb.Description,
                 PhotoPath = productDb.PhotoPath,
-                PresentationPath = productDb.PresentationPath
+                PresentationPath = productDb.PresentationPath,
+                FirmwarePath = productDb.FirmwarePath,
             };
         }
 
@@ -69,7 +70,8 @@ namespace Website_Progress.Helpers
                 Cost = product.Cost,
                 Description = product.Description,
                 PhotoPath = product.PhotoPath,
-                PresentationPath = product.PresentationPath
+                PresentationPath = product.PresentationPath,
+                FirmwarePath = product.FirmwarePath
             };
         }
         #endregion

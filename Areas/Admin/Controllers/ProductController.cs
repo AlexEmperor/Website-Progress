@@ -11,12 +11,13 @@ namespace Website_Progress.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository _productsRepository;
+        private readonly IWebHostEnvironment _environment;
 
 
-        public ProductController(IProductRepository productsRepository)
+        public ProductController(IProductRepository productsRepository, IWebHostEnvironment environment)
         {
             _productsRepository = productsRepository;
-
+            _environment = environment;
         }
 
 
@@ -24,7 +25,6 @@ namespace Website_Progress.Areas.Admin.Controllers
         {
             var products = _productsRepository.GetAll().OrderBy(p => p.Id).ToList();
             return View(products.ToProductViewModels());
-            //return View(products);
         }
 
 
@@ -35,18 +35,28 @@ namespace Website_Progress.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult Add(ProductViewModel product)
+        public async Task<IActionResult> Add(ProductViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(product);
+                return View(model);
             }
-            _productsRepository.Add(product.ToProductDb());
-            //_productsRepository.Add(product);
+
+            // Фото ОБЯЗАТЕЛЬНО при создании
+            if (model.PhotoFile == null)
+            {
+                ModelState.AddModelError("PhotoFile", "Необходимо загрузить фото товара");
+                return View(model);
+            }
+
+            model.PhotoPath = await FileSaver.SaveFileAsync(model.PhotoFile, "img", _environment);
+            model.PresentationPath = await FileSaver.SaveFileAsync(model.PresentationFile, "presentations", _environment);
+            model.FirmwarePath = await FileSaver.SaveFileAsync(model.FirmwareFile, "firmware", _environment);
+
+            _productsRepository.Add(model.ToProductDb());
 
             return RedirectToAction(nameof(Index));
         }
-
 
         public IActionResult Delete(int id)
         {
@@ -65,14 +75,43 @@ namespace Website_Progress.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult Update(ProductViewModel product)
+        public async Task<IActionResult> Update(ProductViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(product);
+                return View(model);
             }
-            _productsRepository.Update(product.ToProductDb());
-            //_productsRepository.Update(product);
+
+            var productDb = _productsRepository.TryGetById(model.Id);
+            if (productDb == null)
+            {
+                return NotFound();
+            }
+
+            productDb.Name = model.Name;
+            productDb.Cost = model.Cost;
+            productDb.Description = model.Description;
+
+            // Если загрузили новый файл — заменяем
+            var newPhoto = await FileSaver.SaveFileAsync(model.PhotoFile, "img", _environment);
+            if (newPhoto != null)
+            {
+                productDb.PhotoPath = newPhoto;
+            }
+
+            var newPresentation = await FileSaver.SaveFileAsync(model.PresentationFile, "presentations", _environment);
+            if (newPresentation != null)
+            {
+                productDb.PresentationPath = newPresentation;
+            }
+
+            var newFirmware = await FileSaver.SaveFileAsync(model.FirmwareFile, "firmware", _environment);
+            if (newFirmware != null)
+            {
+                productDb.FirmwarePath = newFirmware;
+            }
+
+            _productsRepository.Update(productDb);
 
             return RedirectToAction(nameof(Index));
         }

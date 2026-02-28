@@ -2,6 +2,7 @@ wwwroot\css\body.css
 wwwroot\css\footer.css
 wwwroot\css\header.css
 wwwroot\favicon.ico
+wwwroot\img\82e66c84-ad90-4926-8c50-8e49021d14d9.png
 wwwroot\img\contact.png
 wwwroot\img\email.png
 wwwroot\img\geo.png
@@ -74,5 +75,6 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\presentations\44c93ffc-1c3b-45fc-abc7-9bead10e3421.pptx
 wwwroot\presentations\АМ_VVizor_HiddenParts.pptx
 wwwroot\presentations\КП Интеллект АК SDR(3).pptx
