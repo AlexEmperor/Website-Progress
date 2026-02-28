@@ -49,9 +49,23 @@ namespace Website_Progress.Areas.Admin.Controllers
                 return View(model);
             }
 
-            model.PhotoPath = await FileSaver.SaveFileAsync(model.PhotoFile, "img", _environment);
-            model.PresentationPath = await FileSaver.SaveFileAsync(model.PresentationFile, "presentations", _environment);
-            model.FirmwarePath = await FileSaver.SaveFileAsync(model.FirmwareFile, "firmware", _environment);
+            model.PhotoPath = await FileSaver.SaveFileAsync(
+                model.PhotoFile,
+                "img",
+                _environment,
+                model.Name);
+
+            model.PresentationPath = await FileSaver.SaveFileAsync(
+                model.PresentationFile,
+                "presentations",
+                _environment,
+                model.Name);
+
+            model.FirmwarePath = await FileSaver.SaveFileAsync(
+                model.FirmwareFile,
+                "firmware",
+                _environment,
+                model.Name);
 
             _productsRepository.Add(model.ToProductDb());
 
@@ -92,23 +106,62 @@ namespace Website_Progress.Areas.Admin.Controllers
             productDb.Cost = model.Cost;
             productDb.Description = model.Description;
 
-            // Если загрузили новый файл — заменяем
-            var newPhoto = await FileSaver.SaveFileAsync(model.PhotoFile, "img", _environment);
-            if (newPhoto != null)
+            // ===== Фото =====
+            if (model.PhotoFile != null)
             {
-                productDb.PhotoPath = newPhoto;
+                // Удаляем старый файл
+                if (!string.IsNullOrEmpty(productDb.PhotoPath))
+                {
+                    var oldPhotoPath = Path.Combine(_environment.WebRootPath, productDb.PhotoPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+                    if (System.IO.File.Exists(oldPhotoPath))
+                    {
+                        System.IO.File.Delete(oldPhotoPath);
+                    }
+                }
+
+                var newPhoto = await FileSaver.SaveFileAsync(model.PhotoFile, "img", _environment, model.Name);
+                if (newPhoto != null)
+                {
+                    productDb.PhotoPath = newPhoto;
+                }
             }
 
-            var newPresentation = await FileSaver.SaveFileAsync(model.PresentationFile, "presentations", _environment);
-            if (newPresentation != null)
+            // ===== Презентация =====
+            if (model.PresentationFile != null)
             {
-                productDb.PresentationPath = newPresentation;
+                if (!string.IsNullOrEmpty(productDb.PresentationPath))
+                {
+                    var oldPresentationPath = Path.Combine(_environment.WebRootPath, productDb.PresentationPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+                    if (System.IO.File.Exists(oldPresentationPath))
+                    {
+                        System.IO.File.Delete(oldPresentationPath);
+                    }
+                }
+
+                var newPresentation = await FileSaver.SaveFileAsync(model.PresentationFile, "presentations", _environment, model.Name);
+                if (newPresentation != null)
+                {
+                    productDb.PresentationPath = newPresentation;
+                }
             }
 
-            var newFirmware = await FileSaver.SaveFileAsync(model.FirmwareFile, "firmware", _environment);
-            if (newFirmware != null)
+            // ===== Прошивка =====
+            if (model.FirmwareFile != null)
             {
-                productDb.FirmwarePath = newFirmware;
+                if (!string.IsNullOrEmpty(productDb.FirmwarePath))
+                {
+                    var oldFirmwarePath = Path.Combine(_environment.WebRootPath, productDb.FirmwarePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+                    if (System.IO.File.Exists(oldFirmwarePath))
+                    {
+                        System.IO.File.Delete(oldFirmwarePath);
+                    }
+                }
+
+                var newFirmware = await FileSaver.SaveFileAsync(model.FirmwareFile, "firmware", _environment, model.Name);
+                if (newFirmware != null)
+                {
+                    productDb.FirmwarePath = newFirmware;
+                }
             }
 
             _productsRepository.Update(productDb);

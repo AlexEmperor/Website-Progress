@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Website Progress")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66000446917fb4271d9b052306a174cf94ba306c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29ff40e3f4859c518c6f0d7af7491e9bf88c3ce2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Website Progress")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Website Progress")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

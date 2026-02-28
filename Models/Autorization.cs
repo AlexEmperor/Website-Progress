@@ -20,7 +20,7 @@ namespace Website_Progress.Models
 
 
         [Display(Name = "Запомнить меня")]
-        [Required]
+        //[Required]
         public bool Memorize { get; set; }
     }
 }
