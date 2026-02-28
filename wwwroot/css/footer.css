@@ -46,3 +46,21 @@ footer.footer {
     footer.footer .footer-icon:hover i {
         color: #198754 !important;
     }
+/* Подсказка "Скопировано!" */
+.copy-feedback {
+    display: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #20c997; /* яркий зеленый для контраста */
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Для футера с темной и светлой темой, цвет всегда виден */
+body:not(.dark) .copy-feedback {
+    color: var(--accent);
+}
+
+body.dark .copy-feedback {
+    color: #20c997;
+}

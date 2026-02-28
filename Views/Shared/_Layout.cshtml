@@ -107,31 +107,30 @@
             });
         });
 
+        // ======================
+        // MAIL LINKS (копирование с подсказкой)
+        // ======================
+                document.querySelectorAll('.mail-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
 
-            // ======================
-            // MAIL LINKS
-            // ======================
-            const mailLinks = document.querySelectorAll('.mail-link');
-            const email = 'electriks0comp26@gmail.com';
+                const email = this.getAttribute('data-email') || 'electriks0comp26@gmail.com';
+                const feedback = this.parentElement.querySelector('.copy-feedback'); // ищем подсказку внутри контейнера
+                if (!feedback) return;
 
-            mailLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
+                // Копируем в буфер
+                navigator.clipboard.writeText(email).then(() => {
+                    feedback.style.display = 'inline';
+                    feedback.style.opacity = 1;
 
-                    const mailtoUrl = `mailto:${email}`;
-                    const mailruUrl = `https://e.mail.ru/compose/?to=${email}`;
-
-                    const iframe = document.createElement("iframe");
-                    iframe.style.display = "none";
-                    iframe.src = mailtoUrl;
-                    document.body.appendChild(iframe);
-
+                    // Скрываем через 1.5 сек с плавным исчезновением
                     setTimeout(() => {
-                        window.open(mailruUrl, "_blank");
-                        document.body.removeChild(iframe);
-                    }, 700);
-                });
+                        feedback.style.opacity = 0;
+                        setTimeout(() => feedback.style.display = 'none', 300);
+                    }, 1500);
+                }).catch(err => console.error('Ошибка копирования email:', err));
             });
+        });
 
         });
             function flipCard() {
