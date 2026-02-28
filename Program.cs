@@ -15,7 +15,6 @@ string connection = builder.Configuration.GetConnectionString("WebTestConnection
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IProductRepository, ProductsDbRepository>();
-builder.Services.AddTransient<INewProductRepository, InMemoryNewProductRepository>();
 builder.Services.AddTransient<INewsRepository, NewsDbRepository>();
 builder.Services.AddTransient<ICartRepository, CartDbRepository>();
 builder.Services.AddTransient<IOrderRepository, OrdersDbRepository>();
