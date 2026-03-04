@@ -25,9 +25,21 @@ namespace Website_Progress.Helpers
             {
                 Id = newsDb.Id,
                 Title = newsDb.Title,
-                ShortText = newsDb.ShortText,
-                ImageUrl = newsDb.ImageUrl,
+                Description = newsDb.ShortText,
+                ImagePath = newsDb.ImageUrl,
                 Date = newsDb.Date,
+            };
+        }
+
+        public static News ToNewsDb(this NewsViewModel product)
+        {
+            return new News()
+            {
+                Id = product.Id,
+                Title = product.Title,
+                ShortText = product.Description,
+                ImageUrl = product.ImagePath,
+                Date = product.Date,
             };
         }
 

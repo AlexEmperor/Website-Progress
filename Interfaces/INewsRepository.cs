@@ -5,7 +5,10 @@ namespace Website_Progress.Interfaces
     public interface INewsRepository
     {
         List<News> GetAll();
-        //List<NewsViewModel> Search(string text);
+        void Add(News product);
+        void Delete(int productId);
+        void Update(News product);
+
         News? TryGetById(int id);
     }
 }

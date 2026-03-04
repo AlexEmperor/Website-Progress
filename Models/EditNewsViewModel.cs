@@ -2,7 +2,7 @@
 
 namespace Website_Progress.Models
 {
-    public class NewsViewModel
+    public class EditNewsViewModel
     {
         public int Id { get; set; }
 
@@ -14,7 +14,6 @@ namespace Website_Progress.Models
         [Required(ErrorMessage = "Не указано описание новости")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Не указана картинка")]
         public string? ImagePath { get; set; }
 
         [Display(Name = "Дата")]
@@ -24,21 +23,5 @@ namespace Website_Progress.Models
 
 
         public IFormFile? ImageFile { get; set; }
-
-
-        public NewsViewModel()
-        {
-
-        }
-
-        public NewsViewModel(int id, string title, string shortText, string imageUrl, DateTime date)
-        {
-            Id = id;
-            Title = title;
-            Description = shortText;
-            ImagePath = imageUrl;
-            Date = date;
-        }
     }
-
 }
