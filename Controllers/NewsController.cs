@@ -13,17 +13,17 @@ namespace Website_Progress.Controllers
             _newsRepository = newsRepository;
         }
 
-        public IActionResult Index(int id)
+        public async Task<IActionResult> Index(int id)
         {
-            var New = _newsRepository.TryGetById(id);
-            return View(New.ToNewsViewModel());
+            var news = await _newsRepository.TryGetByIdAsync(id);
 
+            return news == null ? NotFound() : View(news.ToNewsViewModel());
         }
 
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var products = _newsRepository.GetAll();
-            return View(products.ToNewsViewModels());
+            var news = await _newsRepository.GetAllAsync();
+            return View(news.ToNewsViewModels().OrderByDescending(x => x.Date).ToList());
         }
     }
 }

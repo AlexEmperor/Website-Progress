@@ -4,12 +4,12 @@ namespace Website_Progress.Interfaces
 {
     public interface IProductRepository
     {
-        List<Product> GetAll();
-        Product? TryGetById(int productId);
-        void Add(Product product);
-        void Delete(int productId);
-        void Update(Product product);
-        List<Product> Search(string text);
-        List<Product> GetForMainPage();
+        Task<List<Product>> GetAllAsync();
+        Task<Product?> TryGetByIdAsync(int productId);
+        Task AddAsync(Product product);
+        Task DeleteAsync(int productId);
+        Task UpdateAsync(Product product);
+        Task<List<Product>> SearchAsync(string text);
+        Task<List<Product>> GetForMainPageAsync();
     }
 }

@@ -22,31 +22,34 @@ namespace Website_Progress.Controllers
             return User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var cart = _cartRepository.TryGetByUserId(GetUserId());
-
+            var cart = await _cartRepository.TryGetByUserIdAsync(GetUserId());
             return View(cart.ToCartViewModel());
         }
 
         [Authorize]
-        public IActionResult Add(int productId)
+        public async Task<IActionResult> Add(int productId)
         {
-            _cartRepository.Add(_productRepository.TryGetById(productId), GetUserId());
+            var product = await _productRepository.TryGetByIdAsync(productId);
+
+            if (product != null)
+            {
+                await _cartRepository.AddAsync(product, GetUserId());
+            }
 
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Delete(int productId)
+        public async Task<IActionResult> Delete(int productId)
         {
-            _cartRepository.Delete(productId, GetUserId());
-
+            await _cartRepository.DeleteAsync(productId, GetUserId());
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult Clear()
-        {
-            _cartRepository.Clear(GetUserId());
 
+        public async Task<IActionResult> Clear()
+        {
+            await _cartRepository.ClearAsync(GetUserId());
             return RedirectToAction(nameof(Index));
         }
 

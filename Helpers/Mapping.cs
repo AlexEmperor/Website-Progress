@@ -47,7 +47,6 @@ namespace Website_Progress.Helpers
 
         #endregion
 
-
         #region Product
         public static List<ProductViewModel> ToProductViewModels(this List<Product> productsDb)
         {

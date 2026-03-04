@@ -18,7 +18,7 @@ namespace Website_Progress.Models
         [Required(ErrorMessage = "Не указано описание новости")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Не указана картинка")]
+        //[Required(ErrorMessage = "Не указана картинка")]
         public string? ImagePath { get; set; }
 
         [Display(Name = "Дата")]

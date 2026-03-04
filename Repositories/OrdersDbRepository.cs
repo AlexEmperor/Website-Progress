@@ -14,41 +14,47 @@ namespace Website_Progress.Repositories
             _databaseContext = databaseContext;
         }
 
-        public void Add(Order order)
+        public async Task AddAsync(Order order)
         {
             order.Id = Guid.NewGuid();
-            order.CreationDateTime = DateTime.Now; // -3 часа от Москвы
+            order.CreationDateTime = DateTime.Now; // лучше UTC
             order.DeliveryUser.Id = Guid.NewGuid();
             order.Status = OrderStatus.Created;
 
-            _databaseContext.Orders.Add(order);
-
-            _databaseContext.SaveChanges();
+            await _databaseContext.Orders.AddAsync(order);
+            await _databaseContext.SaveChangesAsync();
         }
 
-        public List<Order> GetAll() => _databaseContext.Orders
-            .Include(x => x.DeliveryUser)
-            .Include(x => x.Items)
-            .ThenInclude(x => x.Product)
-            .OrderByDescending(x => x.CreationDateTime)
-            .ToList();
-
-        public Order? TryGetById(Guid orderId) =>
-            _databaseContext.Orders
-            .Include(x => x.DeliveryUser)
-            .Include(x => x.Items)
-            .ThenInclude(x => x.Product)
-            .FirstOrDefault(order => order.Id == orderId);
-
-        public void UpdateStatus(Guid orderId, OrderStatus newStatus)
+        public async Task<List<Order>> GetAllAsync()
         {
-            var existingOrder = TryGetById(orderId);
+            return await _databaseContext.Orders
+                .AsNoTracking()
+                .Include(x => x.DeliveryUser)
+                .Include(x => x.Items)
+                    .ThenInclude(x => x.Product)
+                .OrderByDescending(x => x.CreationDateTime)
+                .ToListAsync();
+        }
+
+        public async Task<Order?> TryGetByIdAsync(Guid orderId)
+        {
+            return await _databaseContext.Orders
+                .AsNoTracking()
+                .Include(x => x.DeliveryUser)
+                .Include(x => x.Items)
+                    .ThenInclude(x => x.Product)
+                .FirstOrDefaultAsync(order => order.Id == orderId);
+        }
+
+        public async Task UpdateStatusAsync(Guid orderId, OrderStatus newStatus)
+        {
+            var existingOrder = await _databaseContext.Orders
+                .FirstOrDefaultAsync(x => x.Id == orderId);
 
             if (existingOrder != null)
             {
                 existingOrder.Status = newStatus;
-
-                _databaseContext.SaveChanges();
+                await _databaseContext.SaveChangesAsync();
             }
         }
     }

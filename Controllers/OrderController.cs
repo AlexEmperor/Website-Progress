@@ -32,11 +32,11 @@ namespace Website_Progress.Controllers
             return User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var cart = _cartRepository.TryGetByUserId(GetUserId());
+            var cart = await _cartRepository.TryGetByUserIdAsync(GetUserId());
 
-            var order = new OrderViewModel()
+            var order = new OrderViewModel
             {
                 Items = cart?.Items.ToCartItemViewModels()
             };
@@ -47,7 +47,7 @@ namespace Website_Progress.Controllers
         [HttpPost]
         public async Task<IActionResult> Buy(OrderViewModel order)
         {
-            var cart = _cartRepository.TryGetByUserId(GetUserId());
+            var cart = await _cartRepository.TryGetByUserIdAsync(GetUserId());
 
             if (cart == null)
             {
@@ -73,10 +73,10 @@ namespace Website_Progress.Controllers
                 Status = (OrderStatus)order.Status
             };
 
-            _orderRepository.Add(orderDb);
+            await _orderRepository.AddAsync(orderDb);
 
             await _telegramService.SendOrderAsync(orderDb);
-            _cartRepository.Clear(GetUserId());
+            await _cartRepository.ClearAsync(GetUserId());
 
             return RedirectToAction(nameof(Success), new { id = orderDb.Id });
         }
@@ -87,9 +87,9 @@ namespace Website_Progress.Controllers
             return View();
         }
 
-        public IActionResult GenerateInvoice(Guid id)
+        public async Task<IActionResult> GenerateInvoice(Guid id)
         {
-            var order = _orderRepository.TryGetById(id);
+            var order = await _orderRepository.TryGetByIdAsync(id);
 
             if (order == null)
             {

@@ -1,4 +1,5 @@
-﻿using Website_Progress.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using Website_Progress.DataContext;
 using Website_Progress.Interfaces;
 using Website_Progress.ModelsDTO;
 
@@ -13,49 +14,50 @@ namespace Website_Progress.Repositories
             _databaseContext = databaseContext;
         }
 
-        public List<News> GetAll() => _databaseContext.News.ToList();
+        public async Task<List<News>> GetAllAsync()
+               => await _databaseContext.News.ToListAsync();
 
-        public News? TryGetById(int id) => _databaseContext.News.FirstOrDefault(product => product.Id == id);
+        public async Task<News?> TryGetByIdAsync(int id)
+            => await _databaseContext.News
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-        public void Add(News product)
+        public async Task AddAsync(News news)
         {
-            _databaseContext.News.Add(product);
-
-            _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+            await _databaseContext.News.AddAsync(news);
+            await _databaseContext.SaveChangesAsync();
         }
 
-        public void Delete(int productId)
+        public async Task DeleteAsync(int id)
         {
-            var existingProduct = TryGetById(productId);
-
-            if (existingProduct != null)
+            var existing = await TryGetByIdAsync(id);
+            if (existing != null)
             {
-                _databaseContext.News.Remove(existingProduct);
-                _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+                _databaseContext.News.Remove(existing);
+                await _databaseContext.SaveChangesAsync();
             }
         }
 
-        public void Update(News news)
+        public async Task UpdateAsync(News news)
         {
-            var existingNews = TryGetById(news.Id);
-
-            if (existingNews != null)
+            var existing = await TryGetByIdAsync(news.Id);
+            if (existing != null)
             {
-                existingNews.Title = news.Title;
-                existingNews.ShortText = news.ShortText;
-                // existingNews.Description = news.Description;
+                existing.Title = news.Title;
+                existing.ShortText = news.ShortText;
+                existing.ImageUrl = news.ImageUrl;
+                existing.IsOnMainPage = news.IsOnMainPage;
 
-                _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+                await _databaseContext.SaveChangesAsync();
             }
         }
 
-        public List<News> GetForMainPage()
+        public async Task<List<News>> GetForMainPageAsync()
         {
-            return _databaseContext.News
+            return await _databaseContext.News
                 .Where(x => x.IsOnMainPage)
                 .OrderByDescending(x => x.Date)
                 .Take(3)
-                .ToList();
+                .ToListAsync();
         }
     }
 }

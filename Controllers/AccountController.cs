@@ -23,18 +23,18 @@ namespace Website_Progress.Controllers
         }
 
         [HttpPost]
-        public IActionResult Autorization(Autorization authorization, string? returnUrl)
+        public async Task<IActionResult> AutorizationAsync(Autorization authorization, string? returnUrl)
         {
             if (!ModelState.IsValid)
             {
                 return View(authorization);
             }
 
-            var result = _signInManager.PasswordSignInAsync(
+            var result = await _signInManager.PasswordSignInAsync(
                 authorization.Login,
                 authorization.Password,
                 authorization.Memorize,
-                false).Result;
+                false);
 
             if (result.Succeeded)
             {
@@ -53,7 +53,7 @@ namespace Website_Progress.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registration(Registration registration)
+        public async Task<IActionResult> RegistrationAsync(Registration registration)
         {
             if (!ModelState.IsValid)
             {
@@ -70,15 +70,15 @@ namespace Website_Progress.Controllers
                 LastName = registration.LastName
             };
 
-            var result = _userManager.CreateAsync(user, registration.Password).Result;
+            var result = await _userManager.CreateAsync(user, registration.Password);
 
             if (result.Succeeded)
             {
                 // Назначаем роль
-                _userManager.AddToRoleAsync(user, Constants.UserRoleName).Wait();
+                await _userManager.AddToRoleAsync(user, Constants.UserRoleName);
 
                 // Автоматический вход после регистрации
-                _signInManager.SignInAsync(user, false).Wait();
+                await _signInManager.SignInAsync(user, false);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -91,9 +91,9 @@ namespace Website_Progress.Controllers
             return View(registration);
         }
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            _signInManager.SignOutAsync().Wait();
+            await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
     }

@@ -16,37 +16,30 @@ namespace Website_Progress.Controllers
             _newsRepository = newsRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var productsTask = await _productRepository.GetForMainPageAsync();
+            var newsTask = await _newsRepository.GetForMainPageAsync();
+
             var model = new HomeViewModel
             {
-                News = _newsRepository
-                            .GetForMainPage()
-                            .ToNewsViewModels(),
-
-                FeaturedProducts = _productRepository
-                            .GetForMainPage()
-                            .ToProductViewModels()
+                News = newsTask.ToNewsViewModels(),
+                FeaturedProducts = productsTask.ToProductViewModels()
             };
 
             return View(model);
         }
 
-        public IActionResult Search(string query)
+        public async Task<IActionResult> Search(string query)
         {
-            if (query == null)
+            if (string.IsNullOrEmpty(query))
             {
                 return View();
             }
-            // return View(); //заглушка
 
-            var products = _productRepository.Search(query);
+            var products = await _productRepository.SearchAsync(query);
 
-            return View(products/*.ToProductViewModels()*/);
-
-            /*var products = _productRepository.Search(query);
-
-            return View(products);*/
+            return View(products);
         }
 
         public IActionResult Privacy()

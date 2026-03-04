@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Website_Progress.Areas.Admin.Models;
 using Website_Progress.Models;
 using Website_Progress.ModelsDTO;
@@ -25,7 +26,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var users = _userManager.Users.ToList();
+            var users = await _userManager.Users.ToListAsync();
             var model = new List<AdminUserViewModel>();
 
             foreach (var user in users)

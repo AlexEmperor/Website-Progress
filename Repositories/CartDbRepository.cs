@@ -7,8 +7,6 @@ namespace Website_Progress.Repositories
 {
     public class CartDbRepository : ICartRepository
     {
-        private readonly List<Cart> _carts = [];
-
         private readonly DatabaseContext _databaseContext;
 
         public CartDbRepository(DatabaseContext databaseContext)
@@ -16,15 +14,17 @@ namespace Website_Progress.Repositories
             _databaseContext = databaseContext;
         }
 
-        public Cart? TryGetByUserId(string userId)
+        public async Task<Cart?> TryGetByUserIdAsync(string userId)
         {
-            return _databaseContext.Carts.Include(x => x.Items)
-                .ThenInclude(x => x.Product).FirstOrDefault(x => x.UserId == userId);
+            return await _databaseContext.Carts
+                .Include(x => x.Items)
+                    .ThenInclude(x => x.Product)
+                .FirstOrDefaultAsync(x => x.UserId == userId);
         }
 
-        public void Add(Product product, string userId)
+        public async Task AddAsync(Product product, string userId)
         {
-            var existingCart = TryGetByUserId(userId);
+            var existingCart = await TryGetByUserIdAsync(userId);
 
             if (existingCart == null)
             {
@@ -45,7 +45,7 @@ namespace Website_Progress.Repositories
                         }
 
                 ];
-                _databaseContext.Carts.Add(existingCart);
+                await _databaseContext.Carts.AddAsync(existingCart);
             }
             else
             {
@@ -68,12 +68,12 @@ namespace Website_Progress.Repositories
                 }
             }
 
-            _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+            await _databaseContext.SaveChangesAsync();
         }
 
-        public void Delete(int productId, string userId)
+        public async Task DeleteAsync(int productId, string userId)
         {
-            var existingCart = TryGetByUserId(userId);
+            var existingCart = await TryGetByUserIdAsync(userId);
 
             var existingCartItem = existingCart?.Items
                 .FirstOrDefault(item => item.Product.Id == productId);
@@ -90,18 +90,17 @@ namespace Website_Progress.Repositories
                 existingCart?.Items.Remove(existingCartItem);
             }
 
-            _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+            await _databaseContext.SaveChangesAsync();
         }
 
-        public void Clear(string userId)
+        public async Task ClearAsync(string userId)
         {
-            var existingCart = TryGetByUserId(userId);
+            var existingCart = await TryGetByUserIdAsync(userId);
 
             if (existingCart != null)
             {
                 _databaseContext.Carts.Remove(existingCart);
-
-                _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+                await _databaseContext.SaveChangesAsync();
             }
         }
     }

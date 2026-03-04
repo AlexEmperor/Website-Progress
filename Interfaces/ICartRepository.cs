@@ -4,9 +4,9 @@ namespace Website_Progress.Interfaces
 {
     public interface ICartRepository
     {
-        void Add(Product product, string userId);
-        void Delete(int productId, string userId);
-        void Clear(string userId);
-        Cart? TryGetByUserId(string userId);
+        Task<Cart?> TryGetByUserIdAsync(string userId);
+        Task AddAsync(Product product, string userId);
+        Task DeleteAsync(int productId, string userId);
+        Task ClearAsync(string userId);
     }
 }

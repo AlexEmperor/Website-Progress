@@ -21,10 +21,14 @@ namespace Website_Progress.Areas.Admin.Controllers
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var products = _productsRepository.GetAll().OrderBy(p => p.Id).ToList();
-            return View(products.ToProductViewModels());
+            var products = await _productsRepository.GetAllAsync();
+
+            return View(products
+                .OrderBy(p => p.Id)
+                .ToList()
+                .ToProductViewModels());
         }
 
 
@@ -67,24 +71,21 @@ namespace Website_Progress.Areas.Admin.Controllers
                 _environment,
                 model.Name);
 
-            _productsRepository.Add(model.ToProductDb());
+            await _productsRepository.AddAsync(model.ToProductDb());
 
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _productsRepository.Delete(id);
-
+            await _productsRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            var existingProduct = _productsRepository.TryGetById(id);
+            var existingProduct = await _productsRepository.TryGetByIdAsync(id);
             return View(existingProduct?.ToProductViewModel());
-            //return View(existingProduct);
         }
 
 
@@ -96,7 +97,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                 return View(model);
             }
 
-            var productDb = _productsRepository.TryGetById(model.Id);
+            var productDb = await _productsRepository.TryGetByIdAsync(model.Id);
             if (productDb == null)
             {
                 return NotFound();
@@ -169,8 +170,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                 }
             }
 
-            _productsRepository.Update(productDb);
-
+            await _productsRepository.UpdateAsync(productDb);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -13,10 +13,15 @@ namespace Website_Progress.Controllers
             _productRepository = productRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var products = _productRepository.GetAll().OrderBy(p => p.Id).ToList();
-            return View(products.ToProductViewModels());
+            var products = await _productRepository.GetAllAsync();
+
+            var ordered = products
+                .OrderBy(p => p.Id)
+                .ToList();
+
+            return View(ordered.ToProductViewModels());
         }
     }
 }

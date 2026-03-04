@@ -19,9 +19,14 @@ namespace Website_Progress.Areas.Admin.Controllers
             _environment = environment;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_newsRepository.GetAll().ToNewsViewModels().OrderByDescending(x => x.Date).ToList());
+            var news = await _newsRepository.GetAllAsync();
+
+            return View(news
+                .ToNewsViewModels()
+                .OrderByDescending(x => x.Date)
+                .ToList());
         }
 
         public IActionResult Add()
@@ -51,23 +56,21 @@ namespace Website_Progress.Areas.Admin.Controllers
                 _environment,
                 model.Title);
 
-            _newsRepository.Add(model.ToNewsDb());
+            await _newsRepository.AddAsync(model.ToNewsDb());
 
             return RedirectToAction(nameof(Index));
         }
 
-
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _newsRepository.Delete(id);
-
+            await _newsRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
 
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            var existingNews = _newsRepository.TryGetById(id);
+            var existingNews = await _newsRepository.TryGetByIdAsync(id);
 
             var model = new EditNewsViewModel
             {
@@ -78,7 +81,6 @@ namespace Website_Progress.Areas.Admin.Controllers
             };
 
             return View(model);
-            //return View(existingProduct);
         }
 
 
@@ -90,7 +92,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                 return View(model);
             }
 
-            var newsDb = _newsRepository.TryGetById(model.Id);
+            var newsDb = await _newsRepository.TryGetByIdAsync(model.Id);
             if (newsDb == null)
             {
                 return NotFound();
@@ -99,7 +101,6 @@ namespace Website_Progress.Areas.Admin.Controllers
             newsDb.Title = model.Title;
             newsDb.ShortText = model.Description;
             newsDb.IsOnMainPage = model.IsOnMainPage;
-            //newsDb.ImageUrl = model.ImagePath;
 
             // ===== Фото =====
             if (model.ImageFile != null)
@@ -123,7 +124,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                 }
             }
 
-            _newsRepository.Update(newsDb);
+            await _newsRepository.UpdateAsync(newsDb);
 
             return RedirectToAction(nameof(Index));
         }

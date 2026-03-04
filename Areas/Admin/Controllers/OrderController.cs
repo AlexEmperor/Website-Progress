@@ -21,28 +21,24 @@ namespace Website_Progress.Areas.Admin.Controllers
 
         }
 
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var orders = _ordersRepository.GetAll();
-
+            var orders = await _ordersRepository.GetAllAsync();
             return View(orders.ToOrderViewModels());
         }
 
 
-        public IActionResult Detail(Guid orderId)
+        public async Task<IActionResult> Detail(Guid orderId)
         {
-            var order = _ordersRepository.TryGetById(orderId);
-
+            var order = await _ordersRepository.TryGetByIdAsync(orderId);
             return View(order?.ToOrderViewModel());
         }
 
 
         [HttpPost]
-        public IActionResult UpdateStatus(Guid orderId, OrderStatusViewModel status)
+        public async Task<IActionResult> UpdateStatus(Guid orderId, OrderStatusViewModel status)
         {
-            _ordersRepository.UpdateStatus(orderId, (OrderStatus)status);
-
+            await _ordersRepository.UpdateStatusAsync(orderId, (OrderStatus)status);
             return RedirectToAction(nameof(Index));
         }
     }

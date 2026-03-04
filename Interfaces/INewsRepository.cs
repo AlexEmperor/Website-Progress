@@ -4,12 +4,11 @@ namespace Website_Progress.Interfaces
 {
     public interface INewsRepository
     {
-        List<News> GetAll();
-        void Add(News product);
-        void Delete(int productId);
-        void Update(News product);
-
-        List<News> GetForMainPage();
-        News? TryGetById(int id);
+        Task<List<News>> GetAllAsync();
+        Task<News?> TryGetByIdAsync(int id);
+        Task AddAsync(News news);
+        Task DeleteAsync(int id);
+        Task UpdateAsync(News news);
+        Task<List<News>> GetForMainPageAsync();
     }
 }

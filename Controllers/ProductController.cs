@@ -13,11 +13,11 @@ namespace Website_Progress.Controllers
             _productRepository = productRepository;
         }
 
-        public IActionResult Index(int id)
+        public async Task<IActionResult> Index(int id)
         {
-            var product = _productRepository.TryGetById(id);
+            var product = await _productRepository.TryGetByIdAsync(id);
+
             return View(product?.ToProductViewModel());
-            //return View(product);
         }
     }
 }

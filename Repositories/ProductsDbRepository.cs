@@ -1,4 +1,5 @@
-﻿using Website_Progress.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using Website_Progress.DataContext;
 using Website_Progress.Interfaces;
 using Website_Progress.ModelsDTO;
 
@@ -15,58 +16,65 @@ namespace Website_Progress.Repositories
             _databaseContext = databaseContext;
         }
 
-        public List<Product> GetAll() => _databaseContext.Products.ToList();
-
-        public Product? TryGetById(int productId) =>
-            _databaseContext.Products.FirstOrDefault(product => product.Id == productId);
-
-        public void Add(Product product)
+        public async Task<List<Product>> GetAllAsync()
         {
-            _databaseContext.Products.Add(product);
-
-            _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+            return await _databaseContext.Products.AsNoTracking().ToListAsync();
         }
 
-        public void Delete(int productId)
+        public async Task<Product?> TryGetByIdAsync(int productId)
         {
-            var existingProduct = TryGetById(productId);
+            return await _databaseContext.Products
+                .FirstOrDefaultAsync(product => product.Id == productId);
+        }
+
+        public async Task AddAsync(Product product)
+        {
+            await _databaseContext.Products.AddAsync(product);
+            await _databaseContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int productId)
+        {
+            var existingProduct = await TryGetByIdAsync(productId);
 
             if (existingProduct != null)
             {
                 _databaseContext.Products.Remove(existingProduct);
-                _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+                await _databaseContext.SaveChangesAsync();
             }
         }
 
-        public void Update(Product product)
+        public async Task UpdateAsync(Product product)
         {
-            var excitingProduct = TryGetById(product.Id);
+            var existingProduct = await TryGetByIdAsync(product.Id);
 
-            if (excitingProduct != null)
+            if (existingProduct != null)
             {
-                excitingProduct.Name = product.Name;
-                excitingProduct.Cost = product.Cost;
-                excitingProduct.Description = product.Description;
-                excitingProduct.IsOnMainPage = product.IsOnMainPage;
+                existingProduct.Name = product.Name;
+                existingProduct.Cost = product.Cost;
+                existingProduct.Description = product.Description;
+                existingProduct.IsOnMainPage = product.IsOnMainPage;
 
-                _databaseContext.SaveChanges();  // Сохраняем изменения в БД
+                await _databaseContext.SaveChangesAsync();
             }
         }
 
-        public List<Product> Search(string text)
+        public async Task<List<Product>> SearchAsync(string text)
         {
-            var products = GetAll().Where(product => product.Name!.Contains(text, StringComparison.CurrentCultureIgnoreCase));
-
-            return products.ToList() ?? [];
+            return await _databaseContext.Products
+                .Where(product =>
+                    product.Name != null &&
+                    product.Name.Contains(text))
+                .ToListAsync();
         }
 
-        public List<Product> GetForMainPage()
+        public async Task<List<Product>> GetForMainPageAsync()
         {
-            return _databaseContext.Products
+            return await _databaseContext.Products
                 .Where(x => x.IsOnMainPage)
                 .OrderByDescending(x => x.Id)
                 .Take(3)
-                .ToList();
+                .ToListAsync();
         }
     }
 }
