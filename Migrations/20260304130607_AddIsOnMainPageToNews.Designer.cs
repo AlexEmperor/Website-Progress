@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Website_Progress.DataContext;
@@ -11,9 +12,11 @@ using Website_Progress.DataContext;
 namespace Website_Progress.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20260304130607_AddIsOnMainPageToNews")]
+    partial class AddIsOnMainPageToNews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,10 +120,6 @@ namespace Website_Progress.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
@@ -182,9 +181,6 @@ namespace Website_Progress.Migrations
 
                     b.Property<string>("FirmwarePath")
                         .HasColumnType("text");
-
-                    b.Property<bool>("IsOnMainPage")
-                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()

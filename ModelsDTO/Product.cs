@@ -14,6 +14,7 @@
         public string? PhotoPath { get; set; }
         public string? PresentationPath { get; set; }
 
+        public bool IsOnMainPage { get; set; }
         public string? FirmwarePath { get; set; }
     }
 }

@@ -98,6 +98,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             newsDb.Title = model.Title;
             newsDb.ShortText = model.Description;
+            newsDb.IsOnMainPage = model.IsOnMainPage;
             //newsDb.ImageUrl = model.ImagePath;
 
             // ===== Фото =====

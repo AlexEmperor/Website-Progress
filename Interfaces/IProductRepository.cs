@@ -10,5 +10,6 @@ namespace Website_Progress.Interfaces
         void Delete(int productId);
         void Update(Product product);
         List<Product> Search(string text);
+        List<Product> GetForMainPage();
     }
 }

@@ -9,6 +9,7 @@ namespace Website_Progress.Interfaces
         void Delete(int productId);
         void Update(News product);
 
+        List<News> GetForMainPage();
         News? TryGetById(int id);
     }
 }

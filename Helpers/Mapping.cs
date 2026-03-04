@@ -28,6 +28,7 @@ namespace Website_Progress.Helpers
                 Description = newsDb.ShortText,
                 ImagePath = newsDb.ImageUrl,
                 Date = newsDb.Date,
+                IsOnMainPage = newsDb.IsOnMainPage,
             };
         }
 
@@ -40,6 +41,7 @@ namespace Website_Progress.Helpers
                 ShortText = product.Description,
                 ImageUrl = product.ImagePath,
                 Date = product.Date,
+                IsOnMainPage = product.IsOnMainPage
             };
         }
 
@@ -70,6 +72,8 @@ namespace Website_Progress.Helpers
                 PhotoPath = productDb.PhotoPath,
                 PresentationPath = productDb.PresentationPath,
                 FirmwarePath = productDb.FirmwarePath,
+                IsOnMainPage = productDb.IsOnMainPage
+
             };
         }
 
@@ -83,7 +87,9 @@ namespace Website_Progress.Helpers
                 Description = product.Description,
                 PhotoPath = product.PhotoPath,
                 PresentationPath = product.PresentationPath,
-                FirmwarePath = product.FirmwarePath
+                FirmwarePath = product.FirmwarePath,
+                IsOnMainPage = product.IsOnMainPage
+
             };
         }
         #endregion

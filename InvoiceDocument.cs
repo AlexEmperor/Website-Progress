@@ -20,7 +20,7 @@ namespace Website_Progress
             container.Page(page =>
             {
                 page.Margin(25);
-
+                var paymentDueDate = _order.CreationDateTime.AddDays(3);
                 page.Content().Column(col =>
                 {
                     col.Spacing(15);
@@ -47,7 +47,7 @@ namespace Website_Progress
 
                         row.RelativeItem().Column(right =>
                         {
-                            right.Item().Text($"Статус: {_order.Status}");
+                            right.Item().Text($"Статус: В обработке");
                             right.Item().Text($"Количество позиций: {_order.Items.Count}");
                             right.Item().Text($"Общее количество: {_order.Items.Sum(x => x.Quantity)}");
                         });
@@ -98,16 +98,17 @@ namespace Website_Progress
                     col.Item().PaddingTop(20);
 
                     // ===== ТЕКСТ ПРО ОПЛАТУ =====
-                    col.Item().Text("Оплату необходимо произвести в течение 3 (трёх) календарных дней с момента выставления данного предварительного счёта.")
-                        .FontSize(10)
-                        .Italic();
+                    col.Item().Text(
+    $"Оплату необходимо произвести до {paymentDueDate:dd.MM.yyyy} включительно. " +
+    $"После указанной даты заказ может быть автоматически отменён.").FontSize(10).Italic();
+
 
                     col.Item().PaddingTop(25);
 
                     // ===== ПОДПИСИ =====
                     col.Item().Row(row =>
                     {
-                        row.RelativeItem().Text("Кто принял заказ __________________________");
+                        row.RelativeItem().Text("Принял заказ __________________________");
                         row.RelativeItem().Text("Подпись клиента __________________________");
                     });
                 });

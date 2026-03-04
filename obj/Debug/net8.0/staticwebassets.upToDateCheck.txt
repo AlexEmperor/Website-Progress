@@ -82,3 +82,4 @@ wwwroot\img\товар-13.png
 wwwroot\img\новость.png
 wwwroot\img\создание-корпуса-для-vvizor.png
 wwwroot\img\илыимлыищмивщвимвщимщ.png
+wwwroot\img\товар-14.png

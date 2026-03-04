@@ -48,5 +48,14 @@ namespace Website_Progress.Repositories
                 _databaseContext.SaveChanges();  // Сохраняем изменения в БД
             }
         }
+
+        public List<News> GetForMainPage()
+        {
+            return _databaseContext.News
+                .Where(x => x.IsOnMainPage)
+                .OrderByDescending(x => x.Date)
+                .Take(3)
+                .ToList();
+        }
     }
 }

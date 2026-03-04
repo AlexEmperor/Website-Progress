@@ -89,7 +89,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Update(ProductViewModel model)
+        public async Task<IActionResult> Update(ProductViewModel model, string? toggleMainPage)
         {
             if (!ModelState.IsValid)
             {
@@ -105,6 +105,11 @@ namespace Website_Progress.Areas.Admin.Controllers
             productDb.Name = model.Name;
             productDb.Cost = model.Cost;
             productDb.Description = model.Description;
+            // ===== Переключение главной кнопкой =====
+            if (!string.IsNullOrEmpty(toggleMainPage))
+            {
+                productDb.IsOnMainPage = !productDb.IsOnMainPage;
+            }
 
             // ===== Фото =====
             if (model.PhotoFile != null)

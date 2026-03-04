@@ -174,38 +174,31 @@
     <div class="container">
 
         <h2 class="analog-title text-center mb-5">Наши новинки</h2>
-
         <div class="row g-4">
-
-            <div class="col-md-4 reveal delay-1">
+        @foreach (var product in Model.FeaturedProducts)
+        {
+            <div class="col-md-4">
                 <div class="card h-100 p-3">
-                    <img src="/img/product4.png" class="img-fluid rounded-4 mb-3" alt="SDR модуль">
-                    <h5>АК «SDR»</h5>
-                    <p class="analog-text">Устройство сканирования частотного спектра.</p>
-                    <a asp-controller="Product" asp-action="Index" asp-route-id="1" class="btn btn-success w-100">Подробнее</a>
+                    <img src="@product.PhotoPath"
+                         class="img-fluid rounded-4 mb-3"
+                         alt="@product.Name">
+
+                    <h5>@product.Name</h5>
+
+                    <p class="analog-text">
+                        @product.Description
+                    </p>
+
+                    <a asp-controller="Product"
+                       asp-action="Index"
+                       asp-route-id="@product.Id"
+                       class="btn btn-success w-100">
+                        Подробнее
+                    </a>
                 </div>
             </div>
-
-            <div class="col-md-4 reveal delay-2">
-                <div class="card h-100 p-3">
-                    <img src="/img/product2.png" class="img-fluid rounded-4 mb-3" alt="Передатчик">
-                    <h5>Аппаратный модуль VVizor</h5>
-                    <p class="analog-text">Устройство фиксирования видео передатчиков.</p>
-                    <a asp-controller="Product" asp-action="Index" asp-route-id="2" class="btn btn-success w-100">Подробнее</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 reveal delay-3">
-                <div class="card h-100 p-3">
-                    <img src="/img/product3.png" class="img-fluid rounded-4 mb-3" alt="Антенна">
-                    <h5>МЭМС</h5>
-                    <p class="analog-text">Устройство позиционирования.</p>
-                    <a asp-controller="Product" asp-action="Index" asp-route-id="3" class="btn btn-success w-100">Подробнее</a>
-                </div>
-            </div>
-
+        }
         </div>
-
 
     </div>
 </section> 
@@ -227,82 +220,36 @@
                 </a>
             </div>
 
-            <!-- Новость 1 -->
-            <div class="col-md-4 reveal delay-1">
-                <a asp-controller="News" asp-action="Index" asp-route-id ="1" class="news-card-link">
+            <div class="row g-4">
 
-                    <div class="card h-100 p-3 news-card">
+                @foreach (var item in Model.News)
+                {
+                    <div class="col-md-4">
+                        <a asp-controller="News"
+                           asp-action="Index"
+                           asp-route-id="@item.Id"
+                           class="news-card-link">
 
-                        <img src="/img/product2.png"
-                             class="img-fluid rounded-4 mb-3"
-                             alt="Новая разработка">
+                            <div class="card h-100 p-3 news-card">
 
-                        <small class="analog-text">10 февраля 2026</small>
+                                <img src="@item.ImagePath"
+                                     class="img-fluid rounded-4 mb-3"
+                                     alt="@item.Title">
 
-                        <h5 class="mt-2">
-                            Полевые испытания
-                        </h5>
+                                <small class="analog-text">
+                                    @item.Date.ToString("dd MMMM yyyy")
+                                </small>
 
-                        <p class="analog-text">
-                            Проведена проверка изделия AK SDR в полевых условиях на полигоне в г. Калуга
-                        </p>
+                                <h5 class="mt-2">
+                                    @item.Title
+                                </h5>
 
+                            </div>
+                        </a>
                     </div>
+                }
 
-                </a>
             </div>
-
-            <!-- Новость 2 -->
-            <div class="col-md-4 reveal delay-2">
-                <a asp-controller="News" asp-action="Index" asp-route-id="2" class="news-card-link">
-
-                    <div class="card h-100 p-3 news-card">
-
-                        <img src="/img/product2.png"
-                             class="img-fluid rounded-4 mb-3"
-                             alt="Испытания оборудования">
-
-                        <small class="analog-text">2 февраля 2026</small>
-
-                        <h5 class="mt-2">
-                            Отладка устройства VVizor
-                        </h5>
-
-                        <p class="analog-text">
-                            Готовы к производству устройства фиксирования видео передатчиков.
-                        </p>
-
-                    </div>
-
-                </a>
-            </div>
-
-            <!-- Новость 3 -->
-            <div class="col-md-4 reveal delay-3">
-                <a asp-controller="News" asp-action="Index" asp-route-id="3" class="news-card-link">
-
-                    <div class="card h-100 p-3 news-card">
-
-                        <img src="/img/product2.png"
-                             class="img-fluid rounded-4 mb-3"
-                             alt="Производство">
-
-                        <small class="analog-text">25 января 2026</small>
-
-                        <h5 class="mt-2">
-                            Выпущена очередная партия МЭМС
-                        </h5>
-
-                        <p class="analog-text">
-                            Расширяем производство для увеличения
-                            объёмов выпуска оборудования.
-                        </p>
-
-                    </div>
-
-                </a>
-            </div>
-
         </div>
 
     </div>

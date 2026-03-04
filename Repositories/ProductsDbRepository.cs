@@ -47,6 +47,7 @@ namespace Website_Progress.Repositories
                 excitingProduct.Name = product.Name;
                 excitingProduct.Cost = product.Cost;
                 excitingProduct.Description = product.Description;
+                excitingProduct.IsOnMainPage = product.IsOnMainPage;
 
                 _databaseContext.SaveChanges();  // Сохраняем изменения в БД
             }
@@ -57,6 +58,15 @@ namespace Website_Progress.Repositories
             var products = GetAll().Where(product => product.Name!.Contains(text, StringComparison.CurrentCultureIgnoreCase));
 
             return products.ToList() ?? [];
+        }
+
+        public List<Product> GetForMainPage()
+        {
+            return _databaseContext.Products
+                .Where(x => x.IsOnMainPage)
+                .OrderByDescending(x => x.Id)
+                .Take(3)
+                .ToList();
         }
     }
 }
