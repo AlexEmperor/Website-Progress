@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using QuestPDF.Fluent;
 using System.Security.Claims;
 using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
@@ -77,13 +78,29 @@ namespace Website_Progress.Controllers
             await _telegramService.SendOrderAsync(orderDb);
             _cartRepository.Clear(GetUserId());
 
-            return RedirectToAction(nameof(Success));
+            return RedirectToAction(nameof(Success), new { id = orderDb.Id });
         }
 
-        public IActionResult Success()
+        public IActionResult Success(Guid id)
         {
-
+            ViewBag.OrderId = id;
             return View();
+        }
+
+        public IActionResult GenerateInvoice(Guid id)
+        {
+            var order = _orderRepository.TryGetById(id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            var document = new InvoiceDocument(order);
+
+            var pdf = document.GeneratePdf();
+
+            return File(pdf, "application/pdf", $"Invoice_{order.Id}.pdf");
         }
     }
 

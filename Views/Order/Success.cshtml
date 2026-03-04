@@ -16,8 +16,9 @@
        asp-action="Index">
         Вернуться в каталог
     </a>
-    <a href=""
-       download
+    <a asp-controller="Order"
+       asp-action="GenerateInvoice"
+       asp-route-id="@ViewBag.OrderId"
        class="btn btn-outline-success mb-2 w-100">
         📄 Получить предварительный счёт
     </a>

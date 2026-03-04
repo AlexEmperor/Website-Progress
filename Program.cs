@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF;
 using Telegram.Bot;
 using Website_Progress;
 using Website_Progress.DataContext;
@@ -11,6 +12,7 @@ using Website_Progress.Services;
 var builder = WebApplication.CreateBuilder(args);
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 string connection = builder.Configuration.GetConnectionString("WebTestConnection");
+Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
