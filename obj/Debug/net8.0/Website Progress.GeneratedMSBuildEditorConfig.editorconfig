@@ -116,6 +116,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Git/Website Progress/Views/FooterPages/Delivery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vdGVyUGFnZXNcRGVsaXZlcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Git/Website Progress/Views/FooterPages/Service.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vdGVyUGFnZXNcU2VydmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Git/Website Progress/Views/FooterPages/Support.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vdGVyUGFnZXNcU3VwcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Git/Website Progress/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -50,9 +50,22 @@
             <!-- Поддержка -->
             <div class="col-md-2 mb-4">
                 <ul class="list-unstyled footer-list">
-                    <li><a href="#">Служба поддержки</a></li>
-                    <li><a href="#">Сервис</a></li>
-                    <li><a href="#">Доставка</a></li>
+                    <li>
+                        <a asp-controller="FooterPages"
+                           asp-action="Support">
+                            Служба поддержки
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="FooterPages" asp-action="Service">
+                            Сервис
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="FooterPages" asp-action="Delivery">
+                            Доставка
+                        </a>
+                    </li>
                 </ul>
             </div>
 

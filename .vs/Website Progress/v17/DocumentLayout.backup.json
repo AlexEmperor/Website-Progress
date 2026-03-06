@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Git\\Website Progress\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\admin\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\admin\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\repositories\\newsdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:repositories\\newsdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\datacontext\\identitycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:datacontext\\identitycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\account\\autorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\account\\autorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,34 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 176,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NewsController.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\NewsController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\NewsController.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\NewsController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\NewsController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAArwGwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T20:07:11.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NewsDbRepository.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Repositories\\NewsDbRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\NewsDbRepository.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Repositories\\NewsDbRepository.cs",
-              "RelativeToolTip": "Repositories\\NewsDbRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCkAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T19:57:53.721Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -87,16 +73,85 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA1wCIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T08:37:59.136Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "NewsController.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\NewsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\NewsController.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\NewsController.cs",
-              "RelativeToolTip": "Controllers\\NewsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA7AAAAAAAAAA==",
+              "Title": "IdentityContext.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\DataContext\\IdentityContext.cs",
+              "RelativeDocumentMoniker": "DataContext\\IdentityContext.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\DataContext\\IdentityContext.cs",
+              "RelativeToolTip": "DataContext\\IdentityContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T19:51:22.203Z",
+              "WhenOpened": "2026-03-06T08:25:56.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\UserDTO.cs",
+              "RelativeDocumentMoniker": "ModelsDTO\\UserDTO.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\UserDTO.cs",
+              "RelativeToolTip": "ModelsDTO\\UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T08:24:54.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Header.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\Header.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Header.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Views\\Shared\\Header.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Header.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T08:17:09.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Registration.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Account\\Registration.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Registration.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Views\\Account\\Registration.cshtml",
+              "RelativeToolTip": "Views\\Account\\Registration.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T08:16:43.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Autorization.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Account\\Autorization.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Autorization.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Views\\Account\\Autorization.cshtml",
+              "RelativeToolTip": "Views\\Account\\Autorization.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T08:16:43.658Z",
               "EditorCaption": ""
             }
           ]
