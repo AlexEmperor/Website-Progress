@@ -14,10 +14,28 @@ namespace Website_Progress.Repositories
             _databaseContext = databaseContext;
         }
 
+        public async Task<Order?> TryGetOrderByUserIdAsync(Guid userId)
+        {
+            return await _databaseContext.Orders
+                .Include(x => x.DeliveryUser)
+                .FirstOrDefaultAsync(x => x.DeliveryUser.Id == userId);
+        }
+        public async Task<List<Order>> TryGetAllOrdersByUserIdAsync(string userId)
+        {
+            return await _databaseContext.Orders
+                .AsNoTracking()
+                .Where(x => x.UserId == userId)
+                .Include(x => x.DeliveryUser)
+                .Include(x => x.Items)
+                    .ThenInclude(x => x.Product)
+                .OrderByDescending(x => x.CreationDateTime)
+                .ToListAsync();
+        }
+
         public async Task AddAsync(Order order)
         {
             order.Id = Guid.NewGuid();
-            order.CreationDateTime = DateTime.Now; // лучше UTC
+            order.CreationDateTime = DateTime.Now;
             order.DeliveryUser.Id = Guid.NewGuid();
             order.Status = OrderStatus.Created;
 
@@ -57,5 +75,7 @@ namespace Website_Progress.Repositories
                 await _databaseContext.SaveChangesAsync();
             }
         }
+
+
     }
 }

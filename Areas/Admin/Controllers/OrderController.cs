@@ -18,7 +18,6 @@ namespace Website_Progress.Areas.Admin.Controllers
         public OrderController(IOrderRepository ordersRepository)
         {
             _ordersRepository = ordersRepository;
-
         }
 
         public async Task<IActionResult> Index()

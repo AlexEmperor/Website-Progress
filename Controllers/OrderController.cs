@@ -29,7 +29,7 @@ namespace Website_Progress.Controllers
         }
         private string GetUserId()
         {
-            return User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         }
 
         public async Task<IActionResult> Index()
@@ -62,8 +62,14 @@ namespace Website_Progress.Controllers
                 return View(nameof(Index), order);
             }
 
-
             var orderDb = new Order()
+            {
+                UserId = order.UserId,
+                Items = cart.Items,
+                DeliveryUser = order.DeliveryUser.ToDeliveryUserDb()
+            };
+
+            /*var orderDb = new Order()
             {
                 Id = order.Id,
                 UserId = order.UserId,
@@ -71,7 +77,7 @@ namespace Website_Progress.Controllers
                 DeliveryUser = order.DeliveryUser.ToDeliveryUserDb(),
                 CreationDateTime = order.CreationDateTime,
                 Status = (OrderStatus)order.Status
-            };
+            };*/
 
             await _orderRepository.AddAsync(orderDb);
 

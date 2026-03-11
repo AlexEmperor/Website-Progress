@@ -34,7 +34,6 @@ namespace Website_Progress.Areas.Admin.Controllers
             return View();
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Add(NewsViewModel model)
         {

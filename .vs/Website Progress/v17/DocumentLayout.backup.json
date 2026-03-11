@@ -3,28 +3,48 @@
   "WorkspaceRootPath": "C:\\Git\\Website Progress\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\user\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\user\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\datacontext\\identitycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:datacontext\\identitycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\repositories\\ordersdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:repositories\\ordersdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\user\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\user\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\models\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:models\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\models\\deliveryuserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:models\\deliveryuserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\deliveryuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\deliveryuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\modelsdto\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:modelsdto\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\account\\autorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\account\\autorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +54,86 @@
       "DocumentGroups": [
         {
           "DockedWidth": 176,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 16,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAowBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T09:01:24.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DeliveryUser.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\DeliveryUser.cs",
+              "RelativeDocumentMoniker": "ModelsDTO\\DeliveryUser.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\DeliveryUser.cs",
+              "RelativeToolTip": "ModelsDTO\\DeliveryUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:56:43.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DeliveryUserViewModel.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\DeliveryUserViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\DeliveryUserViewModel.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Models\\DeliveryUserViewModel.cs",
+              "RelativeToolTip": "Models\\DeliveryUserViewModel.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAiwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:56:41.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderViewModel.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\OrderViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\OrderViewModel.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Models\\OrderViewModel.cs",
+              "RelativeToolTip": "Models\\OrderViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAUwBUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:56:40.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\Order.cs",
+              "RelativeDocumentMoniker": "ModelsDTO\\Order.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\Order.cs",
+              "RelativeToolTip": "ModelsDTO\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:33:02.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Interfaces\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IOrderRepository.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Interfaces\\IOrderRepository.cs",
+              "RelativeToolTip": "Interfaces\\IOrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:25:55.048Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -73,85 +171,68 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrdersDbRepository.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Repositories\\OrdersDbRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\OrdersDbRepository.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Repositories\\OrdersDbRepository.cs",
+              "RelativeToolTip": "Repositories\\OrdersDbRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:29:30.737Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA1wCIAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T08:37:59.136Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Order\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Order\\Index.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Order\\Index.cshtml*",
+              "RelativeToolTip": "Areas\\User\\Views\\Order\\Index.cshtml*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwCEAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-11T08:21:54.372Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IdentityContext.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\DataContext\\IdentityContext.cs",
-              "RelativeDocumentMoniker": "DataContext\\IdentityContext.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\DataContext\\IdentityContext.cs",
-              "RelativeToolTip": "DataContext\\IdentityContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABIAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T08:25:56.179Z",
+              "WhenOpened": "2026-03-11T08:01:33.718Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserDTO.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\ModelsDTO\\UserDTO.cs",
-              "RelativeDocumentMoniker": "ModelsDTO\\UserDTO.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\ModelsDTO\\UserDTO.cs",
-              "RelativeToolTip": "ModelsDTO\\UserDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T08:24:54.575Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "Header.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\Header.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Header.cshtml",
               "ToolTip": "C:\\Git\\Website Progress\\Views\\Shared\\Header.cshtml",
               "RelativeToolTip": "Views\\Shared\\Header.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAEMAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T08:17:09.851Z",
+              "WhenOpened": "2026-03-11T07:52:03.998Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Registration.cshtml",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Account\\Registration.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Registration.cshtml",
-              "ToolTip": "C:\\Git\\Website Progress\\Views\\Account\\Registration.cshtml",
-              "RelativeToolTip": "Views\\Account\\Registration.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T08:16:43.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Autorization.cshtml",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Account\\Autorization.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Autorization.cshtml",
-              "ToolTip": "C:\\Git\\Website Progress\\Views\\Account\\Autorization.cshtml",
-              "RelativeToolTip": "Views\\Account\\Autorization.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T08:16:43.658Z",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\User\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Areas\\User\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\User\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Areas\\User\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T08:00:48.052Z",
               "EditorCaption": ""
             }
           ]
