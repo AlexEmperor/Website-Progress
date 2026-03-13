@@ -31,8 +31,19 @@
             <!-- О компании -->
             <div class="col-md-2 mb-4">
                 <ul class="list-unstyled footer-list">
-                    <li><a href="#">О компании</a></li>
-                    <li><a href="#">Услуги</a></li>
+                    <li>
+                        <a asp-controller="Home"
+                           asp-action="Index"
+                           asp-fragment="about">
+                            О компании
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="FooterPages"
+                           asp-action="Services">
+                            Услуги
+                        </a>
+                    </li>
                     <li>
                             <a asp-controller="News"
                                asp-action="All">
@@ -68,16 +79,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- Продукция -->
-            <!--<div class="col-md-3 mb-4">
-                <ul class="list-unstyled footer-list">
-                    <li><a href="#">Контрольно-измерительное оборудование</a></li>
-                    <li><a href="#">Оборудование для связи</a></li>
-                    <li><a href="#">Антенны</a></li>
-                    <li><a href="#">Радиомониторинг</a></li>
-                </ul>
-            </div>-->
 
 
         </div>

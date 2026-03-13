@@ -21,5 +21,11 @@ namespace Website_Progress.Controllers
         {
             return View();
         }
+
+        [Route("services")]
+        public IActionResult Services()
+        {
+            return View();
+        }
     }
 }
