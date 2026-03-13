@@ -9,7 +9,7 @@ namespace Website_Progress.DataContext
     {
         public IdentityContext(DbContextOptions<IdentityContext> options) : base(options)
         {
-            Database.Migrate();
+            // Database.Migrate();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -12,8 +12,8 @@ using Website_Progress.DataContext;
 namespace Website_Progress.Migrations.Identity
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20260227210455_AddCreationDateTimeToUserDTO")]
-    partial class AddCreationDateTimeToUserDTO
+    [Migration("20260313123446_InitialCreateIdentity")]
+    partial class InitialCreateIdentity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

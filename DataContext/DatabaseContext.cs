@@ -10,8 +10,8 @@ namespace Website_Progress.DataContext
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             //Database.EnsureDeleted();
-            // Database.Migrate();
-            Database.EnsureCreated();
+            //Database.Migrate();
+            //Database.EnsureCreated();
         }
 
         //Доступ к таблицам
