@@ -43,7 +43,7 @@ builder.Services.ConfigureApplicationCookie(options =>
         IsEssential = true
     };
 });
-
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
@@ -62,6 +62,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<SiteModeMiddleware>();
 
 app.MapControllerRoute(
     name: "MyArea",

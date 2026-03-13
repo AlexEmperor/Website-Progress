@@ -20,7 +20,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Сумма</th>
                                 <th scope="col">Статус</th>
-                                <th scope="col">Пользователь (логин)</th>
+                                <th scope="col">Пользователь (Telegram)</th>
                                 <th scope="col">Дата</th>
                                 <th scope="col">Время</th>
                                 <th scope="col"></th>
@@ -32,8 +32,8 @@
                                 <tr align="center" class="align-baseline">
                                     <td class="fw-bold">@(i + 1)</td>
                                     <td>@Model[i].TotalCost?.ToString("c")</td>
-                                    <td>@Model[i].Status</td>
-                                    <td>@Model[i].UserId</td>
+                                    <td>@Html.DisplayFor(model => Model[i].Status)</td>
+                                    <td>@Model[i].DeliveryUser.Telegram</td>
                                     <td>@Model[i].CreationDateTime.ToShortDateString()</td>
                                     <td>@Model[i].CreationDateTime.ToShortTimeString()</td>
                                     <td align="left">

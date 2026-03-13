@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Website_Progress.DataContext;
@@ -11,9 +12,11 @@ using Website_Progress.DataContext;
 namespace Website_Progress.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20260311095507_Add-OrderItem")]
+    partial class AddOrderItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,9 +52,6 @@ namespace Website_Progress.Migrations
                     b.Property<Guid?>("CartId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("OrderId")
-                        .HasColumnType("uuid");
-
                     b.Property<int>("ProductId")
                         .HasColumnType("integer");
 
@@ -61,8 +61,6 @@ namespace Website_Progress.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CartId");
-
-                    b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 
@@ -166,6 +164,35 @@ namespace Website_Progress.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("Website_Progress.ModelsDTO.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
+                });
+
             modelBuilder.Entity("Website_Progress.ModelsDTO.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -201,34 +228,11 @@ namespace Website_Progress.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Website_Progress.Services.SiteSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Message")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Mode")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SiteSettings");
-                });
-
             modelBuilder.Entity("Website_Progress.ModelsDTO.CartItem", b =>
                 {
                     b.HasOne("Website_Progress.ModelsDTO.Cart", "Cart")
                         .WithMany("Items")
                         .HasForeignKey("CartId");
-
-                    b.HasOne("Website_Progress.ModelsDTO.Order", null)
-                        .WithMany("Items")
-                        .HasForeignKey("OrderId");
 
                     b.HasOne("Website_Progress.ModelsDTO.Product", "Product")
                         .WithMany()
@@ -250,6 +254,17 @@ namespace Website_Progress.Migrations
                         .IsRequired();
 
                     b.Navigation("DeliveryUser");
+                });
+
+            modelBuilder.Entity("Website_Progress.ModelsDTO.OrderItem", b =>
+                {
+                    b.HasOne("Website_Progress.ModelsDTO.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Website_Progress.ModelsDTO.Cart", b =>

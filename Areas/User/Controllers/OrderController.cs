@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Website_Progress.Helpers;
 using Website_Progress.Interfaces;
 
@@ -17,7 +18,7 @@ namespace Website_Progress.Areas.User.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (userId == null)
             {
@@ -27,6 +28,12 @@ namespace Website_Progress.Areas.User.Controllers
             var orders = await _ordersRepository.TryGetAllOrdersByUserIdAsync(userId);
 
             return View(orders.ToOrderViewModels());
+        }
+
+        public async Task<IActionResult> Detail(Guid orderId)
+        {
+            var order = await _ordersRepository.TryGetByIdAsync(orderId);
+            return View(order?.ToOrderViewModel());
         }
     }
 }

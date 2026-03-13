@@ -32,13 +32,13 @@
                                 <tr align="center" class="align-baseline">
                                     <td class="fw-bold">@(i + 1)</td>
                                     <td>@Model[i].TotalCost?.ToString("c")</td>
-                                    <td>@Model[i].Status</td>
+                                    <td>@Html.DisplayFor(model => Model[i].Status)</td>
                                     <td>@Model[i].DeliveryUser.Email</td>
                                     <td>@Model[i].CreationDateTime.ToShortDateString()</td>
                                     <td>@Model[i].CreationDateTime.ToShortTimeString()</td>
                                     <td align="left">
                                         <a class="text-success"
-                                           asp-area="Admin"
+                                           asp-area="User"
                                            asp-controller="Order"
                                            asp-action="Detail"
                                            asp-route-OrderId="@Model[i].Id">

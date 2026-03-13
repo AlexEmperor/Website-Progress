@@ -33,3 +33,17 @@
         </ul>
     </div>
 </div>
+<form method="post"
+      asp-area="Admin"
+      asp-controller="Settings"
+      asp-action="SetMode">
+
+    <button name="mode" value="Normal" class="btn btn-success">
+        Сайт работает
+    </button>
+
+    <button name="mode" value="Maintenance" class="btn btn-danger">
+        Технический перерыв
+    </button>
+
+</form>

@@ -41,14 +41,7 @@
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Статус заказа</span></td>
-                                    <td class="w-auto">
-                                        <p>
-                                            <select asp-for="@Model.Status" class="form-select list-group-item-success w-50"
-                                                    asp-items="@Html.GetEnumSelectList<OrderStatusViewModel>()">
-                                            </select>
-                                        </p>
-
-                                    </td>
+                                    <td>@Html.DisplayFor(model => Model.Status)</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Время создания заказа</span></td>
@@ -136,16 +129,6 @@
                         </td>
                     </tr>
                 </table>
-
-                <div class="text-center mt-5">
-                    <button class="btn btn-outline-success" type="submit"
-                            asp-area="Admin"
-                            asp-controller="Order"
-                            asp-action="UpdateStatus"
-                            asp-route-orderId=@Model.Id>
-                        Обновить статус
-                    </button>
-                </div>
             }
             else
             {
