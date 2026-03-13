@@ -5,14 +5,9 @@ using Website_Progress.ModelsDTO;
 
 namespace Website_Progress.Repositories
 {
-    public class OrdersDbRepository : IOrderRepository
+    public class OrdersDbRepository(DatabaseContext databaseContext) : IOrderRepository
     {
-        private readonly DatabaseContext _databaseContext;
-
-        public OrdersDbRepository(DatabaseContext databaseContext)
-        {
-            _databaseContext = databaseContext;
-        }
+        private readonly DatabaseContext _databaseContext = databaseContext;
 
         public async Task<Order?> TryGetOrderByUserIdAsync(Guid userId)
         {
@@ -20,7 +15,7 @@ namespace Website_Progress.Repositories
                 .Include(x => x.DeliveryUser)
                 .FirstOrDefaultAsync(x => x.DeliveryUser.Id == userId);
         }
-        public async Task<List<Order>> TryGetAllOrdersByUserIdAsync(string userId)
+        public async Task<List<Order>> GetAllOrdersByUserIdAsync(string userId)
         {
             return await _databaseContext.Orders
                 .AsNoTracking()

@@ -16,7 +16,12 @@
             @if (Model != null)
             {
                 <input type="hidden" name="Id" value="@Model.Id" />
-
+                <a asp-area="User" asp-controller="Order"
+                   asp-action="GenerateInvoice"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-outline-success mb-2 w-100">
+                    📄 Получить предварительный счёт
+                </a>
                 <table class="table table-responsive mb-5 caption-top">
                     <tr>
                         <td class="fw-bold border-end border-bottom border-dark">Заказ</td>

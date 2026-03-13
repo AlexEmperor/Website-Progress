@@ -2,7 +2,7 @@
 using QuestPDF.Infrastructure;
 using Website_Progress.ModelsDTO;
 
-namespace Website_Progress
+namespace Website_Progress.Services
 {
     public class InvoiceDocument : IDocument
     {

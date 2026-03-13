@@ -69,16 +69,6 @@ namespace Website_Progress.Controllers
                 DeliveryUser = order.DeliveryUser.ToDeliveryUserDb()
             };
 
-            /*var orderDb = new Order()
-            {
-                Id = order.Id,
-                UserId = order.UserId,
-                Items = cart.Items,
-                DeliveryUser = order.DeliveryUser.ToDeliveryUserDb(),
-                CreationDateTime = order.CreationDateTime,
-                Status = (OrderStatus)order.Status
-            };*/
-
             await _orderRepository.AddAsync(orderDb);
 
             await _telegramService.SendOrderAsync(orderDb);

@@ -4,7 +4,7 @@ namespace Website_Progress.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<List<Order>> TryGetAllOrdersByUserIdAsync(string userId);
+        Task<List<Order>> GetAllOrdersByUserIdAsync(string userId);
         Task AddAsync(Order order);
         Task<List<Order>> GetAllAsync();
         Task<Order?> TryGetByIdAsync(Guid orderId);

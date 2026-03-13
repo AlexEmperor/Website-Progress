@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Git\\Website Progress\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\user\\views\\order\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\user\\views\\order\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\footerpages\\services.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\footerpages\\services.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\user\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\user\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\footerpagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\footerpagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\user\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\user\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\body.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\body.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\areas\\user\\views\\shared\\sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:areas\\user\\views\\shared\\sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 176,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,54 +70,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Services.cshtml",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\FooterPages\\Services.cshtml",
-              "RelativeDocumentMoniker": "Views\\FooterPages\\Services.cshtml",
-              "ToolTip": "C:\\Git\\Website Progress\\Views\\FooterPages\\Services.cshtml",
-              "RelativeToolTip": "Views\\FooterPages\\Services.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEkAAAA5AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Order\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Order\\Detail.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Order\\Detail.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Order\\Detail.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-13T07:30:58.221Z",
+              "WhenOpened": "2026-03-13T09:10:50.244Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FooterPagesController.cs",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\FooterPagesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\FooterPagesController.cs",
-              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\FooterPagesController.cs",
-              "RelativeToolTip": "Controllers\\FooterPagesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\User\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Areas\\User\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\User\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Areas\\User\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA1wCwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T07:21:58.226Z",
+              "WhenOpened": "2026-03-13T09:02:03.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Order\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Order\\Index.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Order\\Index.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Order\\Index.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-13T09:02:00.406Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Body.cshtml",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\Body.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Body.cshtml",
-              "ToolTip": "C:\\Git\\Website Progress\\Views\\Shared\\Body.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Body.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACoAAAAtAAAAAAAAAA==",
+              "Title": "SideBar.cshtml",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Shared\\SideBar.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\SideBar.cshtml",
+              "ToolTip": "C:\\Git\\Website Progress\\Areas\\User\\Views\\Shared\\SideBar.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Shared\\SideBar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-13T07:17:37.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Footer.cshtml",
-              "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\Footer.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Footer.cshtml",
-              "ToolTip": "C:\\Git\\Website Progress\\Views\\Shared\\Footer.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Footer.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC4AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-13T07:17:36.809Z",
+              "WhenOpened": "2026-03-13T09:01:59.038Z",
               "EditorCaption": ""
             }
           ]
