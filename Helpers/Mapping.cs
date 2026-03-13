@@ -25,23 +25,23 @@ namespace Website_Progress.Helpers
             {
                 Id = newsDb.Id,
                 Title = newsDb.Title,
-                Description = newsDb.ShortText,
+                Description = newsDb.Description,
                 ImagePath = newsDb.ImageUrl,
                 Date = newsDb.Date,
                 IsOnMainPage = newsDb.IsOnMainPage,
             };
         }
 
-        public static News ToNewsDb(this NewsViewModel product)
+        public static News ToNewsDb(this NewsViewModel news)
         {
             return new News()
             {
-                Id = product.Id,
-                Title = product.Title,
-                ShortText = product.Description,
-                ImageUrl = product.ImagePath,
-                Date = product.Date,
-                IsOnMainPage = product.IsOnMainPage
+                Id = news.Id,
+                Title = news.Title,
+                Description = news?.Description,
+                ImageUrl = news.ImagePath,
+                Date = news.Date,
+                IsOnMainPage = news.IsOnMainPage
             };
         }
 

@@ -43,7 +43,7 @@ namespace Website_Progress.Repositories
             if (existing != null)
             {
                 existing.Title = news.Title;
-                existing.ShortText = news.ShortText;
+                existing.Description = news.Description;
                 existing.ImageUrl = news.ImageUrl;
                 existing.IsOnMainPage = news.IsOnMainPage;
 

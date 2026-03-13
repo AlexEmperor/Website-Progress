@@ -6,6 +6,7 @@ wwwroot\img\0160a5e5-5b7f-49c2-b9f8-c32d819cb3f3.png
 wwwroot\img\803c0595-e7bf-4ca6-bfea-7c0e56a7a400.png
 wwwroot\img\contact.png
 wwwroot\img\email.png
+wwwroot\img\fhfgh.png
 wwwroot\img\geo.png
 wwwroot\img\hero.png
 wwwroot\img\Logo1.svg
@@ -19,8 +20,11 @@ wwwroot\img\product3.png
 wwwroot\img\product4.png
 wwwroot\img\ак-«sdr».png
 wwwroot\img\илыимлыищмивщвимвщимщ.png
+wwwroot\img\новая-новость-про-vvizor.png
+wwwroot\img\новая-новость.png
 wwwroot\img\новость.png
 wwwroot\img\проведена-проверка-изделия-ak-sdr-в-полевых-условиях.png
+wwwroot\img\ррара.png
 wwwroot\img\создание-корпуса-для-vvizor.png
 wwwroot\img\товар-11.png
 wwwroot\img\товар-13.png

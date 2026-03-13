@@ -75,7 +75,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             {
                 Id = existingNews.Id,
                 Title = existingNews.Title,
-                Description = existingNews.ShortText,
+                Description = existingNews.Description,
                 ImagePath = existingNews.ImageUrl
             };
 
@@ -98,7 +98,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             }
 
             newsDb.Title = model.Title;
-            newsDb.ShortText = model.Description;
+            newsDb.Description = model.Description;
             newsDb.IsOnMainPage = model.IsOnMainPage;
 
             // ===== Фото =====
