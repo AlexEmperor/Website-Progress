@@ -227,7 +227,7 @@ namespace Website_Progress.Migrations
                         .HasForeignKey("OrderId");
 
                     b.HasOne("Website_Progress.ModelsDTO.Product", "Product")
-                        .WithMany()
+                        .WithMany("CartItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -256,6 +256,11 @@ namespace Website_Progress.Migrations
             modelBuilder.Entity("Website_Progress.ModelsDTO.Order", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Website_Progress.ModelsDTO.Product", b =>
+                {
+                    b.Navigation("CartItems");
                 });
 #pragma warning restore 612, 618
         }

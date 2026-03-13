@@ -7,6 +7,7 @@
 
         public string Name { get; set; }
 
+        public List<CartItem>? CartItems { get; set; }
 
         public decimal Cost { get; set; }
 

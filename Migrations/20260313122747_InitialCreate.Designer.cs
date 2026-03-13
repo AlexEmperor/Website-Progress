@@ -12,8 +12,8 @@ using Website_Progress.DataContext;
 namespace Website_Progress.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260304130607_AddIsOnMainPageToNews")]
-    partial class AddIsOnMainPageToNews
+    [Migration("20260313122747_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -120,15 +120,15 @@ namespace Website_Progress.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
                     b.Property<bool>("IsOnMainPage")
                         .HasColumnType("boolean");
-
-                    b.Property<string>("ShortText")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -182,6 +182,9 @@ namespace Website_Progress.Migrations
                     b.Property<string>("FirmwarePath")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsOnMainPage")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -197,6 +200,25 @@ namespace Website_Progress.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Website_Progress.Services.SiteSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Message")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Mode")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SiteSettings");
+                });
+
             modelBuilder.Entity("Website_Progress.ModelsDTO.CartItem", b =>
                 {
                     b.HasOne("Website_Progress.ModelsDTO.Cart", "Cart")
@@ -208,7 +230,7 @@ namespace Website_Progress.Migrations
                         .HasForeignKey("OrderId");
 
                     b.HasOne("Website_Progress.ModelsDTO.Product", "Product")
-                        .WithMany()
+                        .WithMany("CartItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -237,6 +259,11 @@ namespace Website_Progress.Migrations
             modelBuilder.Entity("Website_Progress.ModelsDTO.Order", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Website_Progress.ModelsDTO.Product", b =>
+                {
+                    b.Navigation("CartItems");
                 });
 #pragma warning restore 612, 618
         }
