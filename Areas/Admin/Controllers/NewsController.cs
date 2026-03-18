@@ -84,7 +84,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Update(EditNewsViewModel model)
+        public async Task<IActionResult> Update(EditNewsViewModel model, string? toggleMainPage)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +99,10 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             newsDb.Title = model.Title;
             newsDb.Description = model.Description;
-            newsDb.IsOnMainPage = model.IsOnMainPage;
+            if (!string.IsNullOrEmpty(toggleMainPage))
+            {
+                newsDb.IsOnMainPage = !newsDb.IsOnMainPage;
+            }
 
             // ===== Фото =====
             if (model.ImageFile != null)

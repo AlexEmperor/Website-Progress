@@ -18,16 +18,16 @@ namespace Website_Progress.Services
             {
                 roleManager.CreateAsync(new IdentityRole(Constants.UserRoleName)).Wait();
             }
-            /* if (roleManager.FindByNameAsync(adminEmail).Result == null)
-             {
-                 var admin = new UserDTO { Email = adminEmail, UserName = adminEmail };
-                 var result = userManager.CreateAsync(admin, password).Result;
+            /*if (roleManager.FindByNameAsync(adminEmail).Result == null)
+            {
+                var admin = new UserDTO { Email = adminEmail, UserName = adminEmail };
+                var result = userManager.CreateAsync(admin, password).Result;
 
-                 if (result.Succeeded)
-                 {
-                     userManager.AddToRoleAsync(admin, Constants.AdminRoleName).Wait();
-                 }
-             }*/
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(admin, Constants.AdminRoleName).Wait();
+                }
+            }*/
         }
     }
 }

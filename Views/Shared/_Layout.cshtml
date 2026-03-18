@@ -110,23 +110,32 @@
         // ======================
         // MAIL LINKS (копирование с подсказкой)
         // ======================
-                document.querySelectorAll('.mail-link').forEach(link => {
+                        document.querySelectorAll('.mail-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
 
                 const email = this.getAttribute('data-email') || 'electriks0comp26@gmail.com';
-                const feedback = this.parentElement.querySelector('.copy-feedback'); // ищем подсказку внутри контейнера
-                if (!feedback) return;
 
-                // Копируем в буфер
+                // Ищем copy-feedback в ближайшем родителе где он есть
+                let feedback = null;
+                let el = this.parentElement;
+                while (el && !feedback) {
+                    feedback = el.querySelector('.copy-feedback');
+                    el = el.parentElement;
+                }
+
                 navigator.clipboard.writeText(email).then(() => {
+                    if (!feedback) return;
+                    feedback.textContent = 'Скопировано!';
                     feedback.style.display = 'inline';
                     feedback.style.opacity = 1;
 
-                    // Скрываем через 1.5 сек с плавным исчезновением
                     setTimeout(() => {
                         feedback.style.opacity = 0;
-                        setTimeout(() => feedback.style.display = 'none', 300);
+                        setTimeout(() => {
+                            feedback.style.display = 'none';
+                            feedback.textContent = '';
+                        }, 300);
                     }, 1500);
                 }).catch(err => console.error('Ошибка копирования email:', err));
             });

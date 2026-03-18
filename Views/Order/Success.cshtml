@@ -8,6 +8,7 @@
 
 <div class="text-center">
     <h2 class="row-title">Заявка сформирована!</h2>
+    <h2 class="row-title">Статус заказа можно отслеживать в личном кабинете.</h2>
 </div>
 
 <div class="text-center m-2">
@@ -15,6 +16,12 @@
        asp-controller="Catalog"
        asp-action="Index">
         Вернуться в каталог
+    </a>
+    <a class="btn btn-outline-success"
+       asp-area="User"
+       asp-controller="Order"
+       asp-action="Index">
+        В личный кабинет
     </a>
     <a asp-controller="Order"
        asp-action="GenerateInvoice"
