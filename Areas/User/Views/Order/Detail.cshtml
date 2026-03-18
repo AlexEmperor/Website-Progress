@@ -28,10 +28,10 @@
                         <td class="border-bottom border-dark">
 
                             <table class="table table-hover">
-                                <tr>
+@*                                 <tr>
                                     <td class="w-25"><span>ID</span></td>
                                     <td class="w-auto">@Model.Id</td>
-                                </tr>
+                                </tr> *@
                                 <tr>
                                     <td class="w-25"><span>Стоимость</span></td>
                                     <td class="fw-bold w-auto">@Model.TotalCost?.ToString("c")</td>
@@ -55,7 +55,7 @@
                             </table>
                         </td>
                     </tr>
-                    <tr>
+@*                     <tr>
                         <td class="fw-bold border-end border-bottom border-dark">Пользователь</td>
                         <td class="border-bottom border-dark">
                             <table class="table table-hover">
@@ -65,15 +65,15 @@
                                 </tr>
                             </table>
                         </td>
-                    </tr>
+                    </tr> *@
                     <tr>
                         <td class="fw-bold border-end border-bottom border-dark">Покупатель</td>
                         <td class="border-bottom border-dark">
                             <table class="table table-hover p-0 m-0">
-                                <tr>
+@*                                 <tr>
                                     <td class="w-25"><span>ID</span></td>
                                     <td class="w-auto">@Model.DeliveryUser.Id</td>
-                                </tr>
+                                </tr> *@
                                 <tr>
                                     <td class="w-25"><span>Имя</span></td>
                                     <td class="w-auto">@Model.DeliveryUser.Name</td>

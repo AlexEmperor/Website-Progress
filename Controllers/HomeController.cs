@@ -39,7 +39,7 @@ namespace Website_Progress.Controllers
 
             var products = await _productRepository.SearchAsync(query);
 
-            return View(products);
+            return View(products.ToProductViewModels());
         }
 
         public IActionResult Privacy()
