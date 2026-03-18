@@ -9,7 +9,13 @@ using Website_Progress.Repositories;
 using Website_Progress.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+var ruCulture = new System.Globalization.CultureInfo("ru-RU");
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture = ruCulture;
+System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = ruCulture;
+
 string connection = builder.Configuration.GetConnectionString("WebTestConnection");
 Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
