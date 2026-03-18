@@ -6,7 +6,6 @@
             <img src="/img/Logo3.svg" alt="Лаборатория разработок" width="80" height="80">
         </a>
 
-
         <!-- Слева: пустой flex, чтобы оттолкнуть кнопки вправо -->
         <div class="d-flex ms-auto align-items-center me-3">
 
@@ -18,11 +17,17 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
                     <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Catalog" asp-action="Index">Каталог</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Cart" asp-action="Index">Корзина</a></li>
+@*                     <li class="dropdown-item">@await Component.InvokeAsync("Cart")</li> *@
                     <li><a class="dropdown-item" asp-area="" asp-controller="News" asp-action="All">Новости</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Contacts" asp-action="Index">Контакты</a></li>
                 </ul>
             </div>
+
+            <!-- Кнопка корзины -->
+            <a asp-controller="Cart" asp-action="Index" class="btn btn-dark me-2 position-relative">
+                <i class="bi bi-cart3 fs-5"></i>
+                @await Component.InvokeAsync("Cart")
+            </a>
 
             <!-- Кнопка "Личный кабинет" -->
             <!-- Иконка профиля -->

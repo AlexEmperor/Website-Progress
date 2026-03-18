@@ -41,6 +41,19 @@ namespace Website_Progress.Controllers
             return RedirectToAction(nameof(Index), "Catalog");
         }
 
+        [Authorize]
+        public async Task<IActionResult> AddInCart(int productId)
+        {
+            var product = await _productRepository.TryGetByIdAsync(productId);
+
+            if (product != null)
+            {
+                await _cartRepository.AddAsync(product, GetUserId());
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Delete(int productId)
         {
             await _cartRepository.DeleteAsync(productId, GetUserId());

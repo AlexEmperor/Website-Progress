@@ -181,7 +181,7 @@
                 <div class="card h-100 p-3">
                     <img src="@product.PhotoPath"
                          class="img-fluid rounded-4 mb-3"
-                         alt="@product.Name">
+                             alt="@product.Name" style="height: 200px; object-fit: cover; width: 100%;">
 
                     <h5>@product.Name</h5>
 
@@ -230,17 +230,21 @@
                            asp-route-id="@item.Id"
                            class="news-card-link">
 
-                            <div class="card h-100 p-3 news-card">
+                            <div class="card h-150 p-3 news-card">
 
                                 <img src="@item.ImagePath"
                                      class="img-fluid rounded-4 mb-3"
-                                     alt="@item.Title">
+                                     alt="@item.Title" style="height: 200px; object-fit: cover; width: 100%;">
 
                                 <small class="analog-text">
                                     @item.Date.ToString("dd MMMM yyyy")
                                 </small>
 
-                                <h5 class="mt-2">
+                                <h5 class="mt-2" style="
+                                        overflow: hidden;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 1;
+                                        -webkit-box-orient: vertical;">
                                     @item.Title
                                 </h5>
 

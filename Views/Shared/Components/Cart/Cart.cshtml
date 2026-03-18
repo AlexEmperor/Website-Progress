@@ -1,0 +1,13 @@
+﻿@* @model int
+
+<a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">
+	Корзина
+	<span class="badge translate-middle rounded-pill bg-success">@(Model !=0 ? @Model : "")</span>
+</a> *@
+@model int
+@if (Model != 0)
+{
+	<span class="position-absolute top-0 start-75 translate-middle badge rounded-pill bg-success">
+		@Model
+	</span>
+}
