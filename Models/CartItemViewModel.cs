@@ -5,6 +5,7 @@
         public Guid Id { get; set; }
         public ProductViewModel Product { get; set; }
         public int Quantity { get; set; }
-        public decimal Cost => Product.Cost * Quantity;
+        public decimal PriceAtPurchase { get; set; }
+        public decimal Cost => PriceAtPurchase * Quantity;
     }
 }

@@ -41,7 +41,8 @@ namespace Website_Progress.Repositories
                         {
                             Product = product,
                             Quantity = 1,
-                            Cart = existingCart
+                            Cart = existingCart,
+                            PriceAtPurchase = product.Cost
                         }
 
                 ];
@@ -58,7 +59,8 @@ namespace Website_Progress.Repositories
                     {
                         Product = product,
                         Quantity = 1,
-                        Cart = existingCart
+                        Cart = existingCart,
+                        PriceAtPurchase = product.Cost
                     };
                     existingCart.Items.Add(newCartItem);
                 }

@@ -113,6 +113,7 @@ namespace Website_Progress.Helpers
                 Id = cartDbItem.Id,
                 Product = cartDbItem.Product.ToProductViewModel(),
                 Quantity = cartDbItem.Quantity,
+                PriceAtPurchase = cartDbItem.PriceAtPurchase
             };
         }
 
@@ -124,7 +125,7 @@ namespace Website_Progress.Helpers
                 {
                     Id = cartDb.Id,
                     UserId = cartDb.UserId,
-                    Items = cartDb.Items.ToCartItemViewModels(),
+                    Items = cartDb.Items.ToCartItemViewModels()
                 };
         }
         #endregion

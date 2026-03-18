@@ -38,7 +38,7 @@ namespace Website_Progress.Controllers
                 await _cartRepository.AddAsync(product, GetUserId());
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "Catalog");
         }
 
         public async Task<IActionResult> Delete(int productId)
