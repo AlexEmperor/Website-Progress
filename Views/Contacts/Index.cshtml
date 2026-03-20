@@ -1,23 +1,120 @@
 ﻿@{
     ViewData["Title"] = "Контакты";
 }
-<div class="text-left">
-    <h1>Как с нами связаться</h1>
-    <p>
-        <h3>Контакты:</h3><br />
-        @* <img src="/img/phone.jpg"> *@
-        <b>Телефон:</b> <a href="tel:+78121234567">+7 (977) 488-90-30</a><br />
-        @* <img src="/img/email.png"> *@
-        <b>E-mail:</b> <a class="mail-link">electriks0comp26@gmail.com</a><br />
-        <b>Telegram:</b> <a class="tg-link"> Telegram</a><br />
-        @* <img src="/img/geo.png"> *@
-        <b>Адрес:</b> 125183, г. Москва, Проспект Черепановых, д. 54<br />
-        @* <img src="/img/contact.png"> *@
-        <b>Контактное лицо:</b> Тарасов Игорь Анатольевич<br />
-        <hr />
-        <b>Время работы:</b> пн-пт: 9.00 - 18.00<br />
-    </p>
-    <a
-        asp-controller="Home" asp-action="Index">На главную
-    </a>
-</div>
+
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+
+        <div class="cyber-section-header text-center mb-5">
+            <span class="cyber-eyebrow">// СВЯЗЬ</span>
+            <h1 class="cyber-title mt-2">Как с нами <span class="cyber-accent-text">связаться</span></h1>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <!-- Контактная карточка -->
+            <div class="col-lg-5 col-md-6">
+                <div class="cyber-contact-card reveal">
+                    <span class="cyber-eyebrow mb-4 d-block">// КОНТАКТЫ</span>
+
+                    <div class="cyber-contact-item">
+                        <i class="bi bi-telephone-fill text-success"></i>
+                        <div>
+                            <div class="cyber-text" style="font-size:0.75rem;">Телефон</div>
+                            <a href="tel:+79774889030" style="color:var(--c-white); font-weight:600;">
+                                +7 (977) 488-90-30
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cyber-contact-item">
+                        <i class="bi bi-envelope-fill text-success"></i>
+                        <div>
+                            <div class="cyber-text" style="font-size:0.75rem;">E-mail</div>
+                            <a class="mail-link" data-email="electriks0comp26@gmail.com">
+                                electriks0comp26@gmail.com
+                            </a>
+                        </div>
+                        <small class="copy-feedback ms-2">Скопировано!</small>
+                    </div>
+
+                    <div class="cyber-contact-item">
+                        <i class="bi bi-telegram text-success"></i>
+                        <div>
+                            <div class="cyber-text" style="font-size:0.75rem;">Telegram</div>
+                            <a class="tg-link" style="color:var(--c-accent);">Написать в Telegram</a>
+                        </div>
+                    </div>
+
+                    <div class="cyber-contact-item">
+                        <i class="bi bi-geo-alt-fill text-success"></i>
+                        <div>
+                            <div class="cyber-text" style="font-size:0.75rem;">Адрес</div>
+                            <span style="color:var(--c-white); font-size:0.9rem;">
+                                125183, г. Москва,<br>Проспект Черепановых, д. 54
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="cyber-contact-item">
+                        <i class="bi bi-person-fill text-success"></i>
+                        <div>
+                            <div class="cyber-text" style="font-size:0.75rem;">Контактное лицо</div>
+                            <span style="color:var(--c-white); font-size:0.9rem;">
+                                Тарасов Игорь Анатольевич
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="cyber-contact-item">
+                        <i class="bi bi-clock-fill text-success"></i>
+                        <div>
+                            <div class="cyber-text" style="font-size:0.75rem;">Время работы</div>
+                            <span style="color:var(--c-white); font-size:0.9rem;">
+                                Пн–Пт: 9:00 – 18:00
+                            </span>
+                        </div>
+                    </div>
+
+                    <span class="cyber-corner tl"></span>
+                    <span class="cyber-corner tr"></span>
+                    <span class="cyber-corner bl"></span>
+                    <span class="cyber-corner br"></span>
+                </div>
+            </div>
+
+            <!-- CTA карточка -->
+            <div class="col-lg-5 col-md-6">
+                <div class="cyber-contact-card reveal" style="display:flex; flex-direction:column; justify-content:center; gap:1.5rem;">
+                    <span class="cyber-eyebrow">// НАПИСАТЬ НАМ</span>
+                    <h4 class="cyber-title" style="font-size:1.1rem;">
+                        Есть вопросы по оборудованию?
+                    </h4>
+                    <p class="cyber-text">
+                        Свяжитесь с нами удобным способом — ответим,
+                        поможем подобрать решение и подготовим предложение.
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                        <a class="cyber-btn cyber-btn-accent cyber-btn-lg justify-content-center mail-link"
+                           data-email="electriks0comp26@gmail.com">
+                            <i class="bi bi-envelope-fill me-2"></i>Написать на почту
+                        </a>
+                        <a class="cyber-btn cyber-btn-outline cyber-btn-lg justify-content-center tg-link">
+                            <i class="bi bi-telegram me-2"></i>Написать в Telegram
+                        </a>
+                        <a asp-controller="Home" asp-action="Index"
+                           class="cyber-btn cyber-btn-ghost justify-content-center mt-2">
+                            <i class="bi bi-house me-2"></i>На главную
+                        </a>
+                    </div>
+
+                    <span class="cyber-corner tl"></span>
+                    <span class="cyber-corner tr"></span>
+                    <span class="cyber-corner bl"></span>
+                    <span class="cyber-corner br"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

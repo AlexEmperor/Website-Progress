@@ -4,32 +4,52 @@
 {
     @foreach (var product in Model)
     {
-        <div class="col-12 col-sm-6 col-md-4 mb-3">
-            <div class="card shadow">
-                <img class="card-img-top" src=@product.PhotoPath alt="..."
-                     style="height: 200px; object-fit: cover;">
-                <div class="card-body text-center">
-                    <a class="text-success"
-                       asp-controller="Product"
-                                   asp-action="Index"
-                                   asp-route-id="@product.Id">
-                        <h5>@product.Name</h5>
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="cyber-product-card reveal">
+
+                <div class="cyber-product-img-wrap">
+                    <img src="@product.PhotoPath" alt="@product.Name">
+                    <div class="cyber-product-overlay">
+                        <a asp-controller="Product"
+                           asp-action="Index"
+                           asp-route-id="@product.Id"
+                           class="cyber-btn cyber-btn-outline">
+                            <i class="bi bi-eye me-1"></i> Подробнее
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cyber-product-body">
+                    <a asp-controller="Product"
+                       asp-action="Index"
+                       asp-route-id="@product.Id"
+                       class="cyber-product-name-link">
+                        <h5 class="cyber-product-name">@product.Name</h5>
                     </a>
-                    <h2 class="text-danger">@product.Cost.ToString("c")</h2>
-                    <a class="btn btn-success"
-                                   asp-controller="Cart"
-                                   asp-action="Add"
-                                   asp-route-productId="@product.Id">
-                        Добавить в корзину
+
+                    <div class="cyber-product-price">@product.Cost.ToString("c")</div>
+
+                    <a class="cyber-btn cyber-btn-accent w-100 mt-3 justify-content-center"
+                       asp-controller="Cart"
+                       asp-action="Add"
+                       asp-route-productId="@product.Id">
+                        <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
                     </a>
                 </div>
+
+                <span class="cyber-corner tl"></span>
+                <span class="cyber-corner br"></span>
             </div>
         </div>
     }
 }
 else
 {
-    <div class="text-center">
-        <h2>Нет товаров для отображения!</h2>
+    <div class="col-12 text-center py-5">
+        <div class="cyber-empty-state">
+            <i class="bi bi-inbox cyber-empty-icon"></i>
+            <h4 class="cyber-title mt-3">Нет товаров для отображения</h4>
+            <p class="cyber-text">Попробуйте вернуться позже или свяжитесь с нами</p>
+        </div>
     </div>
 }

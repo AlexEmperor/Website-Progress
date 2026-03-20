@@ -3,134 +3,148 @@
     ViewData["Title"] = "Оформление заказа";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Оформление заказа</h2>
-</div>
-<form method="post">
-    @if (Model != null && Model.Items != null && Model.Items.Count > 0)
-    {
-        <div class="row justify-content-center mt-3">
-            <div class="col">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr align="center">
-                            <th><h2>Информация о покупателе</h2></th>
-                            <th><h2>Информация о заказе</h2></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="w-50 p-4">
-                                <div class="text-danger fw-bold text-uppercase"
-                                     asp-validation-summary="All"></div>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Name"></label>
-                                    <br />
-                                    <input class="form-control" asp-for="DeliveryUser.Name" />
-                                    <span asp-validation-for="DeliveryUser.Name"></span>
-                                </p>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Address">
-                                    </label><br />
-                                    <input class="form-control" asp-for="DeliveryUser.Address" />
-                                    <span asp-validation-for="DeliveryUser.Address"></span>
-                                </p>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Email"></label>
-                                    <br />
-                                    <input class="form-control" asp-for="DeliveryUser.Email" />
-                                    <span asp-validation-for="DeliveryUser.Email"></span>
-                                </p>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Telegram"></label>
-                                    <br />
-                                    <input class="form-control" asp-for="DeliveryUser.Telegram" />
-                                    <span asp-validation-for="DeliveryUser.Telegram"></span>
-                                </p>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Phone"></label>
-                                    <br />
-                                    <input class="form-control" asp-for="DeliveryUser.Phone" />
-                                    <span asp-validation-for="DeliveryUser.Phone"></span>
-                                </p>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Date"></label>
-                                    <br />
-                                    <input class="form-control" asp-for="DeliveryUser.Date" />
-                                    <span asp-validation-for="DeliveryUser.Date"></span>
-                                </p>
-                                <p>
-                                    <label class="form-label" asp-for="DeliveryUser.Comment">
-                                    </label><br />
-                                    <textarea class="form-control" asp-for="DeliveryUser.Comment">
-                                                </textarea>
-                                    <span asp-validation-for="DeliveryUser.Comment"></span>
-                                </p>
-                            </td>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
 
-                            <td class="w-50 p-4">
-                                <table class="table table-responsive
-                                             table-striped table-hover mb-5 caption-top">
+        <div class="cyber-section-header text-center mb-5">
+            <span class="cyber-eyebrow">// ЗАЯВКА</span>
+            <h1 class="cyber-title mt-2">Оформление <span class="cyber-accent-text">заказа</span></h1>
+        </div>
+
+        <form method="post">
+            @if (Model != null && Model.Items != null && Model.Items.Count > 0)
+            {
+                <div class="row g-5 align-items-start">
+
+                    <!-- Левая колонка: форма покупателя -->
+                    <div class="col-lg-5">
+                        <div class="cyber-contact-card reveal">
+                            <span class="cyber-eyebrow mb-4 d-block">// ИНФОРМАЦИЯ О ПОКУПАТЕЛЕ</span>
+
+                            <div class="text-danger fw-bold mb-3"
+                                 asp-validation-summary="All"></div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Name"></label>
+                                <input class="cyber-input" asp-for="DeliveryUser.Name" />
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Name"></span>
+                            </div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Address"></label>
+                                <input class="cyber-input" asp-for="DeliveryUser.Address" />
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Address"></span>
+                            </div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Email"></label>
+                                <input class="cyber-input" asp-for="DeliveryUser.Email" />
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Email"></span>
+                            </div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Telegram"></label>
+                                <input class="cyber-input" asp-for="DeliveryUser.Telegram" />
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Telegram"></span>
+                            </div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Phone"></label>
+                                <input class="cyber-input" asp-for="DeliveryUser.Phone" />
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Phone"></span>
+                            </div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Date"></label>
+                                <input class="cyber-input" asp-for="DeliveryUser.Date" />
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Date"></span>
+                            </div>
+
+                            <div class="cyber-form-group">
+                                <label class="cyber-label" asp-for="DeliveryUser.Comment"></label>
+                                <textarea class="cyber-input cyber-textarea" asp-for="DeliveryUser.Comment"></textarea>
+                                <span class="cyber-validation" asp-validation-for="DeliveryUser.Comment"></span>
+                            </div>
+
+                            <span class="cyber-corner tl"></span>
+                            <span class="cyber-corner tr"></span>
+                            <span class="cyber-corner bl"></span>
+                            <span class="cyber-corner br"></span>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка: таблица заказа -->
+                    <div class="col-lg-7">
+                        <div class="reveal">
+                            <span class="cyber-eyebrow mb-3 d-block">// СОСТАВ ЗАКАЗА</span>
+                            <div class="cyber-table-wrap mb-4">
+                                <table class="cyber-table w-100">
                                     <thead>
-                                        <tr align="center">
-                                            <th scope="col">#</th>
-                                            <th scope="col">Наименование товара</th>
-                                            <th scope="col">Цена, руб.</th>
-                                            <th scope="col">Количество, шт.</th>
-                                            <th scope="col">Стоимость, руб.</th>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Наименование</th>
+                                            <th>Цена</th>
+                                            <th>Кол-во</th>
+                                            <th>Стоимость</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @for (var i = 0; i < Model.Items.Count; i++)
                                         {
-                                            <tr align="center" class="align-baseline">
-                                                <td class="fw-bold">@(i + 1)</td>
-                                                <td align="left">@Model.Items[i].Product.Name</td>
-                                                <td align="left">
-                                                    @Model.Items[i].Product.Cost.ToString("c")
-                                                </td>
-                                                <td>@Model.Items[i].Quantity</td>
-                                                <td class="fw-bold">
-                                                    @Model.Items[i].Cost.ToString("c")
-                                                </td>
+                                            <tr>
+                                                <td class="cyber-table-num">@(i + 1)</td>
+                                                <td>@Model.Items[i].Product.Name</td>
+                                                <td class="cyber-table-price">@Model.Items[i].Product.Cost.ToString("c")</td>
+                                                <td class="cyber-qty-val">@Model.Items[i].Quantity</td>
+                                                <td class="cyber-table-total">@Model.Items[i].Cost.ToString("c")</td>
                                             </tr>
                                         }
                                     </tbody>
-                                    <tfoot class="table-borderless ">
-                                        <tr align="center">
-                                            <th colspan="5">
-                                                Общая стоимость заказа: @Model.TotalCost?.ToString("c")
-                                            </th>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td colspan="2" class="cyber-table-sum">
+                                                Итого: <span>@Model.TotalCost?.ToString("c")</span>
+                                            </td>
                                         </tr>
                                     </tfoot>
                                 </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                            </div>
 
-        <div class="text-center">
-            <button class="btn btn-outline-success" type="submit"
-                    asp-controller="Order"
-                    asp-action="Buy">
-                Оставить заявку на оформление заказа
-            </button>
-        </div>
-    }
-    else
-    {
-        <div class="text-center">
-            <h2 class="row-title">Нет заказа для оформления!</h2>
-        </div>
-    }
-</form>
+                            <!-- Кнопка отправки -->
+                            <div class="d-flex gap-3 justify-content-end flex-wrap"
+                                 style="border-top: 1px solid var(--c-border); padding-top: 1.5rem;">
+                                <a class="cyber-btn cyber-btn-outline"
+                                   asp-controller="Catalog"
+                                   asp-action="Index">
+                                    <i class="bi bi-grid me-2"></i>В каталог
+                                </a>
+                                <button class="cyber-btn cyber-btn-accent cyber-btn-lg" type="submit"
+                                        asp-controller="Order"
+                                        asp-action="Buy">
+                                    <i class="bi bi-send me-2"></i>Отправить заявку
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="text-center m-5">
-    <a class="btn btn-outline-success"
-       asp-controller="Catalog"
-       asp-action="Index">
-        Вернуться в каталог
-    </a>
-</div>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5 reveal">
+                    <div class="cyber-empty-state">
+                        <i class="bi bi-clipboard-x cyber-empty-icon"></i>
+                        <h4 class="cyber-title mt-3">Нет заказа для оформления</h4>
+                        <a class="cyber-btn cyber-btn-accent mt-4"
+                           asp-controller="Catalog"
+                           asp-action="Index">
+                            <i class="bi bi-grid me-2"></i>Перейти в каталог
+                        </a>
+                    </div>
+                </div>
+            }
+        </form>
+
+    </div>
+</section>

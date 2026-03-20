@@ -3,123 +3,132 @@
     ViewData["Title"] = "Новости";
 }
 
-<div class="row mt-3">
-    @await Html.PartialAsync("SideBar")
-    <div class="col-9 mb-3">
-        <div class="text-center text-uppercase text-success mb-5 mt-5">
-            <h2 class="row-title">Новости</h2>
-        </div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row g-4">
 
-        @if (Model != null && Model.Count > 0)
-        {
-            <div class="row justify-content-center mt-3">
-                <div class="col-12">
-                    <div class="text-end">
-                        <a class="btn btn-outline-success mb-2 mt-2"
-                           asp-area="Admin"
-                           asp-controller="News"
-                           asp-action="Add">
-                            Добавить новость
-                        </a>
+            @await Html.PartialAsync("SideBar")
+
+            <div class="col-lg-10 col-md-9">
+                <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3">
+                    <div>
+                        <span class="cyber-eyebrow">// ПАНЕЛЬ АДМИНИСТРАТОРА</span>
+                        <h1 class="cyber-title mt-2">Новости <span class="cyber-accent-text">сайта</span></h1>
                     </div>
-                    <table class="table table-responsive table-striped table-hover mb-5">
-                        <thead>
-                            <tr align="center">
-                                <th scope="col">#</th>
-                                <th scope="col">Название</th>
-                                <th scope="col">Дата</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (var i = 0; i < Model.Count; i++)
-                            {
-                                <tr align="center" class="align-baseline">
-                                    <td class="fw-bold">@(i + 1)</td>
-                                    <td align="left">
-                                        <a class="text-success"
-                                           asp-area=""
-                                           asp-controller="News"
-                                           asp-action="Index"
-                                           asp-route-Id="@Model[i].Id">
-                                            <h5>@Model[i].Title</h5>
-                                        </a>
-                                    </td>
-                                    <td>@Model[i].Date.ToShortDateString()</td>
-                                    <td>
-                                        <a class="btn btn-outline-success"
-                                           asp-area="Admin"
-                                           asp-controller="News"
-                                           asp-action="Update"
-                                           asp-route-Id="@Model[i].Id">
-                                            Редактировать
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-outline-success" data-bs-target="#Returned_@i" data-bs-toggle="modal">
-                                            Удалить
-                                        </a>
+                    <a class="cyber-btn cyber-btn-accent"
+                       asp-area="Admin" asp-controller="News" asp-action="Add">
+                        <i class="bi bi-plus-lg me-2"></i>Добавить новость
+                    </a>
+                </div>
 
-                                        <div class="modal fade" id="Returned_@i" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalWindow" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <p class="modal-title fw-bold" id="modalWindow">Удаление товара</p>
+                @if (Model != null && Model.Count > 0)
+                {
+                    <div class="cyber-table-wrap reveal">
+                        <table class="cyber-table w-100">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Заголовок</th>
+                                    <th>Дата</th>
+                                    <th>Главная</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Count; i++)
+                                {
+                                    <tr>
+                                        <td class="cyber-table-num">@(i + 1)</td>
+                                        <td>
+                                            <a asp-area="" asp-controller="News"
+                                               asp-action="Index" asp-route-Id="@Model[i].Id"
+                                               style="color: var(--c-accent);">
+                                                @Model[i].Title
+                                            </a>
+                                        </td>
+                                        <td class="cyber-table-price">@Model[i].Date.ToShortDateString()</td>
+                                        <td>
+                                            @if (Model[i].IsOnMainPage)
+                                            {
+                                                <span class="cyber-status-badge">На главной</span>
+                                            }
+                                            else
+                                            {
+                                                <span style="color:var(--c-muted); font-size:0.75rem;">—</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                <a class="cyber-btn cyber-btn-ghost"
+                                                   style="padding:0.3rem 0.8rem; font-size:0.65rem;"
+                                                   asp-area="Admin" asp-controller="News"
+                                                   asp-action="Update" asp-route-Id="@Model[i].Id">
+                                                    <i class="bi bi-pencil me-1"></i>Изменить
+                                                </a>
+                                                <a class="cyber-btn"
+                                                   style="padding:0.3rem 0.8rem; font-size:0.65rem; background:rgba(255,60,80,0.08); border-color:rgba(255,60,80,0.3); color:#ff4060;"
+                                                   data-bs-target="#delNews_@i" data-bs-toggle="modal">
+                                                    <i class="bi bi-trash3 me-1"></i>Удалить
+                                                </a>
+                                            </div>
+
+                                            <div class="modal fade" id="delNews_@i" tabindex="-1"
+                                                 data-bs-backdrop="static" data-bs-keyboard="false">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content cyber-modal">
+                                                        <div class="modal-header cyber-modal-header">
+                                                            <span class="cyber-eyebrow">// УДАЛЕНИЕ НОВОСТИ</span>
+                                                        </div>
+                                                        <form method="post">
+                                                            <div class="modal-body cyber-modal-body">
+                                                                Вы действительно хотите удалить новость
+                                                                <strong style="color:var(--c-accent);">@Model[i].Title</strong>?
+                                                            </div>
+                                                            <div class="modal-footer cyber-modal-footer">
+                                                                <button class="cyber-btn"
+                                                                        style="background:rgba(255,60,80,0.1); border-color:rgba(255,60,80,0.4); color:#ff4060;"
+                                                                        type="submit"
+                                                                        asp-area="Admin" asp-controller="News"
+                                                                        asp-action="Delete" asp-route-Id="@Model[i].Id">
+                                                                    <i class="bi bi-trash3 me-2"></i>Удалить
+                                                                </button>
+                                                                <button class="cyber-btn cyber-btn-ghost"
+                                                                        type="button" data-bs-dismiss="modal">
+                                                                    Отмена
+                                                                </button>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <form method="post">
-                                                        <div class="modal-body">
-                                                            Вы действительно хотите удалить новость "@Model[i].Title"?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-outline-danger w-25" type="submit"
-                                                                    asp-area="Admin"
-                                                                    asp-controller="News"
-                                                                    asp-action="Delete"
-                                                                    asp-route-Id=@Model[i].Id>
-                                                                Удалить
-                                                            </button>
-
-                                                            <a class="btn btn-outline-success w-25" role="button" data-bs-dismiss="modal"
-                                                               asp-area="Admin"
-                                                               asp-controller="News"
-                                                               asp-action="Index">
-                                                                Отмена
-                                                            </a>
-                                                        </div>
-                                                    </form>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td colspan="3" class="cyber-table-sum">
+                                        Всего новостей: <span>@Model.Count</span>
                                     </td>
                                 </tr>
-                            }
-                        </tbody>
-                        <tfoot>
-                            <tr align="center">
-                                <th colspan="2"></th>
-                                <th colspan="3">
-                                    Общее количество товаров: @Model.Count
-                                </th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                            </tfoot>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="cyber-empty-state reveal text-center">
+                        <i class="bi bi-newspaper cyber-empty-icon"></i>
+                        <h4 class="cyber-title mt-3">Новостей пока нет</h4>
+                        <a class="cyber-btn cyber-btn-accent mt-4"
+                           asp-area="Admin" asp-controller="News" asp-action="Add">
+                            <i class="bi bi-plus-lg me-2"></i>Добавить новость
+                        </a>
+                    </div>
+                }
             </div>
-        }
-        else
-        {
-            <div class="text-center">
-                <h2 class="row-title">В хранилище нет товаров!</h2>
-            </div>
-            <div class="text-center mt-5">
-                <a class="btn btn-outline-success mb-2 mt-2"
-                   asp-area="Admin"
-                   asp-controller="News"
-                   asp-action="Add">
-                    Добавить новость
-                </a>
-            </div>
-        }
+
+        </div>
     </div>
-</div>
+</section>

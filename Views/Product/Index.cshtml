@@ -2,90 +2,120 @@
 @{
     ViewData["Title"] = Model.Name;
 }
-<div class="row justify-content-center">
-    @if (Model != null)
-    {
-        <div class="col-4 mb-3">
-            <div class="card h-100">
-                <img class="card-img-top" src=@Model.PhotoPath>
-                <div class="card-body text-center">
-                    <h4>@Model.Name</h4>
-                    <h2 class="text-danger">@Model.Cost.ToString("c")</h2>
 
-                    <a class="btn btn-success mb-3 mt-3"
-                       asp-controller="Cart"
-                       asp-action="Add"
-                       asp-route-productId="@Model.Id">Добавить в корзину</a>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+
+        @if (Model != null)
+        {
+            <div class="row g-5 justify-content-center align-items-start">
+
+                <!-- Фото -->
+                <div class="col-lg-4 col-md-5">
+                    <div class="cyber-carousel-wrap reveal">
+                        <img src="@Model.PhotoPath" alt="@Model.Name"
+                             class="w-100"
+                             style="border-radius: var(--radius-lg); object-fit:cover; max-height:380px;">
+                        <span class="cyber-corner tl"></span>
+                        <span class="cyber-corner tr"></span>
+                        <span class="cyber-corner bl"></span>
+                        <span class="cyber-corner br"></span>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-6 mb-3">
-            <div class="flip-card">
-                <div class="flip-card-inner" id="productCard">
 
-                    <!-- FRONT -->
-                    <div class="flip-card-front card h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h6>@Model.Description</h6>
-                                <button class="btn btn-sm btn-outline-secondary"
-                                        onclick="flipCard()">
-                                    ➡
-                                </button>
+                <!-- Правая колонка: название + цена + кнопка + флипкарта -->
+                <div class="col-lg-7 col-md-7 d-flex flex-column gap-4">
+
+                    <!-- Название, цена, корзина -->
+                    <div class="reveal">
+                        <span class="cyber-eyebrow">// ПРОДУКТ</span>
+                        <h1 class="cyber-title mt-2 mb-3">@Model.Name</h1>
+                        <div class="cyber-product-price mb-4" style="font-size:1.6rem;">
+                            @Model.Cost.ToString("c")
+                        </div>
+                        <a class="cyber-btn cyber-btn-accent cyber-btn-lg"
+                           asp-controller="Cart"
+                           asp-action="Add"
+                           asp-route-productId="@Model.Id">
+                            <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
+                        </a>
+                    </div>
+
+                    <!-- Флипкарта: описание / файлы -->
+                    <div class="flip-card reveal" style="height: 220px;">
+                        <div class="flip-card-inner" id="productCard">
+
+                            <!-- FRONT -->
+                            <div class="flip-card-front cyber-contact-card h-100">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <span class="cyber-eyebrow">// ОПИСАНИЕ</span>
+                                    <button class="cyber-icon-btn" onclick="flipCard()" title="Файлы">
+                                        <i class="bi bi-link-45deg"></i>
+                                    </button>
+                                </div>
+                                <p class="cyber-text mt-3"
+                                   style="font-size:0.92rem; line-height:1.7; overflow:auto; max-height:140px;">
+                                    @Model.Description
+                                </p>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- BACK -->
-                    <div class="flip-card-back card h-100">
-                        <div class="card-body text-center">
-                            <h5>Полезные ссылки</h5>
-                            <hr />
+                            <!-- BACK -->
+                            <div class="flip-card-back cyber-contact-card h-100">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <span class="cyber-eyebrow">// ФАЙЛЫ</span>
+                                    <button class="cyber-icon-btn" onclick="flipCard()" title="Назад">
+                                        <i class="bi bi-arrow-left"></i>
+                                    </button>
+                                </div>
+                                <div class="d-flex flex-column gap-2">
+                                    @if (!string.IsNullOrEmpty(Model.PresentationPath))
+                                    {
+                                        <a href="@Model.PresentationPath" download
+                                           class="cyber-btn cyber-btn-outline justify-content-start">
+                                            <i class="bi bi-file-earmark-slides me-2 text-success"></i>
+                                            Скачать презентацию
+                                        </a>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.PresentationPath))
+                                    {
+                                        <a href="#"
+                                           class="cyber-btn cyber-btn-outline justify-content-start">
+                                            <i class="bi bi-cpu me-2 text-success"></i>
+                                            Скачать прошивку
+                                        </a>
+                                    }
+                                </div>
+                            </div>
 
-                            @if (!string.IsNullOrEmpty(Model.PresentationPath))
-                            {
-                                <a href="@Model.PresentationPath"
-                                   download
-                                   class="btn btn-outline-success mb-2 w-100">
-                                    📄 Скачать презентацию
-                                </a>
-                            }
-
-                            @if (!string.IsNullOrEmpty(Model.PresentationPath))
-                            {
-                                <!--<a href="Model.PresentationPath"
-                                   download
-                                   class="btn btn-outline-success mb-2 w-100">
-                                    🔧 Скачать прошивку
-                                </a>-->
-                                <a href="#"                                   
-                                   class="btn btn-outline-success mb-2 w-100">
-                                    🔧 Скачать прошивку
-                                </a>
-                            }
-
-                            <button class="btn btn-outline-success mt-3"
-                                    onclick="flipCard()">
-                                ⬅ Назад
-                            </button>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
-    }
-    else
-    {
-        <div class="col-auto m-5">
-            <h2>Такого товара не существует!</h2>
-        </div>
-    }
-</div>
 
-<div class="row justify-content-center">
-    <div class="col-auto m-5">
-        <a asp-controller="Catalog" asp-action="Index" class="btn btn-outline-success">Продолжить покупки</a>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-success">На главную</a>
+            <!-- Кнопки навигации — отдельно под всей строкой -->
+            <div class="d-flex gap-3 justify-content-center mt-5 pt-3 reveal"
+                 style="border-top: 1px solid var(--c-border);">
+                <a asp-controller="Catalog" asp-action="Index" class="cyber-btn cyber-btn-outline">
+                    <i class="bi bi-grid me-2"></i>Продолжить покупки
+                </a>
+                <a asp-controller="Home" asp-action="Index" class="cyber-btn cyber-btn-ghost">
+                    <i class="bi bi-house me-2"></i>На главную
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <div class="cyber-empty-state">
+                    <i class="bi bi-exclamation-triangle cyber-empty-icon"></i>
+                    <h4 class="cyber-title mt-3">Такого товара не существует</h4>
+                    <a asp-controller="Catalog" asp-action="Index" class="cyber-btn cyber-btn-accent mt-4">
+                        Вернуться в каталог
+                    </a>
+                </div>
+            </div>
+        }
+
     </div>
-</div>
+</section>

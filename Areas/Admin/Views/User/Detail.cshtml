@@ -3,129 +3,143 @@
     ViewData["Title"] = "Пользователь";
 }
 
-<div class="row mt-3">
-    @await Html.PartialAsync("SideBar")
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row g-4">
 
+            @await Html.PartialAsync("SideBar")
 
-    <div class="col-9 mb-3">
-        <div class="text-center text-uppercase text-success mb-5 mt-5">
-            <h2 class="row-title">Пользователь</h2>
-        </div>
-        <form method="post">
+            <div class="col-lg-10 col-md-9">
 
-            @if (Model != null)
-            {
-                <input type="hidden" name="Id" value="@Model.Id" />
-
-                <div class="text-end mt-5">
-                    <button class="btn btn-outline-success dropdown-toggle" role="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        Действия
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li>
-                            <a class="dropdown-item"
-                               asp-area="Admin"
-                               asp-controller="User"
-                               asp-action="ChangePassword"
-                               asp-route-id="@Model.Id">
-                                Смена пароля
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               asp-area="Admin"
-                               asp-controller="User"
-                               asp-action="Update"
-                               asp-route-id="@Model.Id">
-                                Редактирование данных
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               asp-area="Admin"
-                               asp-controller="User"
-                               asp-action="ChangeRole"
-                               asp-route-id="@Model.Id">
-                                Смена прав доступа
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" data-bs-target="#Returned" data-bs-toggle="modal">
-                                Удалить пользователя
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <table class="table table-hover">
-                    <tr>
-                        <td><span>ID</span></td>
-                        <td>@Model.Id</td>
-                    </tr>
-                    <tr>
-                        <td><span>Email (логин)</span></td>
-                        <td class="fw-bold">@Model.Login</td>
-                    </tr>
-                    <tr>
-                        <td><span>Имя</span></td>
-                        <td>@Model.FirstName</td>
-                    </tr>
-                    <tr>
-                        <td><span>Фамилия</span></td>
-                        <td>@Model.LastName</td>
-                    </tr>
-                    <tr>
-                        <td><span>Телефон</span></td>
-                        <td>@Model.Phone</td>
-                    </tr>
-
-                    <tr>
-                        <td><span>Роль</span></td>
-                        <td>@Model.Role</td>
-                    </tr>
-                    <tr>
-                        <td class="w-25"><span>Дата регистрации</span></td>
-                        <td class="w-auto">@Model.CreationDateTime</td>
-                    </tr>
-                </table>
-            }
-            else
-            {
-                <div class="text-center">
-                    <h2>Такого пользователя не существует!</h2>
-                </div>
-            }
-
-            <div class="modal fade" id="Returned" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalWindow" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <p class="modal-title fw-bold" id="modalWindow">Удаление пользователя</p>
-                        </div>
-                        <div class="modal-body">
-                            Вы действительно хотите удалить пользователя "@Model.Login"?
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-outline-danger w-25" type="submit"
-                                    asp-area="Admin"
-                                    asp-controller="User"
-                                    asp-action="Delete"
-                                    asp-route-id=@Model.Id>
-                                Удалить
+                <div class="d-flex align-items-center justify-content-between mb-5 flex-wrap gap-3">
+                    <div>
+                        <span class="cyber-eyebrow">// ПАНЕЛЬ АДМИНИСТРАТОРА</span>
+                        <h1 class="cyber-title mt-2">Профиль <span class="cyber-accent-text">пользователя</span></h1>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <!-- Действия dropdown -->
+                        <div class="dropdown">
+                            <button class="cyber-btn cyber-btn-outline dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-gear me-2"></i>Действия
                             </button>
-
-                            <a class="btn btn-outline-success w-25" role="button" data-bs-dismiss="modal"
-                               asp-area="Admin"
-                               asp-controller="User"
-                               asp-action="Index">
-                                Отмена
-                            </a>
+                            <ul class="dropdown-menu cyber-dropdown dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area="Admin" asp-controller="User"
+                                       asp-action="ChangePassword" asp-route-id="@Model.Id">
+                                        <i class="bi bi-key me-2 text-success"></i>Смена пароля
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area="Admin" asp-controller="User"
+                                       asp-action="Update" asp-route-id="@Model.Id">
+                                        <i class="bi bi-pencil me-2 text-success"></i>Редактировать
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area="Admin" asp-controller="User"
+                                       asp-action="ChangeRole" asp-route-id="@Model.Id">
+                                        <i class="bi bi-shield me-2 text-success"></i>Сменить роль
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider border-secondary"></li>
+                                <li>
+                                    <a class="dropdown-item" style="color:#ff4060 !important;"
+                                       data-bs-target="#deleteModal" data-bs-toggle="modal">
+                                        <i class="bi bi-trash3 me-2"></i>Удалить
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
+                        <a asp-area="Admin" asp-controller="User" asp-action="Index"
+                           class="cyber-btn cyber-btn-ghost">
+                            <i class="bi bi-arrow-left me-2"></i>Назад
+                        </a>
                     </div>
                 </div>
-            </div>
 
-        </form>
+                @if (Model != null)
+                {
+                    <form method="post">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="cyber-contact-card reveal" style="max-width: 600px;">
+                            <span class="cyber-eyebrow mb-4 d-block">// ДАННЫЕ ПОЛЬЗОВАТЕЛЯ</span>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">ID</span>
+                                <span class="cyber-table-num">@Model.Id</span>
+                            </div>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">Email (логин)</span>
+                                <span style="color: var(--c-accent);">@Model.Login</span>
+                            </div>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">Имя</span>
+                                <span>@Model.FirstName</span>
+                            </div>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">Фамилия</span>
+                                <span>@Model.LastName</span>
+                            </div>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">Телефон</span>
+                                <span>@Model.Phone</span>
+                            </div>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">Роль</span>
+                                <span class="cyber-status-badge">@Model.Role</span>
+                            </div>
+                            <div class="cyber-info-row">
+                                <span class="cyber-info-label">Дата регистрации</span>
+                                <span>@Model.CreationDateTime</span>
+                            </div>
+                            <span class="cyber-corner tl"></span>
+                            <span class="cyber-corner br"></span>
+                        </div>
+
+                        <!-- Модалка удаления -->
+                        <div class="modal fade" id="deleteModal" tabindex="-1"
+                             data-bs-backdrop="static" data-bs-keyboard="false">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content cyber-modal">
+                                    <div class="modal-header cyber-modal-header">
+                                        <span class="cyber-eyebrow">// ПОДТВЕРЖДЕНИЕ</span>
+                                    </div>
+                                    <div class="modal-body cyber-modal-body">
+                                        Вы действительно хотите удалить пользователя
+                                        <strong style="color: var(--c-accent);">@Model.Login</strong>?
+                                    </div>
+                                    <div class="modal-footer cyber-modal-footer">
+                                        <button class="cyber-btn"
+                                                style="background:rgba(255,60,80,0.1); border-color:rgba(255,60,80,0.4); color:#ff4060;"
+                                                type="submit"
+                                                asp-area="Admin" asp-controller="User"
+                                                asp-action="Delete" asp-route-id="@Model.Id">
+                                            <i class="bi bi-trash3 me-2"></i>Удалить
+                                        </button>
+                                        <button class="cyber-btn cyber-btn-ghost"
+                                                type="button" data-bs-dismiss="modal">
+                                            Отмена
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                }
+                else
+                {
+                    <div class="cyber-empty-state reveal text-center">
+                        <i class="bi bi-exclamation-triangle cyber-empty-icon"></i>
+                        <h4 class="cyber-title mt-3">Такого пользователя не существует</h4>
+                    </div>
+                }
+
+            </div>
+        </div>
     </div>
-</div>
+</section>

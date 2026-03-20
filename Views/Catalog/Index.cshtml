@@ -3,10 +3,14 @@
     ViewData["Title"] = "Каталог";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Каталог товаров</h2>
-</div>
-
-<div class="row mt-3">
-    @await Html.PartialAsync("ProductsCatalog", @Model)
-</div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="cyber-section-header text-center mb-5">
+            <span class="cyber-eyebrow">// ПРОДУКЦИЯ</span>
+            <h1 class="cyber-title mt-2">Каталог <span class="cyber-accent-text">товаров</span></h1>
+        </div>
+        <div class="row g-4">
+            @await Html.PartialAsync("ProductsCatalog", Model)
+        </div>
+    </div>
+</section>

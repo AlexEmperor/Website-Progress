@@ -1,98 +1,79 @@
-﻿<footer class="footer bg-dark text-white py-5">
-    <div class="container">
-        <div class="row">
+﻿<footer class="cyber-footer">
+    <div class="cyber-footer-top"></div>
+    <div class="container pt-5 pb-4">
+        <div class="row g-4">
 
             <!-- Контакты -->
-            <div class="col-md-3 mb-4">
-                <h5 class="fw-bold">+7 (977) 488-90-30</h5>
-
-                <!-- Контейнер для почты с подсказкой -->
+            <div class="col-lg-4 col-md-6">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <img src="/img/Logo3.svg" alt="Logo" width="50" height="50">
+                    <div>
+                        <div class="cyber-footer-brand">ЛРСБС</div>
+                        <div class="cyber-eyebrow" style="font-size:0.6rem;">// WIRELESS SYSTEMS LAB</div>
+                    </div>
+                </div>
+                <p class="cyber-footer-phone">+7 (977) 488-90-30</p>
                 <div class="mail-copy-container d-inline-flex align-items-center gap-2 mb-3">
-                    <span class="footer-link mail-link text-primary" data-email="electriks0comp26@gmail.com" style="cursor:pointer;">
+                    <span class="footer-link mail-link" data-email="electriks0comp26@gmail.com">
                         electriks0comp26@gmail.com
                     </span>
                     <small class="copy-feedback">Скопировано!</small>
                 </div>
-
-
                 <div class="mb-3">
-                    <a class="footer-icon me-2 tg-link">
-                        <i class="bi bi-telegram fs-5"></i>
-                    </a>
+                    <a class="cyber-social-btn tg-link"><i class="bi bi-telegram"></i></a>
                 </div>
-
-                <div class="small text-secondary text-white">
-                    <p class="mb-0">Адрес офиса:</p>
-                    <p class="mb-0">125183, г. Москва,</p>
-                    <p>Проспект Черепановых, д. 54</p>
-                </div>
+                <p class="cyber-footer-address">
+                    125183, г. Москва,<br>Проспект Черепановых, д. 54
+                </p>
             </div>
 
             <!-- О компании -->
-            <div class="col-md-2 mb-4">
-                <ul class="list-unstyled footer-list">
-                    <li>
-                        <a asp-controller="Home"
-                           asp-action="Index"
-                           asp-fragment="about">
-                            О компании
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="FooterPages"
-                           asp-action="Services">
-                            Услуги
-                        </a>
-                    </li>
-                    <li>
-                            <a asp-controller="News"
-                               asp-action="All">
-                                Новости
-                            </a>
-                    </li>
-                    <li>
-                        <a asp-controller="Contacts" asp-action="Index">
-                            Контакты
-                        </a>
-                    </li>
+            <div class="col-lg-2 col-md-3 col-6">
+                <h6 class="cyber-footer-heading">Компания</h6>
+                <ul class="cyber-footer-list">
+                    <li><a asp-controller="Home" asp-action="Index" asp-fragment="about">О компании</a></li>
+                    <li><a asp-controller="FooterPages" asp-action="Services">Услуги</a></li>
+                    <li><a asp-controller="News" asp-action="All">Новости</a></li>
+                    <li><a asp-controller="Contacts" asp-action="Index">Контакты</a></li>
                 </ul>
             </div>
 
             <!-- Поддержка -->
-            <div class="col-md-2 mb-4">
-                <ul class="list-unstyled footer-list">
-                    <li>
-                        <a asp-controller="FooterPages"
-                           asp-action="Support">
-                            Служба поддержки
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="FooterPages" asp-action="Service">
-                            Сервис
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="FooterPages" asp-action="Delivery">
-                            Доставка
-                        </a>
-                    </li>
+            <div class="col-lg-2 col-md-3 col-6">
+                <h6 class="cyber-footer-heading">Поддержка</h6>
+                <ul class="cyber-footer-list">
+                    <li><a asp-controller="FooterPages" asp-action="Support">Служба поддержки</a></li>
+                    <li><a asp-controller="FooterPages" asp-action="Service">Сервис</a></li>
+                    <li><a asp-controller="FooterPages" asp-action="Delivery">Доставка</a></li>
                 </ul>
             </div>
 
+            <!-- CTA -->
+            <div class="col-lg-4 col-md-12">
+                <h6 class="cyber-footer-heading">Получить консультацию</h6>
+                <p class="cyber-text mb-3">Ответим на вопросы и поможем с выбором оборудования.</p>
+                <a asp-controller="Contacts" asp-action="Index" class="cyber-btn cyber-btn-accent">
+                    Связаться с нами <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
 
         </div>
 
         <!-- Нижняя строка -->
-        <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-3">
-
-            <a asp-controller="Contacts" asp-action="Index" class="btn btn-success rounded-pill px-4">
-                Получить консультацию
-            </a>
-
-            <span class="text-secondary small text-white">
-                © 2026 Лаборатория разработок систем беспроводной связи
-            </span>
+        <div class="cyber-footer-bottom">
+            <div class="cyber-footer-line"></div>
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 pt-4">
+                <span class="cyber-footer-copy">© 2026 Лаборатория разработок систем беспроводной связи</span>
+                <span class="cyber-eyebrow">MADE IN RUSSIA</span>
+            </div>
         </div>
+
     </div>
 </footer>
+
+<!-- Кнопка Наверх -->
+<aside>
+    <a href="#" id="scrollTopBtn" title="Наверх">
+        <i class="bi bi-chevron-up"></i>
+    </a>
+</aside>

@@ -2,6 +2,7 @@
 .navbar {
     animation: slideDown 0.6s ease-out;
     position: relative;
+    min-width: 100%;
 }
 
 @keyframes slideDown {
@@ -170,3 +171,7 @@ body.light .search-input {
     body.light .search-input::placeholder {
         color: #666666 !important;
     }
+
+body {
+    overflow-x: hidden;
+}

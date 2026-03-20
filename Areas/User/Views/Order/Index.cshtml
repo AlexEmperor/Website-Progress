@@ -1,72 +1,88 @@
 ﻿@model List<OrderViewModel>
 @{
-    ViewData["Title"] = "Заказы";
+    ViewData["Title"] = "Мои заказы";
 }
 
-<div class="row mt-3">
-    @await Html.PartialAsync("SideBar")
-    <div class="col-9 mb-3">
-        <div class="text-center text-uppercase text-success mb-5 mt-5">
-            <h2 class="row-title">Заказы</h2>
-        </div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row g-4">
 
-        @if (Model != null && Model.Count > 0)
-        {
-            <div class="row justify-content-center mt-3">
-                <div class="col-12">
-                    <table class="table table-responsive table-striped table-hover mb-5">
-                        <thead>
-                            <tr align="center">
-                                <th scope="col">#</th>
-                                <th scope="col">Сумма</th>
-                                <th scope="col">Статус</th>
-                                <th scope="col">Пользователь (логин)</th>
-                                <th scope="col">Дата</th>
-                                <th scope="col">Время</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (var i = 0; i < Model.Count; i++)
-                            {
-                                <tr align="center" class="align-baseline">
-                                    <td class="fw-bold">@(i + 1)</td>
-                                    <td>@Model[i].TotalCost?.ToString("c")</td>
-                                    <td>@Html.DisplayFor(model => Model[i].Status)</td>
-                                    <td>@Model[i].DeliveryUser.Email</td>
-                                    <td>@Model[i].CreationDateTime.ToShortDateString()</td>
-                                    <td>@Model[i].CreationDateTime.ToShortTimeString()</td>
-                                    <td align="left">
-                                        <a class="text-success"
-                                           asp-area="User"
-                                           asp-controller="Order"
-                                           asp-action="Detail"
-                                           asp-route-OrderId="@Model[i].Id">
-                                            Подробнее
-                                        </a>
+            @await Html.PartialAsync("SideBar")
+
+            <div class="col-lg-10 col-md-9">
+                <div class="cyber-section-header mb-5">
+                    <span class="cyber-eyebrow">// ЛИЧНЫЙ КАБИНЕТ</span>
+                    <h1 class="cyber-title mt-2">Мои <span class="cyber-accent-text">заказы</span></h1>
+                </div>
+
+                @if (Model != null && Model.Count > 0)
+                {
+                    <div class="cyber-table-wrap reveal">
+                        <table class="cyber-table w-100">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Сумма</th>
+                                    <th>Статус</th>
+                                    <th>Email</th>
+                                    <th>Дата</th>
+                                    <th>Время</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Count; i++)
+                                {
+                                    <tr>
+                                        <td class="cyber-table-num">@(i + 1)</td>
+                                        <td class="cyber-table-total">@Model[i].TotalCost?.ToString("c")</td>
+                                        <td>
+                                            <span class="cyber-status-badge">
+                                                @Html.DisplayFor(model => Model[i].Status)
+                                            </span>
+                                        </td>
+                                        <td class="cyber-table-price">@Model[i].DeliveryUser.Email</td>
+                                        <td class="cyber-table-price">@Model[i].CreationDateTime.ToShortDateString()</td>
+                                        <td class="cyber-table-price">@Model[i].CreationDateTime.ToShortTimeString()</td>
+                                        <td>
+                                            <a class="cyber-btn cyber-btn-ghost"
+                                               style="padding: 0.3rem 0.8rem; font-size:0.65rem;"
+                                               asp-area="User"
+                                               asp-controller="Order"
+                                               asp-action="Detail"
+                                               asp-route-OrderId="@Model[i].Id">
+                                                Подробнее <i class="bi bi-arrow-right ms-1"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <td colspan="3" class="cyber-table-sum">
+                                        Всего заказов: <span>@Model.Count</span>
                                     </td>
                                 </tr>
-                            }
-                        </tbody>
-                        <tfoot>
-                            <tr align="center">
-                                <th colspan="4"></th>
-                                <th colspan="3">
-                                    Общее количество заказов: @Model.Count
-                                </th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                            </tfoot>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="cyber-empty-state reveal text-center">
+                        <i class="bi bi-inbox cyber-empty-icon"></i>
+                        <h4 class="cyber-title mt-3">Заказов пока нет</h4>
+                        <p class="cyber-text mt-2">Перейдите в каталог и оформите первый заказ</p>
+                        <a class="cyber-btn cyber-btn-accent mt-4"
+                           asp-controller="Catalog"
+                           asp-action="Index">
+                            <i class="bi bi-grid me-2"></i>В каталог
+                        </a>
+                    </div>
+                }
             </div>
-        }
-        else
-        {
-            <div class="text-center">
-                <h2 class="row-title">В хранилище нет заказов!</h2>
-            </div>
-        }
 
+        </div>
     </div>
-</div>
-
+</section>

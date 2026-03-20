@@ -3,38 +3,77 @@
     ViewData["Title"] = "Добавление новости";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Добавление новости</h2>
-</div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row g-4">
 
-<form method="post" enctype="multipart/form-data">
-    <div class="row justify-content-center mt-3">
-        <div class="col-6 mb-3">
-            <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
+            @await Html.PartialAsync("SideBar")
 
-            <p>
-                <label class="form-label" asp-for="Title"></label><br />
-                <input class="form-control" asp-for="Title" />
-            </p>
-            <p>
-                <label class="form-label" asp-for="Description"></label><br />
-                <textarea class="form-control" asp-for="Description"></textarea>
-            </p>
-            <p>
-                <label class="form-label" asp-for="Date"></label><br />
-                <input class="form-control" asp-for="Date" />
-                <span asp-validation-for="Date"></span>
-            </p>
-            <p>
-                <label>Фото</label>
-                <input type="file" class="form-control" asp-for="ImageFile" />
-            </p>
+            <div class="col-lg-10 col-md-9">
+                <div class="d-flex align-items-center justify-content-between mb-5 flex-wrap gap-3">
+                    <div>
+                        <span class="cyber-eyebrow">// ПАНЕЛЬ АДМИНИСТРАТОРА</span>
+                        <h1 class="cyber-title mt-2">Новая <span class="cyber-accent-text">новость</span></h1>
+                    </div>
+                    <a asp-area="Admin" asp-controller="News" asp-action="Index"
+                       class="cyber-btn cyber-btn-outline">
+                        <i class="bi bi-arrow-left me-2"></i>К новостям
+                    </a>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    <div class="row g-4">
+
+                        <div class="col-lg-7">
+                            <div class="cyber-contact-card reveal">
+                                <span class="cyber-eyebrow mb-4 d-block">// ДАННЫЕ НОВОСТИ</span>
+                                <div class="text-danger mb-3" asp-validation-summary="All"></div>
+
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label" asp-for="Title"></label>
+                                    <input class="cyber-input" asp-for="Title" />
+                                </div>
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label" asp-for="Description"></label>
+                                    <textarea class="cyber-input cyber-textarea" style="min-height:160px;"
+                                              asp-for="Description"></textarea>
+                                </div>
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label" asp-for="Date"></label>
+                                    <input class="cyber-input" asp-for="Date" />
+                                    <span class="cyber-validation" asp-validation-for="Date"></span>
+                                </div>
+
+                                <span class="cyber-corner tl"></span>
+                                <span class="cyber-corner br"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="cyber-contact-card reveal">
+                                <span class="cyber-eyebrow mb-4 d-block">// МЕДИА</span>
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label">Фото</label>
+                                    <input type="file" class="cyber-input" asp-for="ImageFile" />
+                                </div>
+                                <span class="cyber-corner tl"></span>
+                                <span class="cyber-corner br"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 reveal">
+                            <div class="d-flex gap-3 justify-content-end"
+                                 style="border-top: 1px solid var(--c-border); padding-top: 1.5rem;">
+                                <button class="cyber-btn cyber-btn-accent cyber-btn-lg" type="submit">
+                                    <i class="bi bi-plus-lg me-2"></i>Добавить новость
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>
-    <div class="text-center m-3">
-        <button class="btn btn-outline-success" type="submit">
-            Добавить
-        </button>
-    </div>
-</form>
+</section>

@@ -1,32 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Оплата заказа";
+    ViewData["Title"] = "Заявка принята";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Формирование заказа</h2>
-</div>
+<section class="cyber-section" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="container">
+        <div class="text-center reveal">
 
-<div class="text-center">
-    <h2 class="row-title">Заявка сформирована!</h2>
-    <h2 class="row-title">Статус заказа можно отслеживать в личном кабинете.</h2>
-</div>
+            <!-- Иконка успеха -->
+            <div class="cyber-success-icon mb-4">
+                <i class="bi bi-check-lg"></i>
+            </div>
 
-<div class="text-center m-2">
-    <a class="btn btn-outline-success"
-       asp-controller="Catalog"
-       asp-action="Index">
-        Вернуться в каталог
-    </a>
-    <a class="btn btn-outline-success"
-       asp-area="User"
-       asp-controller="Order"
-       asp-action="Index">
-        В личный кабинет
-    </a>
-    <a asp-controller="Order"
-       asp-action="GenerateInvoice"
-       asp-route-id="@ViewBag.OrderId"
-       class="btn btn-outline-success mb-2 w-100">
-        📄 Получить предварительный счёт
-    </a>
-</div>
+            <span class="cyber-eyebrow">// ЗАЯВКА ПРИНЯТА</span>
+            <h1 class="cyber-title mt-3 mb-2">
+                Заявка <span class="cyber-accent-text">сформирована!</span>
+            </h1>
+            <p class="cyber-text mx-auto mt-3 mb-5" style="max-width: 480px;">
+                Статус заказа можно отслеживать в личном кабинете.
+                Мы свяжемся с вами в ближайшее время.
+            </p>
+
+            <!-- Кнопки -->
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a class="cyber-btn cyber-btn-outline"
+                   asp-controller="Catalog"
+                   asp-action="Index">
+                    <i class="bi bi-grid me-2"></i>В каталог
+                </a>
+                <a class="cyber-btn cyber-btn-outline"
+                   asp-area="User"
+                   asp-controller="Order"
+                   asp-action="Index">
+                    <i class="bi bi-person me-2"></i>Личный кабинет
+                </a>
+                <a class="cyber-btn cyber-btn-accent"
+                   asp-controller="Order"
+                   asp-action="GenerateInvoice"
+                   asp-route-id="@ViewBag.OrderId">
+                    <i class="bi bi-file-earmark-text me-2"></i>Получить счёт
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

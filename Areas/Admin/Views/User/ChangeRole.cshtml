@@ -1,28 +1,45 @@
 ﻿@model ChangeRole
 @{
-    ViewData["Title"] = "Смена прав доступа пользователя";
+    ViewData["Title"] = "Смена прав доступа";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Смена прав доступа пользователя</h2>
-</div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="cyber-contact-card reveal">
+                    <span class="cyber-eyebrow mb-3 d-block">// АДМИНИСТРАТОР</span>
+                    <h1 class="cyber-title mb-4">Права <span class="cyber-accent-text">доступа</span></h1>
 
-<form method="post">
-    <div class="row justify-content-center mt-3">
-        <div class="col-6 mb-3">
-            <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
-            <input type="hidden" name="Id" value="@Model.Id" />
-            <input type="hidden" name="Login" value="@Model.Login" />
-            <p class="text-center">
-                <select asp-for="Role" class="form-select list-group-item-success"
-                        asp-items="@Model.Roles">
-                </select>
-            </p>
+                    <form method="post">
+                        <div class="text-danger mb-3" asp-validation-summary="All"></div>
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <input type="hidden" name="Login" value="@Model.Login" />
+
+                        <div class="cyber-form-group">
+                            <label class="cyber-label">Роль пользователя</label>
+                            <select class="cyber-input" asp-for="Role"
+                                    asp-items="@Model.Roles">
+                            </select>
+                        </div>
+
+                        <div class="d-flex gap-3 mt-4">
+                            <button class="cyber-btn cyber-btn-accent cyber-btn-lg" type="submit">
+                                <i class="bi bi-shield-check me-2"></i>Обновить
+                            </button>
+                            <a asp-area="Admin" asp-controller="User" asp-action="Index"
+                               class="cyber-btn cyber-btn-ghost">
+                                Отмена
+                            </a>
+                        </div>
+                    </form>
+
+                    <span class="cyber-corner tl"></span>
+                    <span class="cyber-corner tr"></span>
+                    <span class="cyber-corner bl"></span>
+                    <span class="cyber-corner br"></span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="text-center m-3">
-        <button class="btn btn-outline-success" type="submit">
-            Обновить
-        </button>
-    </div>
-</form>
+</section>

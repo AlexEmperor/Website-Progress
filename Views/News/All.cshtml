@@ -1,53 +1,41 @@
-﻿
-@model List<NewsViewModel>
+﻿@model List<NewsViewModel>
 @{
     ViewData["Title"] = "Новости";
 }
-<section class="analog-section py-5">
+
+<section class="cyber-section" style="padding-top: 60px;">
     <div class="container">
-
-        <h1 class="analog-title text-center mb-5">
-            Новости компании
-        </h1>
-
+        <div class="cyber-section-header text-center mb-5">
+            <span class="cyber-eyebrow">// МЕДИА</span>
+            <h1 class="cyber-title mt-2">Новости <span class="cyber-accent-text">компании</span></h1>
+        </div>
         <div class="row g-4">
-
             @foreach (var item in Model)
             {
                 <div class="col-lg-4 col-md-6">
-
                     <a asp-controller="News"
                        asp-action="Index"
                        asp-route-id="@item.Id"
-                       class="news-card-link">
-
-                        <div class="card news-card h-100">
-
-                            <div class="news-thumb">
-                                <img src="@item.ImagePath"
-                                     alt="@item.Title">
+                       class="cyber-news-link">
+                        <div class="cyber-news-card reveal">
+                            <div class="cyber-news-img">
+                                <img src="@item.ImagePath" alt="@item.Title">
+                                <div class="cyber-news-date">
+                                    @item.Date.ToString("dd MMM yyyy")
+                                </div>
                             </div>
-
-                            <div class="p-3">
-
-                                <small class="analog-text">
-                                    @item.Date.ToString("dd MMMM yyyy")
-                                </small>
-
-                                <h5 class="mt-2">
-                                    @item.Title
-                                </h5>
-
+                            <div class="cyber-news-body">
+                                <h5 class="cyber-news-title">@item.Title</h5>
+                                <span class="cyber-read-more">
+                                    Читать <i class="bi bi-arrow-right"></i>
+                                </span>
                             </div>
-
+                            <span class="cyber-corner tl"></span>
+                            <span class="cyber-corner br"></span>
                         </div>
-
                     </a>
-
                 </div>
             }
-
         </div>
-
     </div>
 </section>

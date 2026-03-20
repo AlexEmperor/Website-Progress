@@ -47,6 +47,7 @@ wwwroot\img\создание-корпуса-для-vvizor.png
 wwwroot\img\товар-11.png
 wwwroot\img\товар-14.png
 wwwroot\img\товар-15.png
+wwwroot\js\cyber.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -111,3 +112,4 @@ wwwroot\presentations\АМ_VVizor_HiddenParts.pptx
 wwwroot\presentations\КП Интеллект АК SDR(3).pptx
 wwwroot\presentations\товар-11.pptx
 wwwroot\presentations\товар-15.pptx
+wwwroot\css\cyber.css

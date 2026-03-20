@@ -1,49 +1,41 @@
-﻿<div class="col-3 mb-3 min">
-    <div class="sidebar">
-        <ul class="sidebar-nav">
-            <li class="nav-link">
-                <a class="nav-link"
-                 asp-area="Admin"
-                   asp-controller="Order"
-                   asp-action="Index">
-                    Заказы
+﻿<div class="col-lg-2 col-md-3">
+    <div class="cyber-sidebar reveal">
+        <span class="cyber-eyebrow mb-3 d-block">// АДМИН</span>
+        <ul class="cyber-sidebar-nav">
+            <li>
+                <a asp-area="Admin" asp-controller="Order" asp-action="Index">
+                    <i class="bi bi-receipt me-2 text-success"></i>Заказы
                 </a>
             </li>
-            <li class="nav-link">
-                <a class="nav-link" asp-area="Admin"
-                   asp-controller="User"
-                   asp-action="Index">
-                    Пользователи
+            <li>
+                <a asp-area="Admin" asp-controller="User" asp-action="Index">
+                    <i class="bi bi-people me-2 text-success"></i>Пользователи
                 </a>
             </li>
-            <li class="nav-link">
-                <a class="nav-link" asp-area="Admin"
-                   asp-controller="Product"
-                   asp-action="Index">
-                    Товары
+            <li>
+                <a asp-area="Admin" asp-controller="Product" asp-action="Index">
+                    <i class="bi bi-box me-2 text-success"></i>Товары
                 </a>
             </li>
-            <li class="nav-link">
-                <a class="nav-link" asp-area="Admin"
-                   asp-controller="News"
-                   asp-action="Index">
-                    Новости
+            <li>
+                <a asp-area="Admin" asp-controller="News" asp-action="Index">
+                    <i class="bi bi-newspaper me-2 text-success"></i>Новости
                 </a>
             </li>
         </ul>
+
+        <!-- Режим сайта -->
+        <div class="cyber-sidebar-divider"></div>
+        <span class="cyber-eyebrow mb-3 d-block">// РЕЖИМ САЙТА</span>
+        <form method="post" asp-area="Admin" asp-controller="Settings" asp-action="SetMode"
+              class="d-flex flex-column gap-2">
+            <button name="mode" value="Normal" class="cyber-btn cyber-btn-accent justify-content-center">
+                <i class="bi bi-check-circle me-2"></i>Работает
+            </button>
+            <button name="mode" value="Maintenance" class="cyber-btn justify-content-center"
+                    style="background:rgba(255,60,80,0.1); border-color:rgba(255,60,80,0.4); color:#ff4060;">
+                <i class="bi bi-tools me-2"></i>Перерыв
+            </button>
+        </form>
     </div>
 </div>
-<form method="post"
-      asp-area="Admin"
-      asp-controller="Settings"
-      asp-action="SetMode">
-
-    <button name="mode" value="Normal" class="btn btn-success">
-        Сайт работает
-    </button>
-
-    <button name="mode" value="Maintenance" class="btn btn-danger">
-        Технический перерыв
-    </button>
-
-</form>

@@ -3,40 +3,99 @@
     ViewData["Title"] = "Редактирование новости";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Редактирование новости</h2>
-</div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row g-4">
 
-<form method="post" enctype="multipart/form-data">
-    <div class="row justify-content-center mt-3">
-        <div class="col-6 mb-3">
-            <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
-            <input type="hidden" name="Id" value="@Model.Id" />
+            @await Html.PartialAsync("SideBar")
 
-            <p>
-                <label class="form-label" asp-for="Title"></label><br />
-                <input class="form-control" asp-for="Title" value="@Model.Title" />
-            </p>
-            <p>
-                <label class="form-label" asp-for="Description"></label><br />
-                <textarea class="form-control" asp-for="Description"></textarea>
-            </p>
-            <p>
-                <label>Фото</label>
-                <input type="file" class="form-control" asp-for="ImageFile" />
-            </p>
+            <div class="col-lg-10 col-md-9">
+                <div class="d-flex align-items-center justify-content-between mb-5 flex-wrap gap-3">
+                    <div>
+                        <span class="cyber-eyebrow">// ПАНЕЛЬ АДМИНИСТРАТОРА</span>
+                        <h1 class="cyber-title mt-2">Редактирование <span class="cyber-accent-text">новости</span></h1>
+                    </div>
+                    <a asp-area="Admin" asp-controller="News" asp-action="Index"
+                       class="cyber-btn cyber-btn-outline">
+                        <i class="bi bi-arrow-left me-2"></i>К новостям
+                    </a>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="row g-4">
+
+                        <div class="col-lg-7">
+                            <div class="cyber-contact-card reveal">
+                                <span class="cyber-eyebrow mb-4 d-block">// ДАННЫЕ НОВОСТИ</span>
+                                <div class="text-danger mb-3" asp-validation-summary="All"></div>
+
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label" asp-for="Title"></label>
+                                    <input class="cyber-input" asp-for="Title" value="@Model.Title" />
+                                </div>
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label" asp-for="Description"></label>
+                                    <textarea class="cyber-input cyber-textarea" style="min-height:160px;"
+                                              asp-for="Description">@Model.Description</textarea>
+                                </div>
+
+                                <span class="cyber-corner tl"></span>
+                                <span class="cyber-corner br"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="cyber-contact-card reveal">
+                                <span class="cyber-eyebrow mb-4 d-block">// МЕДИА</span>
+                                <div class="cyber-form-group">
+                                    <label class="cyber-label">Фото</label>
+                                    <input type="file" class="cyber-input" asp-for="ImageFile" />
+                                </div>
+                                <span class="cyber-corner tl"></span>
+                                <span class="cyber-corner br"></span>
+                            </div>
+
+                            <div class="cyber-contact-card reveal mt-4">
+                                <span class="cyber-eyebrow mb-3 d-block">// ОТОБРАЖЕНИЕ</span>
+                                <p class="cyber-text mb-3" style="font-size:0.85rem;">
+                                    Показывать новость в секции «Новости» на главной странице
+                                </p>
+                                <button type="submit"
+                                        class="cyber-btn w-100 justify-content-center
+                                        @(Model.IsOnMainPage ? "cyber-btn-outline" : "cyber-btn-accent")"
+                                        name="toggleMainPage" value="true">
+                                    @if (Model.IsOnMainPage)
+                                    {
+                                        <i class="bi bi-eye-slash me-2"></i>
+                                    
+                                        <span>Скрыть с главной</span>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-eye me-2"></i>
+                                    
+                                        <span>Показать на главной</span>
+                                    }
+                                </button>
+                                <span class="cyber-corner tl"></span>
+                                <span class="cyber-corner br"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 reveal">
+                            <div class="d-flex gap-3 justify-content-end"
+                                 style="border-top: 1px solid var(--c-border); padding-top: 1.5rem;">
+                                <button class="cyber-btn cyber-btn-accent cyber-btn-lg" type="submit">
+                                    <i class="bi bi-check2 me-2"></i>Сохранить изменения
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
-    <div class="text-center mt-3">
-        <!-- Кнопка переключения -->
-        <button type="submit" class="btn btn-outline-primary"
-                name="toggleMainPage" value="true">
-            @(Model.IsOnMainPage ? "Скрыть с главной" : "Показать на главной")
-        </button>
-    </div>
-    <div class="text-center m-3">
-        <button class="btn btn-outline-success" type="submit">
-            Обновить
-        </button>
-    </div>
-</form>
+</section>

@@ -3,156 +3,179 @@
     ViewData["Title"] = "Детали заказа";
 }
 
-<div class="row mt-3">
-    @await Html.PartialAsync("SideBar")
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row g-4">
 
+            @await Html.PartialAsync("SideBar")
 
-    <div class="col-9 mb-3">
-        <div class="text-center text-uppercase text-success mb-5 mt-5">
-            <h2 class="row-title">Детали заказа</h2>
-        </div>
-        <form method="post">
+            <div class="col-lg-10 col-md-9">
 
-            @if (Model != null)
-            {
-                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="d-flex align-items-center justify-content-between mb-5 flex-wrap gap-3">
+                    <div>
+                        <span class="cyber-eyebrow">// ПАНЕЛЬ АДМИНИСТРАТОРА</span>
+                        <h1 class="cyber-title mt-2">Детали <span class="cyber-accent-text">заказа</span></h1>
+                    </div>
+                    <a asp-area="Admin" asp-controller="Order" asp-action="Index"
+                       class="cyber-btn cyber-btn-outline">
+                        <i class="bi bi-arrow-left me-2"></i>К заказам
+                    </a>
+                </div>
 
-                <table class="table table-responsive mb-5 caption-top">
-                    <tr>
-                        <td class="fw-bold border-end border-bottom border-dark">Заказ</td>
-                        <td class="border-bottom border-dark">
+                @if (Model != null)
+                {
+                    <form method="post">
+                        <input type="hidden" name="Id" value="@Model.Id" />
 
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="w-25"><span>ID</span></td>
-                                    <td class="w-auto">@Model.Id</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Стоимость</span></td>
-                                    <td class="fw-bold w-auto">@Model.TotalCost?.ToString("c")</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Количество позиций</span></td>
-                                    <td class="w-auto">@Model.Items.Count</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Количество товаров</span></td>
-                                    <td class="w-auto">@Model.ItemsQuantity</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Статус заказа</span></td>
-                                    <td class="w-auto">
-                                        <p>
-                                            <select asp-for="@Model.Status" class="form-select list-group-item-success w-50"
+                        <div class="row g-4">
+
+                            <!-- Заказ -->
+                            <div class="col-lg-6">
+                                <div class="cyber-contact-card reveal">
+                                    <span class="cyber-eyebrow mb-3 d-block">// ЗАКАЗ</span>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">ID</span>
+                                        <span class="cyber-table-num">@Model.Id</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Стоимость</span>
+                                        <span class="cyber-table-total">@Model.TotalCost?.ToString("c")</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Позиций</span>
+                                        <span>@Model.Items.Count</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Товаров</span>
+                                        <span>@Model.ItemsQuantity</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Статус</span>
+                                        <div>
+                                            <select asp-for="@Model.Status"
+                                                    class="cyber-input"
+                                                    style="width:auto; padding: 0.4rem 0.75rem;"
                                                     asp-items="@Html.GetEnumSelectList<OrderStatusViewModel>()">
                                             </select>
-                                        </p>
+                                        </div>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Создан</span>
+                                        <span>@Model.CreationDateTime</span>
+                                    </div>
+                                    <span class="cyber-corner tl"></span>
+                                    <span class="cyber-corner br"></span>
+                                </div>
+                            </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Время создания заказа</span></td>
-                                    <td class="w-auto">@Model.CreationDateTime</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold border-end border-bottom border-dark">Пользователь</td>
-                        <td class="border-bottom border-dark">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="w-25"><span>ID</span></td>
-                                    <td class="w-auto">@Model.UserId</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold border-end border-bottom border-dark">Покупатель</td>
-                        <td class="border-bottom border-dark">
-                            <table class="table table-hover p-0 m-0">
-                                <tr>
-                                    <td class="w-25"><span>ID</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Id</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Имя</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Name</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Телефон</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Phone</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Почта</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Email</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Telegram</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Telegram</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Адрес</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Address</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Дата доставки</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Date.ToShortDateString()</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><span>Комментарий</span></td>
-                                    <td class="w-auto">@Model.DeliveryUser.Comment</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold border-end border-dark">Состав заказа</td>
-                        <td class="border-bottom border-dark">
-                            <table class="table table-responsive table-striped table-hover caption-top">
-                                <thead>
-                                    <tr align="center">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Наименование товара</th>
-                                        <th scope="col">Цена, руб.</th>
-                                        <th scope="col">Количество, шт.</th>
-                                        <th scope="col">Стоимость, руб.</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @for (var i = 0; i < Model.Items.Count; i++)
-                                    {
-                                        <tr align="center" class="align-baseline">
-                                            <td class="fw-bold">@(i + 1)</td>
-                                            <td align="left">@Model.Items[i].Product.Name</td>
-                                            <td align="left">@Model.Items[i].PriceAtPurchase.ToString("c")</td>
-                                            <td>@Model.Items[i].Quantity</td>
-                                            <td class="fw-bold">@Model.Items[i].Cost.ToString("c")</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                            <!-- Пользователь + Покупатель -->
+                            <div class="col-lg-6">
+                                <div class="cyber-contact-card reveal">
+                                    <span class="cyber-eyebrow mb-3 d-block">// ПОКУПАТЕЛЬ</span>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">User ID</span>
+                                        <span class="cyber-table-num">@Model.UserId</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Delivery ID</span>
+                                        <span class="cyber-table-num">@Model.DeliveryUser.Id</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Имя</span>
+                                        <span>@Model.DeliveryUser.Name</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Телефон</span>
+                                        <span>@Model.DeliveryUser.Phone</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Почта</span>
+                                        <span>@Model.DeliveryUser.Email</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Telegram</span>
+                                        <span>@Model.DeliveryUser.Telegram</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Адрес</span>
+                                        <span>@Model.DeliveryUser.Address</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Дата доставки</span>
+                                        <span>@Model.DeliveryUser.Date.ToShortDateString()</span>
+                                    </div>
+                                    <div class="cyber-info-row">
+                                        <span class="cyber-info-label">Комментарий</span>
+                                        <span>@Model.DeliveryUser.Comment</span>
+                                    </div>
+                                    <span class="cyber-corner tl"></span>
+                                    <span class="cyber-corner br"></span>
+                                </div>
+                            </div>
 
-                <div class="text-center mt-5">
-                    <button class="btn btn-outline-success" type="submit"
-                            asp-area="Admin"
-                            asp-controller="Order"
-                            asp-action="UpdateStatus"
-                            asp-route-orderId=@Model.Id>
-                        Обновить статус
-                    </button>
-                </div>
-            }
-            else
-            {
-                <div class="text-center">
-                    <h2>Такого заказа не существует!</h2>
-                </div>
-            }
-        </form>
+                            <!-- Состав заказа -->
+                            <div class="col-12">
+                                <div class="reveal">
+                                    <span class="cyber-eyebrow mb-3 d-block">// СОСТАВ ЗАКАЗА</span>
+                                    <div class="cyber-table-wrap">
+                                        <table class="cyber-table w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Наименование</th>
+                                                    <th>Цена</th>
+                                                    <th>Кол-во</th>
+                                                    <th>Стоимость</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.Items.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td class="cyber-table-num">@(i + 1)</td>
+                                                        <td>@Model.Items[i].Product.Name</td>
+                                                        <td class="cyber-table-price">@Model.Items[i].PriceAtPurchase.ToString("c")</td>
+                                                        <td class="cyber-qty-val">@Model.Items[i].Quantity</td>
+                                                        <td class="cyber-table-total">@Model.Items[i].Cost.ToString("c")</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Кнопка обновления статуса -->
+                            <div class="col-12 reveal">
+                                <div class="d-flex gap-3 justify-content-end"
+                                     style="border-top: 1px solid var(--c-border); padding-top: 1.5rem;">
+                                    <button class="cyber-btn cyber-btn-accent cyber-btn-lg"
+                                            type="submit"
+                                            asp-area="Admin"
+                                            asp-controller="Order"
+                                            asp-action="UpdateStatus"
+                                            asp-route-orderId="@Model.Id">
+                                        <i class="bi bi-arrow-repeat me-2"></i>Обновить статус
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <div class="cyber-empty-state reveal text-center">
+                        <i class="bi bi-exclamation-triangle cyber-empty-icon"></i>
+                        <h4 class="cyber-title mt-3">Такого заказа не существует</h4>
+                        <a class="cyber-btn cyber-btn-accent mt-4"
+                           asp-area="Admin" asp-controller="Order" asp-action="Index">
+                            К заказам
+                        </a>
+                    </div>
+                }
+
+            </div>
+        </div>
     </div>
-</div>
+</section>

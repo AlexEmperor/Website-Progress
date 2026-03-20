@@ -1,58 +1,51 @@
 ﻿@model NewsViewModel
 @{
-    ViewData["Title"] = "Новости";
+    ViewData["Title"] = Model.Title;
 }
-<section class="analog-section py-5">
+
+<section class="cyber-section" style="padding-top: 60px;">
     <div class="container">
 
-        <h1 class="analog-title text-center mb-5">
-            Новости компании
-        </h1>
+        <!-- Кнопка назад — сверху -->
+        <div class="mb-4 reveal">
+            <a asp-controller="News" asp-action="All" class="cyber-btn cyber-btn-outline">
+                <i class="bi bi-arrow-left me-2"></i>К новостям
+            </a>
+        </div>
 
-        <div class="row g-4">
+        <div class="row g-5 justify-content-center">
 
-                <div class="col-lg-4 col-md-6">
-
-                        <div class="card news-card h-100">
-
-                            <div class="news-thumb">
-                            <img src="@Model.ImagePath"
-                                 alt="@Model.Title">
-                            </div>
-
-                            <div class="p-3">
-
-                            <small class="analog-text">
-                                @Model.Date.ToString("dd MMMM yyyy")
-                                </small>
-
-                                <h5 class="mt-2">
-                                @Model.Title
-                                </h5>
-
-
-                            </div>
-
-                        </div>
-
-                </div>
-            <div class="col-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div style="text-align: justify;">
-                            <h6>@Model.Description</h6>
-                        </div>
-                        
+            <!-- Картинка + дата -->
+            <div class="col-lg-4 col-md-5">
+                <div class="cyber-carousel-wrap reveal">
+                    <img src="@Model.ImagePath" alt="@Model.Title"
+                         class="w-100" style="border-radius: var(--radius-lg); object-fit:cover; max-height:320px;">
+                    <div class="cyber-news-date" style="position:absolute; bottom:12px; left:12px;">
+                        @Model.Date.ToString("dd MMMM yyyy")
                     </div>
+                    <span class="cyber-corner tl"></span>
+                    <span class="cyber-corner tr"></span>
+                    <span class="cyber-corner bl"></span>
+                    <span class="cyber-corner br"></span>
+                </div>
+            </div>
+
+            <!-- Контент -->
+            <div class="col-lg-7 col-md-7">
+                <div class="reveal">
+                    <span class="cyber-eyebrow">// НОВОСТЬ</span>
+                    <h1 class="cyber-title mt-2 mb-4">@Model.Title</h1>
+                </div>
+                <div class="cyber-contact-card reveal" style="height: auto; min-height: unset;">
+                    <span class="cyber-eyebrow mb-3 d-block">// СОДЕРЖАНИЕ</span>
+                    <p class="cyber-text" style="font-size:0.95rem; line-height:1.8; text-align:justify;">
+                        @Model.Description
+                    </p>
+                    <span class="cyber-corner tl"></span>
+                    <span class="cyber-corner br"></span>
                 </div>
             </div>
 
         </div>
-        <div class="row justify-content-center">
-            <div class="col-auto m-5">
-                <a asp-controller="News" asp-action="All" class="btn btn-outline-success">К новостям</a>
-            </div>
-        </div>
-
     </div>
 </section>

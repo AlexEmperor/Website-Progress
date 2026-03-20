@@ -2,6 +2,7 @@
 footer.footer {
     background-color: #141414 !important;
     color: #ffffff !important;
+    min-width: 100%;
 }
 
     footer.footer a,
@@ -63,4 +64,8 @@ body:not(.dark) .copy-feedback {
 
 body.dark .copy-feedback {
     color: #20c997;
+}
+
+body {
+    overflow-x: hidden;
 }

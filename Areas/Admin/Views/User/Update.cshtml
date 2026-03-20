@@ -1,43 +1,58 @@
 ﻿@model EditAdminUserViewModel
 @{
-    ViewData["Title"] = "Редактирование данных пользователя";
+    ViewData["Title"] = "Редактирование пользователя";
 }
 
-<div class="text-center text-uppercase text-success mb-5 mt-5">
-    <h2 class="row-title">Редактирование данных пользователя</h2>
-</div>
+<section class="cyber-section" style="padding-top: 60px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="cyber-contact-card reveal">
+                    <span class="cyber-eyebrow mb-3 d-block">// АДМИНИСТРАТОР</span>
+                    <h1 class="cyber-title mb-4">Редактирование <span class="cyber-accent-text">данных</span></h1>
 
-<form method="post">
-    <div class="row justify-content-center mt-3">
-        <div class="col-6 mb-3">
-            <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
-            <input type="hidden" name="Id" value="@Model.Id" />
+                    <form method="post">
+                        <div class="text-danger mb-3" asp-validation-summary="All"></div>
+                        <input type="hidden" name="Id" value="@Model.Id" />
 
-            <p>
-                <label class="form-label" asp-for="FirstName"></label><br />
-                <input class="form-control" asp-for="FirstName" value="@Model.FirstName" />
-                <span asp-validation-for="FirstName"></span>
-            </p>
-            <p>
-                <label class="form-label" asp-for="LastName"></label><br />
-                <input class="form-control" asp-for="LastName" value="@Model.LastName" />
-                <span asp-validation-for="LastName"></span>
-            </p>
-            <p>
-                <label class="form-label" asp-for="Phone"></label><br />
-                <input class="form-control" asp-for="Phone" value="@Model.Phone" />
-                <span asp-validation-for="Phone"></span>
-            </p>
-            <p>
-                <label class="form-label" asp-for="Email"></label><br />
-                <input class="form-control" asp-for="Email" value="@Model.Email" />
-                <span asp-validation-for="Email"></span>
-            </p>
+                        <div class="cyber-form-group">
+                            <label class="cyber-label" asp-for="FirstName"></label>
+                            <input class="cyber-input" asp-for="FirstName" value="@Model.FirstName" />
+                            <span class="cyber-validation" asp-validation-for="FirstName"></span>
+                        </div>
+                        <div class="cyber-form-group">
+                            <label class="cyber-label" asp-for="LastName"></label>
+                            <input class="cyber-input" asp-for="LastName" value="@Model.LastName" />
+                            <span class="cyber-validation" asp-validation-for="LastName"></span>
+                        </div>
+                        <div class="cyber-form-group">
+                            <label class="cyber-label" asp-for="Phone"></label>
+                            <input class="cyber-input" asp-for="Phone" value="@Model.Phone" />
+                            <span class="cyber-validation" asp-validation-for="Phone"></span>
+                        </div>
+                        <div class="cyber-form-group">
+                            <label class="cyber-label" asp-for="Email"></label>
+                            <input class="cyber-input" asp-for="Email" value="@Model.Email" />
+                            <span class="cyber-validation" asp-validation-for="Email"></span>
+                        </div>
+
+                        <div class="d-flex gap-3 mt-4">
+                            <button class="cyber-btn cyber-btn-accent cyber-btn-lg" type="submit">
+                                <i class="bi bi-check2 me-2"></i>Обновить
+                            </button>
+                            <a asp-area="Admin" asp-controller="User" asp-action="Index"
+                               class="cyber-btn cyber-btn-ghost">
+                                Отмена
+                            </a>
+                        </div>
+                    </form>
+
+                    <span class="cyber-corner tl"></span>
+                    <span class="cyber-corner tr"></span>
+                    <span class="cyber-corner bl"></span>
+                    <span class="cyber-corner br"></span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="text-center m-3">
-        <button class="btn btn-outline-success" type="submit">
-            Обновить
-        </button>
-    </div>
-</form>
+</section>

@@ -1,123 +1,97 @@
-﻿<header class="navbar sticky-top shadow p-2" data-bs-theme="dark">
-    <div class="container-fluid d-flex align-items-center">
+﻿<header class="navbar sticky-top shadow p-0 cyber-header" data-bs-theme="dark">
+    <div class="cyber-header-inner container-fluid d-flex align-items-center px-3">
 
-        <!-- Логотип слева -->
-        <a class="navbar-brand me-4" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="/img/Logo3.svg" alt="Лаборатория разработок" width="80" height="80">
+        <!-- Логотип -->
+        <a class="navbar-brand me-4 cyber-logo" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="/img/Logo3.svg" alt="Лаборатория разработок" width="70" height="70">
+            <span class="cyber-logo-pulse"></span>
         </a>
 
-        <!-- Слева: пустой flex, чтобы оттолкнуть кнопки вправо -->
-        <div class="d-flex ms-auto align-items-center me-3">
+        <!-- Правая часть -->
+        <div class="d-flex ms-auto align-items-center gap-2">
 
-            <!-- Кнопка "Меню" -->
-            <div class="dropdown me-2">
-                <button class="btn btn-dark dropdown-toggle text-white" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-list"></i> Меню
+            <!-- Меню -->
+            <div class="dropdown">
+                <button class="cyber-btn cyber-btn-ghost dropdown-toggle" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-grid-3x3-gap-fill me-1"></i> Меню
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Catalog" asp-action="Index">Каталог</a></li>
-@*                     <li class="dropdown-item">@await Component.InvokeAsync("Cart")</li> *@
-                    <li><a class="dropdown-item" asp-area="" asp-controller="News" asp-action="All">Новости</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Contacts" asp-action="Index">Контакты</a></li>
+                <ul class="dropdown-menu cyber-dropdown" aria-labelledby="menuDropdown">
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house-fill me-2 text-success"></i>Главная</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Catalog" asp-action="Index"><i class="bi bi-grid-fill me-2 text-success"></i>Каталог</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="News" asp-action="All"><i class="bi bi-newspaper me-2 text-success"></i>Новости</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Contacts" asp-action="Index"><i class="bi bi-envelope-fill me-2 text-success"></i>Контакты</a></li>
                     <!-- Поиск только на мобилке -->
                     <li class="d-md-none px-3 py-2">
                         <form class="d-flex" asp-controller="Home" asp-action="Search" method="get">
                             <input class="form-control me-2" type="search" placeholder="Поиск" name="query">
-                            <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+                            <button class="cyber-btn cyber-btn-accent" type="submit"><i class="bi bi-search"></i></button>
                         </form>
                     </li>
                 </ul>
             </div>
 
-            <!-- Кнопка корзины -->
-            <a asp-controller="Cart" asp-action="Index" class="btn btn-dark me-2 position-relative">
-                <i class="bi bi-cart3 fs-5"></i>
+            <!-- Корзина -->
+            <a asp-controller="Cart" asp-action="Index" class="cyber-icon-btn position-relative">
+                <i class="bi bi-cart3"></i>
                 @await Component.InvokeAsync("Cart")
             </a>
 
-            <!-- Кнопка "Личный кабинет" -->
-            <!-- Иконка профиля -->
-            <div class="dropdown me-3">
-                <button class="btn btn-dark dropdown-toggle d-flex align-items-center"
-                        type="button"
-                        id="profileDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-
-                    <i class="bi bi-person-circle fs-4"></i>
+            <!-- Профиль -->
+            <div class="dropdown">
+                <button class="cyber-icon-btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i>
                 </button>
-
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-
+                <ul class="dropdown-menu cyber-dropdown dropdown-menu-end" aria-labelledby="profileDropdown">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>
-                            <span class="dropdown-item-text text-success">
-                                @User.Identity.Name
-                            </span>
-                        </li>
-
-                        <li><hr class="dropdown-divider"></li>
-
+                        <li><span class="dropdown-item-text text-success fw-bold">@User.Identity.Name</span></li>
+                        <li><hr class="dropdown-divider border-secondary"></li>
                         @if (User.IsInRole(Constants.UserRoleName))
                         {
                             <li>
-                                <a class="dropdown-item"
-                                asp-area="User"
-                                asp-controller="Order"
-                                asp-action="Index">
-                                    Личный кабинет
+                                <a class="dropdown-item" asp-area="User" asp-controller="Order" asp-action="Index">
+                                    <i class="bi bi-person-badge me-2 text-success"></i>Личный кабинет
                                 </a>
                             </li>
                         }
-
                         @if (User.IsInRole(Constants.AdminRoleName))
                         {
                             <li>
-                                <a class="dropdown-item"
-                                   asp-area="Admin"
-                                   asp-controller="Order"
-                                   asp-action="Index">
-                                    Панель администратора
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="Index">
+                                    <i class="bi bi-shield-fill me-2 text-warning"></i>Панель администратора
                                 </a>
                             </li>
                         }
-
                         <li>
-                            <a class="dropdown-item"
-                            asp-area=""
-                               asp-controller="Account"
-                               asp-action="Logout">
-                                Выйти
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
+                                <i class="bi bi-box-arrow-right me-2 text-danger"></i>Выйти
                             </a>
                         </li>
                     }
                     else
                     {
                         <li>
-                            <a class="dropdown-item"
-                               asp-controller="Account"
-                               asp-action="Autorization">
-                                Войти
+                            <a class="dropdown-item" asp-controller="Account" asp-action="Autorization">
+                                <i class="bi bi-box-arrow-in-right me-2 text-success"></i>Войти
                             </a>
                         </li>
                     }
-
                 </ul>
             </div>
 
-            <button id="themeToggle" class="btn btn-outline-light me-2">
+            <!-- Тема -->
+            <button id="themeToggle" class="cyber-icon-btn">
                 <i class="bi bi-moon-stars-fill"></i>
             </button>
 
             <!-- Поиск -->
-            <form class="d-none d-md-flex" style="width: 50%;" asp-controller="Home" asp-action="Search" method="get">
-                <input class="form-control me-2 search-input" type="search" placeholder="Введите ваш запрос" name="query">
-                <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+            <form class="d-none d-md-flex cyber-search-form" asp-controller="Home" asp-action="Search" method="get">
+                <input class="cyber-search-input" type="search" placeholder="Поиск..." name="query">
+                <button class="cyber-btn cyber-btn-accent" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
         </div>
-
     </div>
+    <!-- Сканирующая линия -->
+    <div class="cyber-header-scanline"></div>
 </header>

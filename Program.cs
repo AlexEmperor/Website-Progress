@@ -1,22 +1,12 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using QuestPDF;
-using Telegram.Bot;
-using Website_Progress.DataContext;
-using Website_Progress.Interfaces;
-using Website_Progress.ModelsDTO;
-using Website_Progress.Repositories;
-using Website_Progress.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-var ruCulture = new System.Globalization.CultureInfo("ru-RU");
-System.Globalization.CultureInfo.DefaultThreadCurrentCulture = ruCulture;
-System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = ruCulture;
+var ruCulture = new CultureInfo("ru-RU");
+CultureInfo.DefaultThreadCurrentCulture = ruCulture;
+CultureInfo.DefaultThreadCurrentUICulture = ruCulture;
 
-string connection = builder.Configuration.GetConnectionString("WebTestConnection");
+string connection = builder.Configuration.GetConnectionString("WebTestConnection")!;
 Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
 // Add services to the container.
@@ -26,7 +16,7 @@ builder.Services.AddTransient<INewsRepository, NewsDbRepository>();
 builder.Services.AddTransient<ICartRepository, CartDbRepository>();
 builder.Services.AddTransient<IOrderRepository, OrdersDbRepository>();
 
-var botToken = builder.Configuration["Telegram:BotToken"];
+var botToken = builder.Configuration["Telegram:BotToken"]!;
 
 builder.Services.AddSingleton(new TelegramBotClient(botToken));
 
@@ -40,7 +30,7 @@ builder.Services.AddIdentity<UserDTO, IdentityRole>().AddEntityFrameworkStores<I
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    options.ExpireTimeSpan = TimeSpan.FromHours(10);
     options.LoginPath = "/Account/Autorization";
     options.LogoutPath = "/Account/Logout";
     options.Cookie = new CookieBuilder
@@ -77,6 +67,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -86,14 +77,19 @@ using (var scope = app.Services.CreateScope())
 
     var identity = services.GetRequiredService<IdentityContext>();
     identity.Database.Migrate();
-}
 
-using (var scope = app.Services.CreateScope())
-{
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserDTO>>();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
     IdentityInitializer.Inititalize(userManager, roleManager);
 }
+
+//using (var scope = app.Services.CreateScope())
+//{
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserDTO>>();
+//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+//    IdentityInitializer.Inititalize(userManager, roleManager);
+//}
 
 app.Run();
