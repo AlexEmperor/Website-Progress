@@ -22,9 +22,12 @@ namespace Website_Progress.Models
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
 
-        //[Display(Name = "Путь до фото товара", Prompt = "/wwwroot/img/product.png")]
-        //[Required]
-        public string? PhotoPath { get; set; } //= "/img/product.png";
+        [Display(Name = "Краткое описание товара", Prompt = "Краткое описание товара")]
+        [MaxLength(250, ErrorMessage = "Максимальная длина описания товара {1} символов")]
+        [DataType(DataType.MultilineText)]
+        public string? ShortDescription { get; set; }
+
+        public string? PhotoPath { get; set; }
 
         [Display(Name = "Путь до презентации", Prompt = "/wwwroot/presentations/product.pptx")]
         [DataType(DataType.Text)]

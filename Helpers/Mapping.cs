@@ -1,5 +1,4 @@
 ﻿using Website_Progress.Models;
-using Website_Progress.ModelsDTO;
 
 
 namespace Website_Progress.Helpers
@@ -68,6 +67,7 @@ namespace Website_Progress.Helpers
                 Name = productDb.Name,
                 Cost = productDb.Cost,
                 Description = productDb.Description,
+                ShortDescription = productDb.ShortDescription,
                 PhotoPath = productDb.PhotoPath,
                 PresentationPath = productDb.PresentationPath,
                 FirmwarePath = productDb.FirmwarePath,
@@ -84,6 +84,7 @@ namespace Website_Progress.Helpers
                 Name = product.Name,
                 Cost = product.Cost,
                 Description = product.Description,
+                ShortDescription = product.ShortDescription,
                 PhotoPath = product.PhotoPath,
                 PresentationPath = product.PresentationPath,
                 FirmwarePath = product.FirmwarePath,

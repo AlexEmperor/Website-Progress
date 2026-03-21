@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Website_Progress.DataContext;
-using Website_Progress.Interfaces;
-using Website_Progress.ModelsDTO;
-
-
-namespace Website_Progress.Repositories
+﻿namespace Website_Progress.Repositories
 {
 
     public class ProductsDbRepository : IProductRepository
@@ -53,6 +47,7 @@ namespace Website_Progress.Repositories
                 existingProduct.Name = product.Name;
                 existingProduct.Cost = product.Cost;
                 existingProduct.Description = product.Description;
+                existingProduct.ShortDescription = product.ShortDescription;
                 existingProduct.IsOnMainPage = product.IsOnMainPage;
 
                 await _databaseContext.SaveChangesAsync();

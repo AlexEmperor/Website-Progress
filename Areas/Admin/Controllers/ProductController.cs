@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
 using Website_Progress.Models;
 
 namespace Website_Progress.Areas.Admin.Controllers
@@ -106,6 +105,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             productDb.Name = model.Name;
             productDb.Cost = model.Cost;
             productDb.Description = model.Description;
+            productDb.ShortDescription = model.ShortDescription;
             // ===== Переключение главной кнопкой =====
             if (!string.IsNullOrEmpty(toggleMainPage))
             {

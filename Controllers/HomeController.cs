@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
 using Website_Progress.Models;
 
 namespace Website_Progress.Controllers

@@ -41,6 +41,11 @@
                                     <span class="cyber-validation" asp-validation-for="Cost"></span>
                                 </div>
                                 <div class="cyber-form-group">
+                                    <label class="cyber-label" asp-for="ShortDescription"></label>
+                                    <textarea class="cyber-input cyber-textarea" asp-for="ShortDescription">@Model.ShortDescription</textarea>
+                                    <span class="cyber-validation" asp-validation-for="ShortDescription"></span>
+                                </div>
+                                <div class="cyber-form-group">
                                     <label class="cyber-label" asp-for="Description"></label>
                                     <textarea class="cyber-input cyber-textarea" asp-for="Description">@Model.Description</textarea>
                                     <span class="cyber-validation" asp-validation-for="Description"></span>

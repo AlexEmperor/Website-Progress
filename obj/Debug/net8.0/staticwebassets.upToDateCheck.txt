@@ -1,4 +1,5 @@
 wwwroot\css\body.css
+wwwroot\css\cyber.css
 wwwroot\css\footer.css
 wwwroot\css\header.css
 wwwroot\favicon.ico
@@ -112,4 +113,3 @@ wwwroot\presentations\АМ_VVizor_HiddenParts.pptx
 wwwroot\presentations\КП Интеллект АК SDR(3).pptx
 wwwroot\presentations\товар-11.pptx
 wwwroot\presentations\товар-15.pptx
-wwwroot\css\cyber.css

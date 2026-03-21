@@ -84,12 +84,4 @@ using (var scope = app.Services.CreateScope())
     IdentityInitializer.Inititalize(userManager, roleManager);
 }
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserDTO>>();
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-//    IdentityInitializer.Inititalize(userManager, roleManager);
-//}
-
 app.Run();

@@ -12,6 +12,8 @@
         public decimal Cost { get; set; }
 
         public string? Description { get; set; }
+        public string? ShortDescription { get; set; }
+
         public string? PhotoPath { get; set; }
         public string? PresentationPath { get; set; }
 
