@@ -31,7 +31,7 @@
             </div>
 
             <!-- Корзина -->
-            <a asp-controller="Cart" asp-action="Index" class="cyber-icon-btn position-relative">
+            <a asp-area="" asp-controller="Cart" asp-action="Index" class="cyber-icon-btn position-relative">
                 <i class="bi bi-cart3"></i>
                 @await Component.InvokeAsync("Cart")
             </a>
@@ -86,7 +86,7 @@
 
             <!-- Поиск -->
             <form class="d-none d-md-flex cyber-search-form" asp-controller="Home" asp-action="Search" method="get">
-                <input class="cyber-search-input" type="search" placeholder="Поиск..." name="query">
+                <input class="cyber-search-input" type="search" placeholder="Поиск товара..." name="query">
                 <button class="cyber-btn cyber-btn-accent" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
