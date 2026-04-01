@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Website_Progress.DataContext;
-using Website_Progress.Interfaces;
-using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.Repositories
+﻿namespace Website_Progress.Repositories
 {
     public class OrdersDbRepository(DatabaseContext databaseContext) : IOrderRepository
     {
@@ -15,6 +10,7 @@ namespace Website_Progress.Repositories
                 .Include(x => x.DeliveryUser)
                 .FirstOrDefaultAsync(x => x.DeliveryUser.Id == userId);
         }
+
         public async Task<List<Order>> GetAllOrdersByUserIdAsync(string userId)
         {
             return await _databaseContext.Orders

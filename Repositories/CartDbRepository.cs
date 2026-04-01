@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Website_Progress.DataContext;
-using Website_Progress.Interfaces;
-using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.Repositories
+﻿namespace Website_Progress.Repositories
 {
     public class CartDbRepository : ICartRepository
     {

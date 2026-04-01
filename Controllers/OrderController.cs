@@ -3,10 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using QuestPDF.Fluent;
 using System.Security.Claims;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
 using Website_Progress.Models;
-using Website_Progress.ModelsDTO;
-using Website_Progress.Services;
 
 namespace Website_Progress.Controllers
 {

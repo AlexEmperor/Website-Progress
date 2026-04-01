@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Website_Progress.Areas.Admin.Models;
 using Website_Progress.Models;
-using Website_Progress.ModelsDTO;
 
 namespace Website_Progress.Areas.Admin.Controllers
 {
@@ -39,7 +36,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                     Phone = user.PhoneNumber,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    Login = user.Email,
+                    Login = user.UserName,
                     Role = roles.FirstOrDefault() ?? "User" // берём первую роль или дефолт
                 });
             }
@@ -71,7 +68,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             var model = new AdminUserViewModel
             {
                 Id = user.Id,
-                Login = user.Email,
+                Login = user.UserName,
                 Email = user.Email!,
                 Phone = user.PhoneNumber,
                 FirstName = user.FirstName,
@@ -207,7 +204,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             var model = new ChangeRole
             {
                 Id = user.Id,
-                Login = user.Email,
+                Login = user.UserName,
                 Role = userRoles.FirstOrDefault(),
                 Roles = _roleManager.Roles
                     .Select(r => new SelectListItem

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
 
 namespace Website_Progress.Controllers
 {

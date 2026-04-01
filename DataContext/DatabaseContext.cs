@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Website_Progress.ModelsDTO;
-using Website_Progress.Services;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Website_Progress.DataContext
 {
@@ -28,6 +25,5 @@ namespace Website_Progress.DataContext
             optionsBuilder.ConfigureWarnings(warnings =>
                 warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
-
     }
 }

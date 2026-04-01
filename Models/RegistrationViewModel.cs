@@ -2,15 +2,20 @@
 
 namespace Website_Progress.Models
 {
-    public class Registration
+    public class RegistrationViewModel
     {
         [Display(Name = "Логин", Prompt = "Ваш логин")]
         [Required(ErrorMessage = "Не указан логин")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Введите валидный email")]
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "Логин должен быть от {2} до {1} символов")]
+        [DataType(DataType.Text)]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Логин должен быть от {2} до {1} символов")]
         public required string Login { get; set; }
 
+        [Display(Name = "Электронная почта", Prompt = "Ваша электронная почта")]
+        [Required(ErrorMessage = "Не указана почта")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Введите валидный email")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Логин должен быть от {2} до {1} символов")]
+        public required string Email { get; set; }
 
         [Display(Name = "Пароль", Prompt = "Ваш пароль")]
         [Required(ErrorMessage = "Не указан пароль")]

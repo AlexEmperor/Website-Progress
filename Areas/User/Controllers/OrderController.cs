@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using QuestPDF.Fluent;
 using System.Security.Claims;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
-using Website_Progress.Services;
 
 namespace Website_Progress.Areas.User.Controllers
 {
@@ -13,6 +11,7 @@ namespace Website_Progress.Areas.User.Controllers
     public class OrderController : Controller
     {
         private readonly IOrderRepository _ordersRepository;
+
         public OrderController(IOrderRepository ordersRepository)
         {
             _ordersRepository = ordersRepository;

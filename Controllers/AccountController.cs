@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Models;
-using Website_Progress.ModelsDTO;
 
 namespace Website_Progress.Controllers
 {
@@ -23,7 +21,7 @@ namespace Website_Progress.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AutorizationAsync(Autorization authorization, string? returnUrl)
+        public async Task<IActionResult> AutorizationAsync(AutorizationViewModel authorization, string? returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +51,7 @@ namespace Website_Progress.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegistrationAsync(Registration registration)
+        public async Task<IActionResult> RegistrationAsync(RegistrationViewModel registration)
         {
             if (!ModelState.IsValid)
             {
@@ -63,7 +61,7 @@ namespace Website_Progress.Controllers
             var user = new UserDTO
             {
                 UserName = registration.Login,
-                Email = registration.Login,
+                Email = registration.Email,
                 PhoneNumber = registration.Phone,
                 CreationDateTime = registration.CreationDateTime,
                 FirstName = registration.FirstName,

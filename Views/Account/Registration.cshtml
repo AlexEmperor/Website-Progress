@@ -1,4 +1,4 @@
-﻿@model Registration
+﻿@model RegistrationViewModel
 @{
     ViewData["Title"] = "Регистрация";
 }
@@ -51,6 +51,12 @@
                             <label class="cyber-label" asp-for="Phone"></label>
                             <input class="cyber-input" asp-for="Phone" />
                             <span class="cyber-validation" asp-validation-for="Phone"></span>
+                        </div>
+
+                        <div class="cyber-form-group">
+                            <label class="cyber-label" asp-for="Email"></label>
+                            <input class="cyber-input" asp-for="Email" />
+                            <span class="cyber-validation" asp-validation-for="Email"></span>
                         </div>
 
                         <button class="cyber-btn cyber-btn-accent cyber-btn-lg w-100 justify-content-center mt-2"
