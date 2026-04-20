@@ -26,8 +26,9 @@ wwwroot\img\product3.png
 wwwroot\img\product4.png
 wwwroot\img\rtl-sdr.png
 wwwroot\img\USRP-b206_mini_01-1024x683.png
-wwwroot\img\vvizor.png
+wwwroot\img\vvizor_7969311d.png
 wwwroot\img\ак-«sdr».jpg
+wwwroot\img\ак-«sdr»_79d3eda8.png
 wwwroot\img\выпущена-очередная-партия-мэмс.png
 wwwroot\img\завершена-модернизация-программного-комплекса-анализа-спектра.png
 wwwroot\img\илыимлыищмивщвимвщимщ.png
@@ -111,5 +112,6 @@ wwwroot\presentations\vvizor.pptx
 wwwroot\presentations\ак-«sdr».pptx
 wwwroot\presentations\АМ_VVizor_HiddenParts.pptx
 wwwroot\presentations\КП Интеллект АК SDR(3).pptx
+wwwroot\presentations\мэмс_9bfdc4a9.pptx
 wwwroot\presentations\товар-11.pptx
 wwwroot\presentations\товар-15.pptx
