@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
+using Website_Progress.Models;
 
 namespace Website_Progress.Controllers
 {
@@ -16,9 +16,25 @@ namespace Website_Progress.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var product = await _productRepository.TryGetByIdAsync(id);
+            if (product == null)
+            {
+                return View((ProductViewModel?)null);
+            }
 
-            return View(product?.ToProductViewModel());
+            var vm = product.ToProductViewModel();
+
+            // Парсим структурированный контент из Description
+            var content = ProductDescriptionParser.Parse(vm.Description);
+            ViewData["Content"] = content;
+
+            return View(vm);
         }
+        //public async Task<IActionResult> Index(int id)
+        //{
+        //    var product = await _productRepository.TryGetByIdAsync(id);
+
+        //    return View(product?.ToProductViewModel());
+        //}
     }
 }
 

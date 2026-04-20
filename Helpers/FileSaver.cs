@@ -1,10 +1,10 @@
 ﻿public static class FileSaver
 {
     public static async Task<string?> SaveFileAsync(
-     IFormFile? file,
-     string folderName,
-     IWebHostEnvironment _environment,
-     string? baseName = null)
+        IFormFile? file,
+        string folderName,
+        IWebHostEnvironment _environment,
+        string? baseName = null)
     {
         if (file == null)
         {
@@ -14,10 +14,15 @@
         string uploadsFolder = Path.Combine(_environment.WebRootPath, folderName);
         Directory.CreateDirectory(uploadsFolder);
 
-        // Формируем имя файла: baseName + _ + suffix + расширение
-        string safeBaseName = string.IsNullOrEmpty(baseName) ? "file" : baseName.Replace(" ", "-").ToLower();
+        string safeBaseName = string.IsNullOrEmpty(baseName)
+            ? "file"
+            : baseName.Replace(" ", "-").ToLower();
+
         string extension = Path.GetExtension(file.FileName);
-        string fileName = $"{safeBaseName}{extension}";
+
+        // Уникальный суффикс — чтобы файлы не перезаписывали друг друга
+        string uniqueSuffix = Guid.NewGuid().ToString("N").Substring(0, 8);
+        string fileName = $"{safeBaseName}_{uniqueSuffix}{extension}";
 
         string filePath = Path.Combine(uploadsFolder, fileName);
 

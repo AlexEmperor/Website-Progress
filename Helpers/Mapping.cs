@@ -187,5 +187,17 @@ namespace Website_Progress.Helpers
             };
         }
         #endregion
+
+
+        public static List<string> GetPhotoPaths(this string? photoPath) =>
+    string.IsNullOrWhiteSpace(photoPath)
+        ? []
+        : photoPath.Split(';', StringSplitOptions.RemoveEmptyEntries)
+                   .Select(p => p.Trim())
+                   .Where(p => !string.IsNullOrEmpty(p))
+                   .ToList();
+
+        public static string? GetCoverPhoto(this string? photoPath) =>
+            photoPath.GetPhotoPaths().FirstOrDefault();
     }
 }

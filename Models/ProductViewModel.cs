@@ -18,7 +18,7 @@ namespace Website_Progress.Models
         public decimal Cost { get; set; }
 
         [Display(Name = "Описание товара", Prompt = "Описание товара")]
-        [MaxLength(4096, ErrorMessage = "Максимальная длина описания товара {1} символов")]
+        [MaxLength(16384, ErrorMessage = "Максимальная длина описания товара {1} символов")]
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
 
@@ -29,6 +29,7 @@ namespace Website_Progress.Models
 
         public string? PhotoPath { get; set; }
 
+
         [Display(Name = "Путь до презентации", Prompt = "/wwwroot/presentations/product.pptx")]
         [DataType(DataType.Text)]
         public string? PresentationPath { get; set; }
@@ -38,9 +39,19 @@ namespace Website_Progress.Models
         public string? FirmwarePath { get; set; }
         public bool IsOnMainPage { get; set; }
         public IFormFile? PhotoFile { get; set; }
+        public List<IFormFile>? PhotoFiles { get; set; }
+        public List<string> PhotoPaths =>
+    string.IsNullOrWhiteSpace(PhotoPath)
+        ? []
+        : PhotoPath
+            .Split(';', StringSplitOptions.RemoveEmptyEntries)
+            .Select(p => p.Trim())
+            .Where(p => !string.IsNullOrEmpty(p))
+            .ToList();
+
         public IFormFile? PresentationFile { get; set; }
         public IFormFile? FirmwareFile { get; set; }
-
+        public string? CoverPhoto => PhotoPaths.FirstOrDefault();
         public ProductViewModel() { }
     }
 }

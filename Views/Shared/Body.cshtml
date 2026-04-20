@@ -1,4 +1,6 @@
-﻿<!-- =============================
+﻿@model Website_Progress.Models.HomeViewModel
+@using Website_Progress.Helpers;
+<!-- =============================
      HERO
 ============================= -->
 <section class="cyber-hero" id="hero">
@@ -152,10 +154,11 @@
         <div class="row g-4">
             @foreach (var product in Model.FeaturedProducts)
             {
+
                 <div class="col-md-4">
                     <div class="cyber-product-card reveal">
                         <div class="cyber-product-img-wrap">
-                            <img src="@product.PhotoPath" alt="@product.Name">
+                            <img src="@product.PhotoPath.GetCoverPhoto()" alt="@product.Name">
                             <div class="cyber-product-overlay">
                                 <a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id" class="cyber-btn cyber-btn-accent">
                                     Подробнее
