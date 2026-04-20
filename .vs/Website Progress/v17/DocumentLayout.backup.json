@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Git\\Website Progress\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\productscatalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\productscatalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\body.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\body.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\repositories\\productsdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:repositories\\productsdbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\shared\\productscatalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|solutionrelative:views\\shared\\productscatalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A62E4D-92C7-407E-A154-94225A19618F}|Website Progress.csproj|c:\\git\\website progress\\views\\catalog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -58,8 +66,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 176,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 16,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsDbRepository.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Repositories\\ProductsDbRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ProductsDbRepository.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Repositories\\ProductsDbRepository.cs",
+              "RelativeToolTip": "Repositories\\ProductsDbRepository.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAlwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T14:12:36.474Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -98,20 +119,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Git\\Website Progress\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Git\\Website Progress\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAywCQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T14:12:24.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProductsCatalog.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\ProductsCatalog.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\ProductsCatalog.cshtml",
               "ToolTip": "C:\\Git\\Website Progress\\Views\\Shared\\ProductsCatalog.cshtml",
               "RelativeToolTip": "Views\\Shared\\ProductsCatalog.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-20T13:40:38.476Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Catalog\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Catalog\\Index.cshtml",
@@ -124,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FileSaver.cs",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Helpers\\FileSaver.cs",
               "RelativeDocumentMoniker": "Helpers\\FileSaver.cs",
@@ -137,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "cyber.css",
               "DocumentMoniker": "C:\\Git\\Website Progress\\wwwroot\\css\\cyber.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\cyber.css",
@@ -149,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Mapping.cs",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Helpers\\Mapping.cs",
               "RelativeDocumentMoniker": "Helpers\\Mapping.cs",
@@ -161,20 +195,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Body.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\Body.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Body.cshtml",
               "ToolTip": "C:\\Git\\Website Progress\\Views\\Shared\\Body.cshtml",
               "RelativeToolTip": "Views\\Shared\\Body.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAI8AAAAAAAAAAAA1wKUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-20T10:45:42.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Update.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\Admin\\Views\\Product\\Update.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Product\\Update.cshtml",
@@ -186,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Add.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\Admin\\Views\\Product\\Add.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Product\\Add.cshtml",
@@ -198,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Areas\\Admin\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductController.cs",
@@ -210,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -222,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
@@ -235,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ProductViewModel.cs",
               "DocumentMoniker": "C:\\Git\\Website Progress\\Models\\ProductViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ProductViewModel.cs",

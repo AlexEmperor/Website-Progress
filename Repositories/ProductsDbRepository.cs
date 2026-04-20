@@ -68,7 +68,7 @@
             return await _databaseContext.Products
                 .Where(x => x.IsOnMainPage)
                 .OrderByDescending(x => x.Id)
-                .Take(3)
+                .Take(5)
                 .ToListAsync();
         }
     }

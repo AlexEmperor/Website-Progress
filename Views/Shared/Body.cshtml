@@ -151,12 +151,11 @@
             <span class="cyber-eyebrow">// ПРОДУКЦИЯ</span>
             <h2 class="cyber-title mt-2">Наши <span class="cyber-accent-text">новинки</span></h2>
         </div>
-        <div class="row g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
             @foreach (var product in Model.FeaturedProducts)
             {
-
-                <div class="col-md-4">
-                    <div class="cyber-product-card reveal">
+                <div class="col">
+                    <div class="cyber-product-card reveal h-100">
                         <div class="cyber-product-img-wrap">
                             <img src="@product.PhotoPath.GetCoverPhoto()" alt="@product.Name">
                             <div class="cyber-product-overlay">
