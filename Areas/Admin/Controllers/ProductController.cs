@@ -10,12 +10,12 @@ namespace Website_Progress.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository _productsRepository;
-        private readonly IWebHostEnvironment _environment;
+        private readonly IFileStorage _storage;
 
-        public ProductController(IProductRepository productsRepository, IWebHostEnvironment environment)
+        public ProductController(IProductRepository productsRepository, IFileStorage storage)
         {
             _productsRepository = productsRepository;
-            _environment = environment;
+            _storage = storage;
         }
 
         public async Task<IActionResult> Index()
@@ -34,30 +34,25 @@ namespace Website_Progress.Areas.Admin.Controllers
                 return View(model);
             }
 
-            // Фото ОБЯЗАТЕЛЬНО при создании (хотя бы одно)
             if (model.PhotoFiles == null || !model.PhotoFiles.Any(f => f != null && f.Length > 0))
             {
                 ModelState.AddModelError("PhotoFiles", "Необходимо загрузить хотя бы одно фото товара");
                 return View(model);
             }
 
-            // Сохраняем все загруженные фото, собираем пути через ';'
             var savedPaths = new List<string>();
             foreach (var file in model.PhotoFiles.Where(f => f != null && f.Length > 0))
             {
-                var savedPath = await FileSaver.SaveFileAsync(file, "img", _environment, model.Name);
-                if (!string.IsNullOrEmpty(savedPath))
+                var url = await _storage.SaveAsync(file, "products", model.Name);
+                if (!string.IsNullOrEmpty(url))
                 {
-                    savedPaths.Add(savedPath);
+                    savedPaths.Add(url);
                 }
             }
             model.PhotoPath = string.Join(";", savedPaths);
 
-            model.PresentationPath = await FileSaver.SaveFileAsync(
-                model.PresentationFile, "presentations", _environment, model.Name);
-
-            model.FirmwarePath = await FileSaver.SaveFileAsync(
-                model.FirmwareFile, "firmware", _environment, model.Name);
+            model.PresentationPath = await _storage.SaveAsync(model.PresentationFile, "presentations", model.Name);
+            model.FirmwarePath = await _storage.SaveAsync(model.FirmwareFile, "firmware", model.Name);
 
             await _productsRepository.AddAsync(model.ToProductDb());
             return RedirectToAction(nameof(Index));
@@ -65,14 +60,26 @@ namespace Website_Progress.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+            var product = await _productsRepository.TryGetByIdAsync(id);
+            if (product != null)
+            {
+                foreach (var url in (product.PhotoPath ?? "").Split(';', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    await _storage.DeleteAsync(url.Trim());
+                }
+
+                await _storage.DeleteAsync(product.PresentationPath);
+                await _storage.DeleteAsync(product.FirmwarePath);
+            }
+
             await _productsRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Update(int id)
         {
-            var existingProduct = await _productsRepository.TryGetByIdAsync(id);
-            return View(existingProduct?.ToProductViewModel());
+            var existing = await _productsRepository.TryGetByIdAsync(id);
+            return View(existing?.ToProductViewModel());
         }
 
         [HttpPost]
@@ -103,86 +110,56 @@ namespace Website_Progress.Areas.Admin.Controllers
             }
 
             // ===== ФОТО =====
-            var currentPaths = (productDb.PhotoPath ?? string.Empty)
+            var currentPaths = (productDb.PhotoPath ?? "")
                 .Split(';', StringSplitOptions.RemoveEmptyEntries)
                 .Select(p => p.Trim())
                 .Where(p => !string.IsNullOrEmpty(p))
                 .ToList();
 
-            // 1) Удаляем отмеченные чекбоксами фото
-            if (photosToDelete != null && photosToDelete.Any())
+            if (photosToDelete != null)
             {
                 foreach (var toDelete in photosToDelete)
                 {
                     if (currentPaths.Remove(toDelete))
                     {
-                        var physical = Path.Combine(
-                            _environment.WebRootPath,
-                            toDelete.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
-                        if (System.IO.File.Exists(physical))
-                        {
-                            System.IO.File.Delete(physical);
-                        }
+                        await _storage.DeleteAsync(toDelete);
                     }
                 }
             }
 
-            // 2) Добавляем новые загруженные фото в конец списка
             if (model.PhotoFiles != null)
             {
                 foreach (var file in model.PhotoFiles.Where(f => f != null && f.Length > 0))
                 {
-                    var saved = await FileSaver.SaveFileAsync(file, "img", _environment, model.Name);
-                    if (!string.IsNullOrEmpty(saved))
+                    var url = await _storage.SaveAsync(file, "products", model.Name);
+                    if (!string.IsNullOrEmpty(url))
                     {
-                        currentPaths.Add(saved);
+                        currentPaths.Add(url);
                     }
                 }
             }
 
-            productDb.PhotoPath = currentPaths.Any()
-                ? string.Join(";", currentPaths)
-                : null;
+            productDb.PhotoPath = currentPaths.Any() ? string.Join(";", currentPaths) : null;
 
             // ===== Презентация =====
             if (model.PresentationFile != null)
             {
-                if (!string.IsNullOrEmpty(productDb.PresentationPath))
+                await _storage.DeleteAsync(productDb.PresentationPath);
+                var url = await _storage.SaveAsync(model.PresentationFile, "presentations", model.Name);
+                if (url != null)
                 {
-                    var oldPath = Path.Combine(_environment.WebRootPath,
-                        productDb.PresentationPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
-                    if (System.IO.File.Exists(oldPath))
-                    {
-                        System.IO.File.Delete(oldPath);
-                    }
-                }
-
-                var newPresentation = await FileSaver.SaveFileAsync(
-                    model.PresentationFile, "presentations", _environment, model.Name);
-                if (newPresentation != null)
-                {
-                    productDb.PresentationPath = newPresentation;
+                    productDb.PresentationPath = url;
                 }
             }
 
             // ===== Прошивка =====
             if (model.FirmwareFile != null)
             {
-                if (!string.IsNullOrEmpty(productDb.FirmwarePath))
+                await _storage.DeleteAsync(productDb.FirmwarePath);
+                var url = await _storage.SaveAsync(model.FirmwareFile, "firmware", model.Name);
+                if (url != null)
                 {
-                    var oldPath = Path.Combine(_environment.WebRootPath,
-                        productDb.FirmwarePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
-                    if (System.IO.File.Exists(oldPath))
-                    {
-                        System.IO.File.Delete(oldPath);
-                    }
-                }
-
-                var newFirmware = await FileSaver.SaveFileAsync(
-                    model.FirmwareFile, "firmware", _environment, model.Name);
-                if (newFirmware != null)
-                {
-                    productDb.FirmwarePath = newFirmware;
+                    productDb.FirmwarePath = url;
                 }
             }
 

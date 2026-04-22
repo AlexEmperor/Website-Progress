@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
 using Website_Progress.Models;
 
 namespace Website_Progress.Areas.Admin.Controllers
@@ -11,12 +10,12 @@ namespace Website_Progress.Areas.Admin.Controllers
     public class NewsController : Controller
     {
         private readonly INewsRepository _newsRepository;
-        private readonly IWebHostEnvironment _environment;
+        private readonly IFileStorage _storage;
 
-        public NewsController(INewsRepository newsRepository, IWebHostEnvironment environment)
+        public NewsController(INewsRepository newsRepository, IFileStorage storage)
         {
             _newsRepository = newsRepository;
-            _environment = environment;
+            _storage = storage;
         }
 
         public async Task<IActionResult> Index()
@@ -29,10 +28,7 @@ namespace Website_Progress.Areas.Admin.Controllers
                 .ToList());
         }
 
-        public IActionResult Add()
-        {
-            return View();
-        }
+        public IActionResult Add() => View();
 
         [HttpPost]
         public async Task<IActionResult> Add(NewsViewModel model)
@@ -42,34 +38,38 @@ namespace Website_Progress.Areas.Admin.Controllers
                 return View(model);
             }
 
-            // Фото ОБЯЗАТЕЛЬНО при создании
             if (model.ImageFile == null)
             {
-                ModelState.AddModelError("ImageFile", "Необходимо загрузить фото товара");
+                ModelState.AddModelError("ImageFile", "Необходимо загрузить фото новости");
                 return View(model);
             }
 
-            model.ImagePath = await FileSaver.SaveFileAsync(
-                model.ImageFile,
-                "img",
-                _environment,
-                model.Title);
+            model.ImagePath = await _storage.SaveAsync(model.ImageFile, "news", model.Title);
 
             await _newsRepository.AddAsync(model.ToNewsDb());
-
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Delete(int id)
         {
+            var news = await _newsRepository.TryGetByIdAsync(id);
+            if (news != null)
+            {
+                // Чистим файл из хранилища
+                await _storage.DeleteAsync(news.ImageUrl);
+            }
+
             await _newsRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-
         public async Task<IActionResult> Update(int id)
         {
             var existingNews = await _newsRepository.TryGetByIdAsync(id);
+            if (existingNews == null)
+            {
+                return NotFound();
+            }
 
             var model = new EditNewsViewModel
             {
@@ -81,7 +81,6 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             return View(model);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Update(EditNewsViewModel model, string? toggleMainPage)
@@ -99,6 +98,7 @@ namespace Website_Progress.Areas.Admin.Controllers
 
             newsDb.Title = model.Title;
             newsDb.Description = model.Description;
+
             if (!string.IsNullOrEmpty(toggleMainPage))
             {
                 newsDb.IsOnMainPage = !newsDb.IsOnMainPage;
@@ -107,27 +107,17 @@ namespace Website_Progress.Areas.Admin.Controllers
             // ===== Фото =====
             if (model.ImageFile != null)
             {
-                // Удаляем старый файл
-                if (!string.IsNullOrEmpty(newsDb.ImageUrl))
-                {
-                    var oldPhotoPath = Path.Combine(_environment.WebRootPath,
-                        newsDb.ImageUrl.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+                // Удаляем старое фото из хранилища
+                await _storage.DeleteAsync(newsDb.ImageUrl);
 
-                    if (System.IO.File.Exists(oldPhotoPath))
-                    {
-                        System.IO.File.Delete(oldPhotoPath);
-                    }
-                }
-
-                var newPhoto = await FileSaver.SaveFileAsync(model.ImageFile, "img", _environment, model.Title);
-                if (newPhoto != null)
+                var newUrl = await _storage.SaveAsync(model.ImageFile, "news", model.Title);
+                if (newUrl != null)
                 {
-                    newsDb.ImageUrl = newPhoto;
+                    newsDb.ImageUrl = newUrl;
                 }
             }
 
             await _newsRepository.UpdateAsync(newsDb);
-
             return RedirectToAction(nameof(Index));
         }
     }

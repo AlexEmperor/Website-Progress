@@ -1,3 +1,5 @@
+using Website_Progress.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -15,6 +17,8 @@ builder.Services.AddTransient<IProductRepository, ProductsDbRepository>();
 builder.Services.AddTransient<INewsRepository, NewsDbRepository>();
 builder.Services.AddTransient<ICartRepository, CartDbRepository>();
 builder.Services.AddTransient<IOrderRepository, OrdersDbRepository>();
+builder.Services.Configure<SupabaseSettings>(builder.Configuration.GetSection("Supabase"));
+builder.Services.AddSingleton<IFileStorage, SupabaseFileStorage>();
 
 var botToken = builder.Configuration["Telegram:BotToken"]!;
 
