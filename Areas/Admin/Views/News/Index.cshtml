@@ -41,7 +41,7 @@
                                         <td class="cyber-table-num">@(i + 1)</td>
                                         <td>
                                             <a asp-area="" asp-controller="News"
-                                               asp-action="Index" asp-route-Id="@Model[i].Id"
+                                               asp-action="Index" asp-route-id="@Model[i].Id"
                                                style="color: var(--c-accent);">
                                                 @Model[i].Title
                                             </a>
@@ -62,44 +62,14 @@
                                                 <a class="cyber-btn cyber-btn-ghost"
                                                    style="padding:0.3rem 0.8rem; font-size:0.65rem;"
                                                    asp-area="Admin" asp-controller="News"
-                                                   asp-action="Update" asp-route-Id="@Model[i].Id">
+                                                   asp-action="Update" asp-route-id="@Model[i].Id">
                                                     <i class="bi bi-pencil me-1"></i>Изменить
                                                 </a>
                                                 <a class="cyber-btn"
-                                                   style="padding:0.3rem 0.8rem; font-size:0.65rem; background:rgba(255,60,80,0.08); border-color:rgba(255,60,80,0.3); color:#ff4060;"
+                                                   style="padding:0.3rem 0.8rem; font-size:0.65rem; background:rgba(255,60,80,0.08); border-color:rgba(255,60,80,0.3); color:#ff4060; cursor:pointer;"
                                                    data-bs-target="#delNews_@i" data-bs-toggle="modal">
                                                     <i class="bi bi-trash3 me-1"></i>Удалить
                                                 </a>
-                                            </div>
-
-                                            <div class="modal fade" id="delNews_@i" tabindex="-1"
-                                                 data-bs-backdrop="static" data-bs-keyboard="false">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content cyber-modal">
-                                                        <div class="modal-header cyber-modal-header">
-                                                            <span class="cyber-eyebrow">// УДАЛЕНИЕ НОВОСТИ</span>
-                                                        </div>
-                                                        <form method="post">
-                                                            <div class="modal-body cyber-modal-body">
-                                                                Вы действительно хотите удалить новость
-                                                                <strong style="color:var(--c-accent);">@Model[i].Title</strong>?
-                                                            </div>
-                                                            <div class="modal-footer cyber-modal-footer">
-                                                                <button class="cyber-btn"
-                                                                        style="background:rgba(255,60,80,0.1); border-color:rgba(255,60,80,0.4); color:#ff4060;"
-                                                                        type="submit"
-                                                                        asp-area="Admin" asp-controller="News"
-                                                                        asp-action="Delete" asp-route-Id="@Model[i].Id">
-                                                                    <i class="bi bi-trash3 me-2"></i>Удалить
-                                                                </button>
-                                                                <button class="cyber-btn cyber-btn-ghost"
-                                                                        type="button" data-bs-dismiss="modal">
-                                                                    Отмена
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -132,3 +102,40 @@
         </div>
     </div>
 </section>
+
+@* ===== МОДАЛКИ УДАЛЕНИЯ — вынесены из таблицы ===== *@
+@if (Model != null && Model.Count > 0)
+{
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        <div class="modal fade" id="delNews_@i" tabindex="-1"
+             data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content cyber-modal">
+                    <div class="modal-header cyber-modal-header">
+                        <span class="cyber-eyebrow">// УДАЛЕНИЕ НОВОСТИ</span>
+                    </div>
+                    <form asp-area="Admin" asp-controller="News"
+                          asp-action="Delete" asp-route-id="@Model[i].Id"
+                          method="post">
+                        <div class="modal-body cyber-modal-body">
+                            Вы действительно хотите удалить новость
+                            <strong style="color:var(--c-accent);">@Model[i].Title</strong>?
+                        </div>
+                        <div class="modal-footer cyber-modal-footer">
+                            <button class="cyber-btn"
+                                    style="background:rgba(255,60,80,0.1); border-color:rgba(255,60,80,0.4); color:#ff4060;"
+                                    type="submit">
+                                <i class="bi bi-trash3 me-2"></i>Удалить
+                            </button>
+                            <button class="cyber-btn cyber-btn-ghost"
+                                    type="button" data-bs-dismiss="modal">
+                                Отмена
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+}

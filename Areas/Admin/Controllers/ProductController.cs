@@ -58,6 +58,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productsRepository.TryGetByIdAsync(id);
