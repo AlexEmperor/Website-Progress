@@ -104,6 +104,7 @@ namespace Website_Progress.Areas.Admin.Controllers
             productDb.Cost = model.Cost;
             productDb.Description = model.Description;
             productDb.ShortDescription = model.ShortDescription;
+            productDb.Status = (ProductStatus)model.Status;
 
             if (!string.IsNullOrEmpty(toggleMainPage))
             {

@@ -14,7 +14,7 @@
 
                 <!-- Фото -->
                 <div class="col-lg-4 col-md-5">
-                    <div class="cyber-carousel-wrap reveal">
+                    <div class="cyber-carousel-wrap cyber-photo-container reveal">
                         @{
                             var photos = (Model.PhotoPath ?? "")
                             .Split(';', StringSplitOptions.RemoveEmptyEntries)
@@ -22,6 +22,12 @@
                             .Where(p => !string.IsNullOrEmpty(p))
                             .ToList();
                         }
+
+                        <!-- СТАТУС-БЕЙДЖ -->
+                        <div class="cyber-status-badge @Model.Status.GetCssClass()">
+                            <i class="bi @Model.Status.GetIcon()"></i>
+                            <span>@Model.Status.GetDisplayName()</span>
+                        </div>
 
                         @if (photos.Count > 1)
                         {
@@ -78,39 +84,55 @@
                 </div>
             </div>
 
-                <!-- Правая колонка -->
-                <div class="col-lg-7 col-md-7 d-flex flex-column gap-4">
+            <!-- Правая колонка -->
+            <div class="col-lg-7 col-md-7 d-flex flex-column gap-4">
 
-                    <div class="reveal">
-                        <span class="cyber-eyebrow">// ПРОДУКТ</span>
-                        <h1 class="cyber-title mt-2 mb-3">@Model.Name</h1>
-                        <div class="cyber-product-price mb-4" style="font-size:1.6rem;">
-                            @Model.Cost.ToString("c")
-                        </div>
-                        <a class="cyber-btn cyber-btn-accent cyber-btn-lg"
-                           asp-controller="Cart"
-                           asp-action="Add"
-                           asp-route-productId="@Model.Id">
-                            <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
-                        </a>
+                <div class="reveal">
+                    <span class="cyber-eyebrow">// ПРОДУКТ</span>
+                    <h1 class="cyber-title mt-2 mb-3">@Model.Name</h1>
+                    <div class="cyber-product-price mb-4" style="font-size:1.6rem;">
+                        @Model.Cost.ToString("c")
                     </div>
+                    <a class="cyber-btn cyber-btn-accent cyber-btn-lg"
+                       asp-controller="Cart"
+                       asp-action="Add"
+                       asp-route-productId="@Model.Id">
+                        <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
+                    </a>
+                </div>
 
-                    <!-- Флипкарта: короткое описание / файлы -->
-                    <div class="flip-card reveal" style="height: 220px;">
-                        <div class="flip-card-inner" id="productCard">
+                <!-- Флипкарта: короткое описание / файлы -->
+                <div class="flip-card reveal" style="height: 220px;">
+                    <div class="flip-card-inner" id="productCard">
 
-                            <div class="flip-card-front cyber-contact-card h-100">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <span class="cyber-eyebrow">// КРАТКО</span>
-                                    <button class="cyber-icon-btn" onclick="flipCard()" title="Файлы">
-                                        <i class="bi bi-link-45deg"></i>
+                        <div class="flip-card-front cyber-contact-card h-100">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="cyber-eyebrow">// КРАТКО</span>
+
+                                <!-- Подсказка + кнопка -->
+                                <div class="cyber-flip-hint-wrap">
+                                    <span class="cyber-flip-hint">
+                                        Прилагаемые файлы
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                    <button class="cyber-icon-btn cyber-flip-trigger"
+                                            onclick="flipCard()"
+                                            title="Открыть файлы">
+                                        <i class="bi bi-paperclip"></i>
+                                        <!-- орбитальные стрелочки -->
+                                        <span class="cyber-orbit-arrow top"><i class="bi bi-caret-down-fill"></i></span>
+                                        <span class="cyber-orbit-arrow right"><i class="bi bi-caret-left-fill"></i></span>
+                                        <span class="cyber-orbit-arrow bottom"><i class="bi bi-caret-up-fill"></i></span>
+                                        <span class="cyber-orbit-arrow left"><i class="bi bi-caret-right-fill"></i></span>
                                     </button>
                                 </div>
-                                <p class="cyber-text mt-3"
-                                   style="font-size:0.92rem; line-height:1.7; overflow:auto; max-height:140px;">
-                                    @(string.IsNullOrWhiteSpace(Model.ShortDescription)
-                                                                    ? "Описание не указано."
-                                                                    : Model.ShortDescription)
+                            </div>
+
+                            <p class="cyber-text mt-3"
+                               style="font-size:0.92rem; line-height:1.7; overflow:auto; max-height:140px; color: #e6edf3;">
+                                @(string.IsNullOrWhiteSpace(Model.ShortDescription)
+                                                                ? "Описание не указано."
+                                                                : Model.ShortDescription)
                             </p>
                         </div>
 
@@ -345,6 +367,249 @@
 
 @section Styles {
     <style>
+        /* ===== СТАТУС-БЕЙДЖ ===== */
+        /* ===== СТАТУС-БЕЙДЖ ===== */
+        .cyber-photo-container {
+            position: relative;
+        }
+
+        .cyber-status-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 5;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px 8px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 6px;
+            /* Непрозрачный тёмный фон — читается на любой картинке */
+            background: rgba(13, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            user-select: none;
+            font-family: "Consolas", "Courier New", monospace;
+            /* Цветная полоска-индикатор слева */
+            border-left: 3px solid currentColor;
+            color: #e6edf3; /* текст всегда светлый */
+        }
+
+            .cyber-status-badge i {
+                font-size: 0.95rem;
+                /* Иконка окрашена в цвет статуса через currentColor-подмену ниже */
+            }
+
+            /* Текст — всегда светлый, а цвет "статуса" применяется только к полоске и иконке */
+            .cyber-status-badge span {
+                color: #e6edf3;
+            }
+
+            /* ===== Цвета по статусу (влияют на border-left и иконку) ===== */
+            .cyber-status-badge.status-production {
+                color: #00ff9c;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 156, 0.25);
+            }
+
+            .cyber-status-badge.status-testing {
+                color: #ffb340;
+            }
+
+            .cyber-status-badge.status-manufacturing {
+                color: #4fc3ff;
+            }
+
+            .cyber-status-badge.status-project {
+                color: #b388ff;
+            }
+
+            .cyber-status-badge.status-development {
+                color: #8b96a8;
+            }
+
+            /* Пульсация иконки для "в процессе" статусов */
+            .cyber-status-badge.status-testing i,
+            .cyber-status-badge.status-manufacturing i {
+                animation: status-pulse 2s ease-in-out infinite;
+            }
+
+        @@keyframes status-pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .cyber-status-badge {
+                top: 8px;
+                left: 8px;
+                padding: 6px 10px 6px 9px;
+                font-size: 0.68rem;
+            }
+        }
+        /* ===== ПОДСКАЗКА "ПРИЛАГАЕМЫЕ ФАЙЛЫ" ===== */
+        .cyber-flip-hint-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1; /* убираем лишнюю высоту строки у текста */
+        }
+
+        .cyber-flip-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--c-accent, #00ff9c);
+            opacity: 0.75;
+            white-space: nowrap;
+            line-height: 1;
+            align-self: center;
+            animation: hint-pulse 2.4s ease-in-out infinite;
+        }
+
+            .cyber-flip-hint i {
+                font-size: 0.85rem;
+                animation: hint-arrow-nudge 1.2s ease-in-out infinite;
+            }
+
+        @@keyframes hint-pulse {
+            0%, 100% {
+                opacity: 0.55;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @@keyframes hint-arrow-nudge {
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(4px);
+            }
+        }
+
+        /* Скрываем подсказку на узких экранах, чтобы не ломать верстку */
+        @@media (max-width: 380px) {
+            .cyber-flip-hint {
+                display: none;
+            }
+        }
+
+        /* ===== КНОПКА-ТРИГГЕР С ОРБИТАЛЬНЫМИ СТРЕЛКАМИ ===== */
+        .cyber-flip-trigger {
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+            .cyber-flip-trigger:hover {
+                transform: scale(1.08);
+                box-shadow: 0 0 0 2px rgba(0, 255, 156, 0.25), 0 0 20px rgba(0, 255, 156, 0.4);
+            }
+
+        /* Каждая стрелка — абсолютно спозиционированный элемент вокруг кнопки */
+        .cyber-orbit-arrow {
+            position: absolute;
+            color: var(--c-accent, #00ff9c);
+            font-size: 0.7rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+            .cyber-orbit-arrow.top {
+                top: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: orbit-nudge-top 1s ease-in-out infinite;
+            }
+
+            .cyber-orbit-arrow.bottom {
+                bottom: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: orbit-nudge-bottom 1s ease-in-out infinite;
+            }
+
+            .cyber-orbit-arrow.left {
+                left: -14px;
+                top: 50%;
+                transform: translateY(-50%);
+                animation: orbit-nudge-left 1s ease-in-out infinite;
+            }
+
+            .cyber-orbit-arrow.right {
+                right: -14px;
+                top: 50%;
+                transform: translateY(-50%);
+                animation: orbit-nudge-right 1s ease-in-out infinite;
+            }
+
+        /* Появляются при наведении на КНОПКУ или на ВСЮ подсказку */
+        .cyber-flip-hint-wrap:hover .cyber-orbit-arrow,
+        .cyber-flip-trigger:hover .cyber-orbit-arrow,
+        .cyber-flip-trigger:focus-visible .cyber-orbit-arrow {
+            opacity: 1;
+        }
+
+        /* Лёгкое покачивание в сторону кнопки */
+        @@keyframes orbit-nudge-top {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(4px);
+            }
+        }
+
+        @@keyframes orbit-nudge-bottom {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-4px);
+            }
+        }
+
+        @@keyframes orbit-nudge-left {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-50%) translateX(4px);
+            }
+        }
+
+        @@keyframes orbit-nudge-right {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-50%) translateX(-4px);
+            }
+        }
+        /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
         .cyber-tabs {
             border-bottom: 1px solid var(--c-border);
             gap: .25rem;
@@ -358,7 +623,7 @@
             color: var(--c-text-muted, #8b96a8);
             padding: .6rem 1.1rem;
             font-family: inherit;
-            font-size: .9rem;
+            font-size: 1rem;
             letter-spacing: .02em;
             text-transform: uppercase;
             cursor: pointer;
@@ -406,9 +671,9 @@
         }
 
         .cyber-feature-text {
-            font-size: .88rem;
+            font-size: 1rem;
             line-height: 1.6;
-            color: var(--c-text-muted, #8b96a8);
+            color: var(--c-text, #e6edf3);
             margin: 0;
         }
 
@@ -421,7 +686,7 @@
             .cyber-list li {
                 padding: .55rem 0;
                 border-bottom: 1px dashed var(--c-border);
-                font-size: .92rem;
+                font-size: 1rem;
                 color: var(--c-text, #e6edf3);
             }
 
@@ -458,17 +723,15 @@
                 background: transparent;
                 border-color: var(--c-border);
                 padding: .95rem 1rem;
-                font-size: .95rem;
+                font-size: 1.05rem;
             }
 
-                /* Номер — акцентным цветом */
                 .cyber-table tbody td:first-child {
                     color: #00ff9c !important;
                     font-family: "Consolas", "Courier New", monospace;
                     font-weight: 600;
                 }
 
-                /* Значение — чуть ярче, полужирным */
                 .cyber-table tbody td:last-child {
                     color: #ffffff !important;
                     font-weight: 500;
@@ -520,7 +783,7 @@
         .cyber-usecase-card p {
             font-size: .88rem;
             line-height: 1.6;
-            color: var(--c-text-muted, #8b96a8);
+            color: var(--c-text, #e6edf3);
             margin: 0;
         }
 

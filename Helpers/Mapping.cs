@@ -71,8 +71,8 @@ namespace Website_Progress.Helpers
                 PhotoPath = productDb.PhotoPath,
                 PresentationPath = productDb.PresentationPath,
                 FirmwarePath = productDb.FirmwarePath,
-                IsOnMainPage = productDb.IsOnMainPage
-
+                IsOnMainPage = productDb.IsOnMainPage,
+                Status = (ProductStatusViewModel)productDb.Status
             };
         }
 
@@ -88,7 +88,8 @@ namespace Website_Progress.Helpers
                 PhotoPath = product.PhotoPath,
                 PresentationPath = product.PresentationPath,
                 FirmwarePath = product.FirmwarePath,
-                IsOnMainPage = product.IsOnMainPage
+                IsOnMainPage = product.IsOnMainPage,
+                Status = (ProductStatus)product.Status
 
             };
         }

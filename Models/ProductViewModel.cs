@@ -52,6 +52,9 @@ namespace Website_Progress.Models
         public IFormFile? PresentationFile { get; set; }
         public IFormFile? FirmwareFile { get; set; }
         public string? CoverPhoto => PhotoPaths.FirstOrDefault();
+
+        [Display(Name = "Статус")]
+        public ProductStatusViewModel Status { get; set; } = ProductStatusViewModel.Development;
         public ProductViewModel() { }
     }
 }

@@ -19,5 +19,6 @@
 
         public bool IsOnMainPage { get; set; }
         public string? FirmwarePath { get; set; }
+        public ProductStatus Status { get; set; } = ProductStatus.Development;
     }
 }
