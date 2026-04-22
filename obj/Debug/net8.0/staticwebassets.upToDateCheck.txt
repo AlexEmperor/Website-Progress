@@ -1,8 +1,11 @@
+wwwroot\apple-touch-icon.png
 wwwroot\css\body.css
 wwwroot\css\cyber.css
 wwwroot\css\footer.css
 wwwroot\css\header.css
+wwwroot\favicon-96x96.png
 wwwroot\favicon.ico
+wwwroot\favicon.svg
 wwwroot\img\0160a5e5-5b7f-49c2-b9f8-c32d819cb3f3.png
 wwwroot\img\803c0595-e7bf-4ca6-bfea-7c0e56a7a400.png
 wwwroot\img\bluetooth-маяк.png
@@ -115,3 +118,6 @@ wwwroot\presentations\КП Интеллект АК SDR(3).pptx
 wwwroot\presentations\мэмс_9bfdc4a9.pptx
 wwwroot\presentations\товар-11.pptx
 wwwroot\presentations\товар-15.pptx
+wwwroot\site.webmanifest
+wwwroot\web-app-manifest-192x192.png
+wwwroot\web-app-manifest-512x512.png
