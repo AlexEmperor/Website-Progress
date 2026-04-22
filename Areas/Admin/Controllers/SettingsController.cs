@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
-using Website_Progress.DataContext;
-using Website_Progress.Services;
 
 namespace Website_Progress.Areas.Admin.Controllers
 {

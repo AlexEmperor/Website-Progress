@@ -17,7 +17,7 @@
 
         public async Task<Product?> TryGetByIdAsync(int productId)
         {
-            return await _databaseContext.Products
+            return await _databaseContext.Products.AsNoTracking()
                 .FirstOrDefaultAsync(product => product.Id == productId);
         }
 
@@ -56,7 +56,7 @@
 
         public async Task<List<Product>> SearchAsync(string text)
         {
-            return await _databaseContext.Products
+            return await _databaseContext.Products.AsNoTracking()
                 .Where(product =>
                     product.Name != null &&
                     product.Name.Contains(text))
@@ -65,7 +65,7 @@
 
         public async Task<List<Product>> GetForMainPageAsync()
         {
-            return await _databaseContext.Products
+            return await _databaseContext.Products.AsNoTracking()
                 .Where(x => x.IsOnMainPage)
                 .OrderByDescending(x => x.Id)
                 .Take(5)

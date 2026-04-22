@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.ResponseCompression;
 using Website_Progress.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,7 +44,13 @@ builder.Services.ConfigureApplicationCookie(options =>
     };
 });
 builder.Services.AddMemoryCache();
-
+// Сжатие ответов (HTML/JSON/CSS/JS)
+builder.Services.AddResponseCompression(opt =>
+{
+    opt.EnableForHttps = true;
+    opt.Providers.Add<BrotliCompressionProvider>();
+    opt.Providers.Add<GzipCompressionProvider>();
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -55,7 +62,20 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = ctx =>
+    {
+        // Картинки кэшируем на неделю
+        ctx.Context.Response.Headers.Append(
+            "Cache-Control", "public, max-age=604800");
+    }
+});
+
+
+
+// И в pipeline
+app.UseResponseCompression();
 
 app.UseRouting();
 

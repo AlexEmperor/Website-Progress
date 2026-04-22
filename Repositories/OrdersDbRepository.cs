@@ -6,7 +6,7 @@
 
         public async Task<Order?> TryGetOrderByUserIdAsync(Guid userId)
         {
-            return await _databaseContext.Orders
+            return await _databaseContext.Orders.AsNoTracking()
                 .Include(x => x.DeliveryUser)
                 .FirstOrDefaultAsync(x => x.DeliveryUser.Id == userId);
         }
@@ -66,7 +66,5 @@
                 await _databaseContext.SaveChangesAsync();
             }
         }
-
-
     }
 }

@@ -10,10 +10,10 @@
         }
 
         public async Task<List<News>> GetAllAsync()
-               => await _databaseContext.News.ToListAsync();
+               => await _databaseContext.News.AsNoTracking().ToListAsync();
 
         public async Task<News?> TryGetByIdAsync(int id)
-            => await _databaseContext.News
+            => await _databaseContext.News.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task AddAsync(News news)
@@ -48,7 +48,7 @@
 
         public async Task<List<News>> GetForMainPageAsync()
         {
-            return await _databaseContext.News
+            return await _databaseContext.News.AsNoTracking()
                 .Where(x => x.IsOnMainPage)
                 .OrderByDescending(x => x.Date)
                 .Take(3)

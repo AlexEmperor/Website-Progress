@@ -11,7 +11,7 @@
 
         public async Task<Cart?> TryGetByUserIdAsync(string userId)
         {
-            return await _databaseContext.Carts
+            return await _databaseContext.Carts.AsNoTracking()
                 .Include(x => x.Items)
                     .ThenInclude(x => x.Product)
                 .FirstOrDefaultAsync(x => x.UserId == userId);
