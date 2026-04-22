@@ -17,8 +17,8 @@ builder.Services.AddTransient<IProductRepository, ProductsDbRepository>();
 builder.Services.AddTransient<INewsRepository, NewsDbRepository>();
 builder.Services.AddTransient<ICartRepository, CartDbRepository>();
 builder.Services.AddTransient<IOrderRepository, OrdersDbRepository>();
-builder.Services.Configure<SupabaseSettings>(builder.Configuration.GetSection("Supabase"));
-builder.Services.AddSingleton<IFileStorage, SupabaseFileStorage>();
+builder.Services.Configure<YandexS3Settings>(builder.Configuration.GetSection("YandexS3"));
+builder.Services.AddSingleton<IFileStorage, YandexS3FileStorage>();
 
 var botToken = builder.Configuration["Telegram:BotToken"]!;
 
