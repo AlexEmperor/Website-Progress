@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Website_Progress.Models
+﻿namespace Website_Progress.Models
 {
     public enum OrderStatusViewModel
     {

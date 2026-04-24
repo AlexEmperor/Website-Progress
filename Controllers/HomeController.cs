@@ -1,19 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Helpers;
-using Website_Progress.Models;
-
 namespace Website_Progress.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(
+        IProductRepository productRepository,
+        INewsRepository newsRepository) : Controller
     {
-        private readonly IProductRepository _productRepository;
-        private readonly INewsRepository _newsRepository;
-
-        public HomeController(IProductRepository productRepository, INewsRepository newsRepository)
-        {
-            _productRepository = productRepository;
-            _newsRepository = newsRepository;
-        }
+        private readonly IProductRepository _productRepository = productRepository;
+        private readonly INewsRepository _newsRepository = newsRepository;
 
         public async Task<IActionResult> Index()
         {

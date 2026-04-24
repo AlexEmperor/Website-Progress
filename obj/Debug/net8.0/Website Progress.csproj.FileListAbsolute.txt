@@ -215,3 +215,7 @@ C:\Git\Website Progress\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Git\Website Progress\bin\Debug\net8.0\System.Reactive.dll
 C:\Git\Website Progress\bin\Debug\net8.0\Websocket.Client.dll
 C:\Git\Website Progress\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Git\Website Progress\bin\Debug\net8.0\FluentValidation.dll
+C:\Git\Website Progress\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Git\Website Progress\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Git\Website Progress\obj\Debug\net8.0\Website Progress.MvcApplicationPartsAssemblyInfo.cs

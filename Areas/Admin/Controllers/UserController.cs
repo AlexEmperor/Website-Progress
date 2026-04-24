@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Website_Progress.Areas.Admin.Models;
-using Website_Progress.Models;
-
-namespace Website_Progress.Areas.Admin.Controllers
+﻿namespace Website_Progress.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = Constants.AdminRoleName)]

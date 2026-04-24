@@ -1,16 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.DataContext
+﻿namespace Website_Progress.DataContext
 {
-    public class IdentityContext : IdentityDbContext<UserDTO>
+    public class IdentityContext(DbContextOptions<IdentityContext> options) : IdentityDbContext<UserDTO>(options)
     {
-        public IdentityContext(DbContextOptions<IdentityContext> options) : base(options)
-        {
-            // Database.Migrate();
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

@@ -1,17 +1,12 @@
 ﻿namespace Website_Progress.Repositories
 {
-    public class CartDbRepository : ICartRepository
+    public class CartDbRepository(DatabaseContext databaseContext) : ICartRepository
     {
-        private readonly DatabaseContext _databaseContext;
-
-        public CartDbRepository(DatabaseContext databaseContext)
-        {
-            _databaseContext = databaseContext;
-        }
+        private readonly DatabaseContext _databaseContext = databaseContext;
 
         public async Task<Cart?> TryGetByUserIdAsync(string userId)
         {
-            return await _databaseContext.Carts.AsNoTracking()
+            return await _databaseContext.Carts
                 .Include(x => x.Items)
                     .ThenInclude(x => x.Product)
                 .FirstOrDefaultAsync(x => x.UserId == userId);

@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
-
-namespace Website_Progress.Models
+﻿namespace Website_Progress.Models
 {
     public class OrderViewModel
     {

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
     public class MaintenanceController : Controller
     {

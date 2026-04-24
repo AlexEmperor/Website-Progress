@@ -1,16 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Helpers;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController(INewsRepository newsRepository) : Controller
     {
-        private readonly INewsRepository _newsRepository;
-
-        public NewsController(INewsRepository newsRepository)
-        {
-            _newsRepository = newsRepository;
-        }
+        private readonly INewsRepository _newsRepository = newsRepository;
 
         public async Task<IActionResult> Index(int id)
         {
@@ -22,7 +14,10 @@ namespace Website_Progress.Controllers
         public async Task<IActionResult> All()
         {
             var news = await _newsRepository.GetAllAsync();
-            return View(news.ToNewsViewModels().OrderByDescending(x => x.Date).ToList());
+            return View(news
+                .ToNewsViewModels()
+                .OrderByDescending(x => x.Date)
+                .ToList());
         }
     }
 }

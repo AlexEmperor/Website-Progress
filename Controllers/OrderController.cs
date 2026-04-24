@@ -1,29 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using QuestPDF.Fluent;
-using System.Security.Claims;
-using Website_Progress.Helpers;
-using Website_Progress.Models;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
     [Authorize]
-    public class OrderController : Controller
+    public class OrderController(
+        ICartRepository cartRepository,
+        IOrderRepository orderRepository,
+        TelegramService telegramService) : Controller
     {
-        private readonly ICartRepository _cartRepository;
-        private readonly IOrderRepository _orderRepository;
-        private readonly TelegramService _telegramService;
+        private readonly ICartRepository _cartRepository = cartRepository;
+        private readonly IOrderRepository _orderRepository = orderRepository;
+        private readonly TelegramService _telegramService = telegramService;
 
-
-        public OrderController(
-    ICartRepository cartRepository,
-    IOrderRepository orderRepository,
-    TelegramService telegramService)
-        {
-            _cartRepository = cartRepository;
-            _orderRepository = orderRepository;
-            _telegramService = telegramService;
-        }
         private string GetUserId()
         {
             return User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

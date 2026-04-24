@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Reflection;
-using Website_Progress.Models;
-
-namespace Website_Progress.Helpers
+﻿namespace Website_Progress.Helpers
 {
     public static class ProductStatusExtensions
     {

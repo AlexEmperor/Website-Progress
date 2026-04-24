@@ -1,17 +1,8 @@
-﻿using QuestPDF.Fluent;
-using QuestPDF.Infrastructure;
-using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.Services
+﻿namespace Website_Progress.Services
 {
-    public class InvoiceDocument : IDocument
+    public class InvoiceDocument(Order order) : IDocument
     {
-        private readonly Order _order;
-
-        public InvoiceDocument(Order order)
-        {
-            _order = order;
-        }
+        private readonly Order _order = order;
 
         public DocumentMetadata GetMetadata() => DocumentMetadata.Default;
 

@@ -1,13 +1,8 @@
 ﻿namespace Website_Progress.Repositories
 {
-    public class NewsDbRepository : INewsRepository
+    public class NewsDbRepository(DatabaseContext databaseContext) : INewsRepository
     {
-        private readonly DatabaseContext _databaseContext;
-
-        public NewsDbRepository(DatabaseContext databaseContext)
-        {
-            _databaseContext = databaseContext;
-        }
+        private readonly DatabaseContext _databaseContext = databaseContext;
 
         public async Task<List<News>> GetAllAsync()
                => await _databaseContext.News.AsNoTracking().ToListAsync();

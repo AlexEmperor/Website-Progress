@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Website_Progress.Helpers
+﻿namespace Website_Progress.Helpers
 {
     public class ProductContent
     {

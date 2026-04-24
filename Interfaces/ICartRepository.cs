@@ -1,6 +1,4 @@
-﻿using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.Interfaces
+﻿namespace Website_Progress.Interfaces
 {
     public interface ICartRepository
     {

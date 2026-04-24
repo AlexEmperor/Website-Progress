@@ -1,17 +1,8 @@
-﻿using Telegram.Bot;
-using Telegram.Bot.Types.Enums;
-using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.Services
+﻿namespace Website_Progress.Services
 {
-    public class TelegramService
+    public class TelegramService(TelegramBotClient bot)
     {
-        private readonly TelegramBotClient _bot;
-
-        public TelegramService(TelegramBotClient bot)
-        {
-            _bot = bot;
-        }
+        private readonly TelegramBotClient _bot = bot;
 
         public async Task SendOrderAsync(Order order)
         {

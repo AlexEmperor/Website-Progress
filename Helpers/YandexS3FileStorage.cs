@@ -1,8 +1,4 @@
-﻿using Amazon.S3;
-using Amazon.S3.Model;
-using Microsoft.Extensions.Options;
-
-namespace Website_Progress.Helpers
+﻿namespace Website_Progress.Helpers
 {
     public class YandexS3Settings
     {
@@ -15,7 +11,7 @@ namespace Website_Progress.Helpers
     public class YandexS3FileStorage : IFileStorage
     {
         private readonly YandexS3Settings _settings;
-        private readonly IAmazonS3 _s3;
+        private readonly AmazonS3Client _s3;
 
         public YandexS3FileStorage(IOptions<YandexS3Settings> options)
         {

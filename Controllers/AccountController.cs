@@ -1,18 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Models;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController(
+        UserManager<UserDTO> userManager,
+        SignInManager<UserDTO> signInManager) : Controller
     {
-        private readonly UserManager<UserDTO> _userManager;
-        private readonly SignInManager<UserDTO> _signInManager;
-
-        public AccountController(UserManager<UserDTO> userManager, SignInManager<UserDTO> signInManager)
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
+        private readonly UserManager<UserDTO> _userManager = userManager;
+        private readonly SignInManager<UserDTO> _signInManager = signInManager;
 
         public IActionResult Autorization(string? returnUrl)
         {

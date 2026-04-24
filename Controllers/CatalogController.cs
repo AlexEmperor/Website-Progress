@@ -1,17 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Helpers;
-using Website_Progress.Interfaces;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
-    public class CatalogController : Controller
+    public class CatalogController(IProductRepository productRepository) : Controller
     {
-        private readonly IProductRepository _productRepository;
-
-        public CatalogController(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
+        private readonly IProductRepository _productRepository = productRepository;
 
         public async Task<IActionResult> Index()
         {

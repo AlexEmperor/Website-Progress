@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Website_Progress.ModelsDTO;
-
-namespace Website_Progress.Services
+﻿namespace Website_Progress.Services
 {
     public class IdentityInitializer
     {

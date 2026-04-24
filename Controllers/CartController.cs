@@ -1,20 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Website_Progress.Helpers;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
-    public class CartController : Controller
+    public class CartController(
+        IProductRepository productRepository,
+        ICartRepository cartRepository) : Controller
     {
-        private readonly IProductRepository _productRepository;
-        private readonly ICartRepository _cartRepository;
-
-        public CartController(IProductRepository productRepository, ICartRepository cartRepository)
-        {
-            _productRepository = productRepository;
-            _cartRepository = cartRepository;
-        }
+        private readonly IProductRepository _productRepository = productRepository;
+        private readonly ICartRepository _cartRepository = cartRepository;
 
         private string GetUserId()
         {

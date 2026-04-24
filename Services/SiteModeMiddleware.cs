@@ -1,17 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using Website_Progress.DataContext;
-
-namespace Website_Progress.Services
+﻿namespace Website_Progress.Services
 {
-    public class SiteModeMiddleware
+    public class SiteModeMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
-
-        public SiteModeMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+        private readonly RequestDelegate _next = next;
 
         public async Task InvokeAsync(HttpContext context, DatabaseContext db, IMemoryCache cache)
         {

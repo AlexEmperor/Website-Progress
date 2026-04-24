@@ -1,14 +1,8 @@
 ﻿namespace Website_Progress.Repositories
 {
-
-    public class ProductsDbRepository : IProductRepository
+    public class ProductsDbRepository(DatabaseContext databaseContext) : IProductRepository
     {
-        private readonly DatabaseContext _databaseContext;
-
-        public ProductsDbRepository(DatabaseContext databaseContext)
-        {
-            _databaseContext = databaseContext;
-        }
+        private readonly DatabaseContext _databaseContext = databaseContext;
 
         public async Task<List<Product>> GetAllAsync()
         {
@@ -17,7 +11,7 @@
 
         public async Task<Product?> TryGetByIdAsync(int productId)
         {
-            return await _databaseContext.Products.AsNoTracking()
+            return await _databaseContext.Products
                 .FirstOrDefaultAsync(product => product.Id == productId);
         }
 

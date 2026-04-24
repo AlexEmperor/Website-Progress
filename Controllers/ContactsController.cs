@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace WEBtest.Controllers
+﻿namespace Website_Progress.Controllers
 {
     public class ContactsController : Controller
     {

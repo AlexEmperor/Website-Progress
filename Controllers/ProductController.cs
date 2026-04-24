@@ -1,17 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Website_Progress.Helpers;
-using Website_Progress.Models;
-
-namespace Website_Progress.Controllers
+﻿namespace Website_Progress.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController(IProductRepository productRepository) : Controller
     {
-        private readonly IProductRepository _productRepository;
-
-        public ProductController(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
+        private readonly IProductRepository _productRepository = productRepository;
 
         public async Task<IActionResult> Index(int id)
         {
@@ -23,18 +14,11 @@ namespace Website_Progress.Controllers
 
             var vm = product.ToProductViewModel();
 
-            // Парсим структурированный контент из Description
             var content = ProductDescriptionParser.Parse(vm.Description);
             ViewData["Content"] = content;
 
             return View(vm);
         }
-        //public async Task<IActionResult> Index(int id)
-        //{
-        //    var product = await _productRepository.TryGetByIdAsync(id);
-
-        //    return View(product?.ToProductViewModel());
-        //}
     }
 }
 

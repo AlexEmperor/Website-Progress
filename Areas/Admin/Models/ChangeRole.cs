@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
-
-namespace Website_Progress.Areas.Admin.Models
+﻿namespace Website_Progress.Areas.Admin.Models
 {
     public class ChangeRole
     {
